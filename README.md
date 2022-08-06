@@ -1,16 +1,13 @@
 # secureu_mobile
 
-A new Flutter project.
+A Password Management App built using flutter.
+This project intended for my final year research on AES256 algorithm implementation.
 
-## Getting Started
+## Writing
 
-This project is a starting point for a Flutter application.
+[click here (writing in Bahasa)]()
 
-A few resources to get you started if this is your first Flutter project:
+## Figma
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+[Frames](https://www.figma.com/file/7MQMXnmmPMDJICbAxjU3MA/SecureU-Mobile?node-id=0%3A1)
+[Prototype](https://www.figma.com/proto/7MQMXnmmPMDJICbAxjU3MA/SecureU-Mobile?node-id=2%3A5&scaling=scale-down&page-id=0%3A1&starting-point-node-id=2%3A5&show-proto-sidebar=1)
