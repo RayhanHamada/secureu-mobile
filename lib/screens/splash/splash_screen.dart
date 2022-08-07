@@ -7,9 +7,8 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var theme = Theme.of(context);
-    final splashBloc = context.watch<SplashBloc>()
-      ..add(const SplashEvent.started());
+    final theme = Theme.of(context);
+    context.watch<SplashBloc>().add(const SplashEvent.started());
 
     return Scaffold(
       backgroundColor: theme.backgroundColor,
