@@ -19,11 +19,11 @@ Future<void> main() async {
     // jika production environment
   }
 
-  runApp(const MyApp());
+  runApp(const SecureUApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class SecureUApp extends StatelessWidget {
+  const SecureUApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
