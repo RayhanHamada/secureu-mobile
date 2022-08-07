@@ -9,6 +9,7 @@ class SplashScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: theme.backgroundColor,
+      body: Container(),
     );
   }
 }
