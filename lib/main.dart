@@ -13,7 +13,6 @@ Future<void> main() async {
     try {
       await dotenv.load(fileName: '.env');
     } catch (e) {
-      // ignore: avoid_print
       print('.env tidak ada/tidak ada isinya');
     }
   } else {
