@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:secureu_mobile/config/constants.dart' as constants;
+import 'package:secureu_mobile/config/routes.dart';
 import 'package:secureu_mobile/config/theme.dart';
+import 'package:secureu_mobile/screens/splash/splash_screen.dart';
 
 Future<void> main() async {
   if (!constants.isProduction) {
@@ -29,7 +31,10 @@ class SecureUApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: SecureUTheme.of(context),
-      routes: const <String, WidgetBuilder>{},
+      routes: <String, WidgetBuilder>{
+        SecureURoutes.splash: (context) => const SplashScreen(),
+      },
+      initialRoute: SecureURoutes.splash,
     );
   }
 }

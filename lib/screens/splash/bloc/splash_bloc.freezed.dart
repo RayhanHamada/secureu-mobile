@@ -168,38 +168,32 @@ mixin _$SplashState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() doneSplashProcess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? doneSplashProcess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? doneSplashProcess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_DoneSplashProcess value) doneSplashProcess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_DoneSplashProcess value)? doneSplashProcess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_DoneSplashProcess value)? doneSplashProcess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -261,7 +255,6 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() doneSplashProcess,
   }) {
     return initial();
   }
@@ -270,7 +263,6 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? doneSplashProcess,
   }) {
     return initial?.call();
   }
@@ -279,7 +271,6 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? doneSplashProcess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -292,7 +283,6 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_DoneSplashProcess value) doneSplashProcess,
   }) {
     return initial(this);
   }
@@ -301,7 +291,6 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_DoneSplashProcess value)? doneSplashProcess,
   }) {
     return initial?.call(this);
   }
@@ -310,7 +299,6 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_DoneSplashProcess value)? doneSplashProcess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -322,109 +310,4 @@ class _$_Initial implements _Initial {
 
 abstract class _Initial implements SplashState {
   const factory _Initial() = _$_Initial;
-}
-
-/// @nodoc
-abstract class _$$_DoneSplashProcessCopyWith<$Res> {
-  factory _$$_DoneSplashProcessCopyWith(_$_DoneSplashProcess value,
-          $Res Function(_$_DoneSplashProcess) then) =
-      __$$_DoneSplashProcessCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_DoneSplashProcessCopyWithImpl<$Res>
-    extends _$SplashStateCopyWithImpl<$Res>
-    implements _$$_DoneSplashProcessCopyWith<$Res> {
-  __$$_DoneSplashProcessCopyWithImpl(
-      _$_DoneSplashProcess _value, $Res Function(_$_DoneSplashProcess) _then)
-      : super(_value, (v) => _then(v as _$_DoneSplashProcess));
-
-  @override
-  _$_DoneSplashProcess get _value => super._value as _$_DoneSplashProcess;
-}
-
-/// @nodoc
-
-class _$_DoneSplashProcess implements _DoneSplashProcess {
-  const _$_DoneSplashProcess();
-
-  @override
-  String toString() {
-    return 'SplashState.doneSplashProcess()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_DoneSplashProcess);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() doneSplashProcess,
-  }) {
-    return doneSplashProcess();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? doneSplashProcess,
-  }) {
-    return doneSplashProcess?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? doneSplashProcess,
-    required TResult orElse(),
-  }) {
-    if (doneSplashProcess != null) {
-      return doneSplashProcess();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_DoneSplashProcess value) doneSplashProcess,
-  }) {
-    return doneSplashProcess(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_DoneSplashProcess value)? doneSplashProcess,
-  }) {
-    return doneSplashProcess?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_DoneSplashProcess value)? doneSplashProcess,
-    required TResult orElse(),
-  }) {
-    if (doneSplashProcess != null) {
-      return doneSplashProcess(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _DoneSplashProcess implements SplashState {
-  const factory _DoneSplashProcess() = _$_DoneSplashProcess;
 }
