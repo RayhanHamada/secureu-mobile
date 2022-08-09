@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:secureu_mobile/screens/login/views/login_form.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -9,6 +10,39 @@ class LoginScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: theme.backgroundColor,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          const Center(
+            child: Text(
+              'SecureU',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 32,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          const Center(
+            child: Text(
+              'Welcome Back',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.normal,
+                fontSize: 16,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 40,
+          ),
+          LoginForm()
+        ],
+      ),
     );
   }
 }
