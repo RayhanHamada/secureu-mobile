@@ -10,5 +10,10 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<_Started>((event, emit) {
       print('you\'ve entered login page');
     });
+
+    on<_SubmitLogin>((event, emit) {
+      print('${event.email} ${event.password}');
+      emit(const LoginState.submittingLogin());
+    });
   }
 }

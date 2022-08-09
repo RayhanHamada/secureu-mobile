@@ -325,32 +325,50 @@ mixin _$LoginState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() submittingLogin,
+    required TResult Function() successLogin,
+    required TResult Function(String failedMsg) failedLogin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? submittingLogin,
+    TResult Function()? successLogin,
+    TResult Function(String failedMsg)? failedLogin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? submittingLogin,
+    TResult Function()? successLogin,
+    TResult Function(String failedMsg)? failedLogin,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_SubmittingLogin value) submittingLogin,
+    required TResult Function(_SuccessLogin value) successLogin,
+    required TResult Function(_FailedLogin value) failedLogin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_SubmittingLogin value)? submittingLogin,
+    TResult Function(_SuccessLogin value)? successLogin,
+    TResult Function(_FailedLogin value)? failedLogin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_SubmittingLogin value)? submittingLogin,
+    TResult Function(_SuccessLogin value)? successLogin,
+    TResult Function(_FailedLogin value)? failedLogin,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -412,6 +430,9 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() submittingLogin,
+    required TResult Function() successLogin,
+    required TResult Function(String failedMsg) failedLogin,
   }) {
     return initial();
   }
@@ -420,6 +441,9 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? submittingLogin,
+    TResult Function()? successLogin,
+    TResult Function(String failedMsg)? failedLogin,
   }) {
     return initial?.call();
   }
@@ -428,6 +452,9 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? submittingLogin,
+    TResult Function()? successLogin,
+    TResult Function(String failedMsg)? failedLogin,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -440,6 +467,9 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_SubmittingLogin value) submittingLogin,
+    required TResult Function(_SuccessLogin value) successLogin,
+    required TResult Function(_FailedLogin value) failedLogin,
   }) {
     return initial(this);
   }
@@ -448,6 +478,9 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_SubmittingLogin value)? submittingLogin,
+    TResult Function(_SuccessLogin value)? successLogin,
+    TResult Function(_FailedLogin value)? failedLogin,
   }) {
     return initial?.call(this);
   }
@@ -456,6 +489,9 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_SubmittingLogin value)? submittingLogin,
+    TResult Function(_SuccessLogin value)? successLogin,
+    TResult Function(_FailedLogin value)? failedLogin,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -467,4 +503,382 @@ class _$_Initial implements _Initial {
 
 abstract class _Initial implements LoginState {
   const factory _Initial() = _$_Initial;
+}
+
+/// @nodoc
+abstract class _$$_SubmittingLoginCopyWith<$Res> {
+  factory _$$_SubmittingLoginCopyWith(
+          _$_SubmittingLogin value, $Res Function(_$_SubmittingLogin) then) =
+      __$$_SubmittingLoginCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SubmittingLoginCopyWithImpl<$Res>
+    extends _$LoginStateCopyWithImpl<$Res>
+    implements _$$_SubmittingLoginCopyWith<$Res> {
+  __$$_SubmittingLoginCopyWithImpl(
+      _$_SubmittingLogin _value, $Res Function(_$_SubmittingLogin) _then)
+      : super(_value, (v) => _then(v as _$_SubmittingLogin));
+
+  @override
+  _$_SubmittingLogin get _value => super._value as _$_SubmittingLogin;
+}
+
+/// @nodoc
+
+class _$_SubmittingLogin implements _SubmittingLogin {
+  const _$_SubmittingLogin();
+
+  @override
+  String toString() {
+    return 'LoginState.submittingLogin()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_SubmittingLogin);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() submittingLogin,
+    required TResult Function() successLogin,
+    required TResult Function(String failedMsg) failedLogin,
+  }) {
+    return submittingLogin();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? submittingLogin,
+    TResult Function()? successLogin,
+    TResult Function(String failedMsg)? failedLogin,
+  }) {
+    return submittingLogin?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? submittingLogin,
+    TResult Function()? successLogin,
+    TResult Function(String failedMsg)? failedLogin,
+    required TResult orElse(),
+  }) {
+    if (submittingLogin != null) {
+      return submittingLogin();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_SubmittingLogin value) submittingLogin,
+    required TResult Function(_SuccessLogin value) successLogin,
+    required TResult Function(_FailedLogin value) failedLogin,
+  }) {
+    return submittingLogin(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SubmittingLogin value)? submittingLogin,
+    TResult Function(_SuccessLogin value)? successLogin,
+    TResult Function(_FailedLogin value)? failedLogin,
+  }) {
+    return submittingLogin?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SubmittingLogin value)? submittingLogin,
+    TResult Function(_SuccessLogin value)? successLogin,
+    TResult Function(_FailedLogin value)? failedLogin,
+    required TResult orElse(),
+  }) {
+    if (submittingLogin != null) {
+      return submittingLogin(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SubmittingLogin implements LoginState {
+  const factory _SubmittingLogin() = _$_SubmittingLogin;
+}
+
+/// @nodoc
+abstract class _$$_SuccessLoginCopyWith<$Res> {
+  factory _$$_SuccessLoginCopyWith(
+          _$_SuccessLogin value, $Res Function(_$_SuccessLogin) then) =
+      __$$_SuccessLoginCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SuccessLoginCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
+    implements _$$_SuccessLoginCopyWith<$Res> {
+  __$$_SuccessLoginCopyWithImpl(
+      _$_SuccessLogin _value, $Res Function(_$_SuccessLogin) _then)
+      : super(_value, (v) => _then(v as _$_SuccessLogin));
+
+  @override
+  _$_SuccessLogin get _value => super._value as _$_SuccessLogin;
+}
+
+/// @nodoc
+
+class _$_SuccessLogin implements _SuccessLogin {
+  const _$_SuccessLogin();
+
+  @override
+  String toString() {
+    return 'LoginState.successLogin()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_SuccessLogin);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() submittingLogin,
+    required TResult Function() successLogin,
+    required TResult Function(String failedMsg) failedLogin,
+  }) {
+    return successLogin();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? submittingLogin,
+    TResult Function()? successLogin,
+    TResult Function(String failedMsg)? failedLogin,
+  }) {
+    return successLogin?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? submittingLogin,
+    TResult Function()? successLogin,
+    TResult Function(String failedMsg)? failedLogin,
+    required TResult orElse(),
+  }) {
+    if (successLogin != null) {
+      return successLogin();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_SubmittingLogin value) submittingLogin,
+    required TResult Function(_SuccessLogin value) successLogin,
+    required TResult Function(_FailedLogin value) failedLogin,
+  }) {
+    return successLogin(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SubmittingLogin value)? submittingLogin,
+    TResult Function(_SuccessLogin value)? successLogin,
+    TResult Function(_FailedLogin value)? failedLogin,
+  }) {
+    return successLogin?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SubmittingLogin value)? submittingLogin,
+    TResult Function(_SuccessLogin value)? successLogin,
+    TResult Function(_FailedLogin value)? failedLogin,
+    required TResult orElse(),
+  }) {
+    if (successLogin != null) {
+      return successLogin(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SuccessLogin implements LoginState {
+  const factory _SuccessLogin() = _$_SuccessLogin;
+}
+
+/// @nodoc
+abstract class _$$_FailedLoginCopyWith<$Res> {
+  factory _$$_FailedLoginCopyWith(
+          _$_FailedLogin value, $Res Function(_$_FailedLogin) then) =
+      __$$_FailedLoginCopyWithImpl<$Res>;
+  $Res call({String failedMsg});
+}
+
+/// @nodoc
+class __$$_FailedLoginCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
+    implements _$$_FailedLoginCopyWith<$Res> {
+  __$$_FailedLoginCopyWithImpl(
+      _$_FailedLogin _value, $Res Function(_$_FailedLogin) _then)
+      : super(_value, (v) => _then(v as _$_FailedLogin));
+
+  @override
+  _$_FailedLogin get _value => super._value as _$_FailedLogin;
+
+  @override
+  $Res call({
+    Object? failedMsg = freezed,
+  }) {
+    return _then(_$_FailedLogin(
+      failedMsg == freezed
+          ? _value.failedMsg
+          : failedMsg // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_FailedLogin implements _FailedLogin {
+  const _$_FailedLogin(this.failedMsg);
+
+  @override
+  final String failedMsg;
+
+  @override
+  String toString() {
+    return 'LoginState.failedLogin(failedMsg: $failedMsg)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_FailedLogin &&
+            const DeepCollectionEquality().equals(other.failedMsg, failedMsg));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(failedMsg));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_FailedLoginCopyWith<_$_FailedLogin> get copyWith =>
+      __$$_FailedLoginCopyWithImpl<_$_FailedLogin>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() submittingLogin,
+    required TResult Function() successLogin,
+    required TResult Function(String failedMsg) failedLogin,
+  }) {
+    return failedLogin(failedMsg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? submittingLogin,
+    TResult Function()? successLogin,
+    TResult Function(String failedMsg)? failedLogin,
+  }) {
+    return failedLogin?.call(failedMsg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? submittingLogin,
+    TResult Function()? successLogin,
+    TResult Function(String failedMsg)? failedLogin,
+    required TResult orElse(),
+  }) {
+    if (failedLogin != null) {
+      return failedLogin(failedMsg);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_SubmittingLogin value) submittingLogin,
+    required TResult Function(_SuccessLogin value) successLogin,
+    required TResult Function(_FailedLogin value) failedLogin,
+  }) {
+    return failedLogin(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SubmittingLogin value)? submittingLogin,
+    TResult Function(_SuccessLogin value)? successLogin,
+    TResult Function(_FailedLogin value)? failedLogin,
+  }) {
+    return failedLogin?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SubmittingLogin value)? submittingLogin,
+    TResult Function(_SuccessLogin value)? successLogin,
+    TResult Function(_FailedLogin value)? failedLogin,
+    required TResult orElse(),
+  }) {
+    if (failedLogin != null) {
+      return failedLogin(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FailedLogin implements LoginState {
+  const factory _FailedLogin(final String failedMsg) = _$_FailedLogin;
+
+  String get failedMsg;
+  @JsonKey(ignore: true)
+  _$$_FailedLoginCopyWith<_$_FailedLogin> get copyWith =>
+      throw _privateConstructorUsedError;
 }
