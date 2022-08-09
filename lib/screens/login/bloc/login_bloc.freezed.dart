@@ -19,32 +19,38 @@ mixin _$LoginEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(String email, String password) submitLogin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(String email, String password)? submitLogin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(String email, String password)? submitLogin,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_SubmitLogin value) submitLogin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_SubmitLogin value)? submitLogin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_SubmitLogin value)? submitLogin,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -106,6 +112,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(String email, String password) submitLogin,
   }) {
     return started();
   }
@@ -114,6 +121,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(String email, String password)? submitLogin,
   }) {
     return started?.call();
   }
@@ -122,6 +130,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(String email, String password)? submitLogin,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -134,6 +143,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_SubmitLogin value) submitLogin,
   }) {
     return started(this);
   }
@@ -142,6 +152,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_SubmitLogin value)? submitLogin,
   }) {
     return started?.call(this);
   }
@@ -150,6 +161,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_SubmitLogin value)? submitLogin,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -161,6 +173,151 @@ class _$_Started implements _Started {
 
 abstract class _Started implements LoginEvent {
   const factory _Started() = _$_Started;
+}
+
+/// @nodoc
+abstract class _$$_SubmitLoginCopyWith<$Res> {
+  factory _$$_SubmitLoginCopyWith(
+          _$_SubmitLogin value, $Res Function(_$_SubmitLogin) then) =
+      __$$_SubmitLoginCopyWithImpl<$Res>;
+  $Res call({String email, String password});
+}
+
+/// @nodoc
+class __$$_SubmitLoginCopyWithImpl<$Res> extends _$LoginEventCopyWithImpl<$Res>
+    implements _$$_SubmitLoginCopyWith<$Res> {
+  __$$_SubmitLoginCopyWithImpl(
+      _$_SubmitLogin _value, $Res Function(_$_SubmitLogin) _then)
+      : super(_value, (v) => _then(v as _$_SubmitLogin));
+
+  @override
+  _$_SubmitLogin get _value => super._value as _$_SubmitLogin;
+
+  @override
+  $Res call({
+    Object? email = freezed,
+    Object? password = freezed,
+  }) {
+    return _then(_$_SubmitLogin(
+      email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SubmitLogin implements _SubmitLogin {
+  const _$_SubmitLogin(this.email, this.password);
+
+  @override
+  final String email;
+  @override
+  final String password;
+
+  @override
+  String toString() {
+    return 'LoginEvent.submitLogin(email: $email, password: $password)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SubmitLogin &&
+            const DeepCollectionEquality().equals(other.email, email) &&
+            const DeepCollectionEquality().equals(other.password, password));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(email),
+      const DeepCollectionEquality().hash(password));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_SubmitLoginCopyWith<_$_SubmitLogin> get copyWith =>
+      __$$_SubmitLoginCopyWithImpl<_$_SubmitLogin>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String email, String password) submitLogin,
+  }) {
+    return submitLogin(email, password);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String email, String password)? submitLogin,
+  }) {
+    return submitLogin?.call(email, password);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String email, String password)? submitLogin,
+    required TResult orElse(),
+  }) {
+    if (submitLogin != null) {
+      return submitLogin(email, password);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_SubmitLogin value) submitLogin,
+  }) {
+    return submitLogin(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SubmitLogin value)? submitLogin,
+  }) {
+    return submitLogin?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SubmitLogin value)? submitLogin,
+    required TResult orElse(),
+  }) {
+    if (submitLogin != null) {
+      return submitLogin(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SubmitLogin implements LoginEvent {
+  const factory _SubmitLogin(final String email, final String password) =
+      _$_SubmitLogin;
+
+  String get email;
+  String get password;
+  @JsonKey(ignore: true)
+  _$$_SubmitLoginCopyWith<_$_SubmitLogin> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

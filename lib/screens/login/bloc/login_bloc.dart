@@ -7,6 +7,8 @@ part 'login_bloc.freezed.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc() : super(const _Initial()) {
-    on<LoginEvent>((event, emit) {});
+    on<_Started>((event, emit) {
+      print('you\'ve entered login page');
+    });
   }
 }
