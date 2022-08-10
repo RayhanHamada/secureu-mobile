@@ -40,7 +40,22 @@ class LoginScreen extends StatelessWidget {
           const SizedBox(
             height: 40,
           ),
-          LoginForm()
+          LoginForm(),
+          // Button Ke Register
+          SizedBox(
+            width: 250.0,
+            child: TextButton(
+              child: const Text(
+                'Belum punya akun',
+                style: TextStyle(
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+              onPressed: () {
+                // TODO: implement navigation to register screen
+              },
+            ),
+          )
         ],
       ),
     );
