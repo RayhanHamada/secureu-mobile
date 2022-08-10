@@ -146,7 +146,7 @@ class LoginForm extends StatelessWidget {
           SizedBox(
             width: 250.0,
             height: 45,
-            child: OutlinedButton(
+            child: ElevatedButton(
               onPressed: loginBloc.state.mapOrNull(
                 initial: (value) => () {
                   if (!_formKey.currentState!.validate()) {
@@ -170,7 +170,10 @@ class LoginForm extends StatelessWidget {
                   ),
                 ),
                 backgroundColor: MaterialStateProperty.all<Color>(
-                  Colors.white,
+                  loginBloc.state.maybeMap(
+                    orElse: () => Colors.white,
+                    submittingLogin: (_) => Colors.white24,
+                  ),
                 ),
               ),
               child: const Text(
