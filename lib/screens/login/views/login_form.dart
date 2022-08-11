@@ -38,6 +38,7 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     final loginBloc = context.watch<LoginBloc>();
 
     return Form(
@@ -56,39 +57,14 @@ class LoginForm extends StatelessWidget {
               style: const TextStyle(
                 color: Colors.white,
               ),
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
+                labelText: 'Email',
                 hintText: 'example@example.com',
-                hintStyle: TextStyle(
-                  color: Colors.white30,
-                ),
-                focusColor: Colors.red,
-                labelStyle: TextStyle(
-                  color: Colors.white,
-                ),
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.white,
-                  ),
-                ),
-                label: Text(
-                  'Email',
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.white,
-                  ),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20),
-                  ),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.white,
-                  ),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20),
-                  ),
-                ),
+                hintStyle: theme.inputDecorationTheme.hintStyle,
+                labelStyle: theme.inputDecorationTheme.labelStyle,
+                border: theme.inputDecorationTheme.border,
+                enabledBorder: theme.inputDecorationTheme.enabledBorder,
+                focusedBorder: theme.inputDecorationTheme.focusedBorder,
               ),
             ),
           ),
@@ -109,39 +85,16 @@ class LoginForm extends StatelessWidget {
               style: const TextStyle(
                 color: Colors.white,
               ),
-              decoration: const InputDecoration(
-                hintText: '**********',
-                hintStyle: TextStyle(
-                  color: Colors.white30,
-                ),
-                focusColor: Colors.red,
-                labelStyle: TextStyle(
-                  color: Colors.white,
-                ),
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.white,
-                  ),
-                ),
-                label: Text(
+              decoration: InputDecoration(
+                label: const Text(
                   'Master Password',
                 ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.white,
-                  ),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20),
-                  ),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.white,
-                  ),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20),
-                  ),
-                ),
+                hintText: '**********',
+                hintStyle: theme.inputDecorationTheme.hintStyle,
+                labelStyle: theme.inputDecorationTheme.labelStyle,
+                border: theme.inputDecorationTheme.border,
+                enabledBorder: theme.inputDecorationTheme.enabledBorder,
+                focusedBorder: theme.inputDecorationTheme.focusedBorder,
               ),
             ),
           ),
@@ -170,13 +123,7 @@ class LoginForm extends StatelessWidget {
                 },
               ),
               style: ButtonStyle(
-                shape: MaterialStateProperty.all(
-                  const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(30),
-                    ),
-                  ),
-                ),
+                shape: theme.elevatedButtonTheme.style!.shape,
                 backgroundColor: MaterialStateProperty.all<Color>(
                   loginBloc.state.maybeMap(
                     orElse: () => Colors.white,
