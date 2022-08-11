@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:secureu_mobile/config/routes.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -19,14 +20,14 @@ class RegisterScreen extends StatelessWidget {
 
     return AppBar(
       backgroundColor: theme.appBarTheme.backgroundColor,
-      actions: [
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            Icons.arrow_back_ios,
-          ),
+      leading: IconButton(
+        onPressed: () {
+          Navigator.pushReplacementNamed(context, SecureURoutes.login);
+        },
+        icon: const Icon(
+          Icons.arrow_back_ios,
         ),
-      ],
+      ),
     );
   }
 

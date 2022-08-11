@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:secureu_mobile/config/routes.dart';
 import 'package:secureu_mobile/screens/login/views/login_form.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -52,7 +53,7 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                // TODO: implement navigation to register screen
+                Navigator.pushNamed(context, SecureURoutes.register);
               },
             ),
           )
