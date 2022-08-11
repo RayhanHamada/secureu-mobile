@@ -7,7 +7,7 @@ part of 'secret_model.dart';
 // **************************************************************************
 
 _$_Secret _$$_SecretFromJson(Map<String, dynamic> json) => _$_Secret(
-      id: json['id'] as int,
+      id: json['id'] as String,
       secretName: json['secretName'] as String,
       secretUsernameOrEmail: json['secretUsernameOrEmail'] as String,
       secretPassword: json['secretPassword'] as String,

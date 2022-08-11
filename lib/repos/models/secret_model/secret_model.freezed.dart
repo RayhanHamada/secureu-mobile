@@ -20,7 +20,7 @@ Secret _$SecretFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Secret {
-  int get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   String get secretName => throw _privateConstructorUsedError;
   String get secretUsernameOrEmail => throw _privateConstructorUsedError;
   String get secretPassword => throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ abstract class $SecretCopyWith<$Res> {
   factory $SecretCopyWith(Secret value, $Res Function(Secret) then) =
       _$SecretCopyWithImpl<$Res>;
   $Res call(
-      {int id,
+      {String id,
       String secretName,
       String secretUsernameOrEmail,
       String secretPassword});
@@ -60,7 +60,7 @@ class _$SecretCopyWithImpl<$Res> implements $SecretCopyWith<$Res> {
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       secretName: secretName == freezed
           ? _value.secretName
           : secretName // ignore: cast_nullable_to_non_nullable
@@ -83,7 +83,7 @@ abstract class _$$_SecretCopyWith<$Res> implements $SecretCopyWith<$Res> {
       __$$_SecretCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int id,
+      {String id,
       String secretName,
       String secretUsernameOrEmail,
       String secretPassword});
@@ -109,7 +109,7 @@ class __$$_SecretCopyWithImpl<$Res> extends _$SecretCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       secretName: secretName == freezed
           ? _value.secretName
           : secretName // ignore: cast_nullable_to_non_nullable
@@ -139,7 +139,7 @@ class _$_Secret implements _Secret {
       _$$_SecretFromJson(json);
 
   @override
-  final int id;
+  final String id;
   @override
   final String secretName;
   @override
@@ -190,7 +190,7 @@ class _$_Secret implements _Secret {
 
 abstract class _Secret implements Secret {
   const factory _Secret(
-      {required final int id,
+      {required final String id,
       required final String secretName,
       required final String secretUsernameOrEmail,
       required final String secretPassword}) = _$_Secret;
@@ -198,7 +198,7 @@ abstract class _Secret implements Secret {
   factory _Secret.fromJson(Map<String, dynamic> json) = _$_Secret.fromJson;
 
   @override
-  int get id;
+  String get id;
   @override
   String get secretName;
   @override
