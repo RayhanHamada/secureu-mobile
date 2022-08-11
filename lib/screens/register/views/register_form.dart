@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:secureu_mobile/screens/register/bloc/register_bloc.dart';
+import 'package:secureu_mobile/extensions.dart';
 
 class RegisterForm extends StatelessWidget {
   RegisterForm({Key? key}) : super(key: key);
@@ -19,7 +20,9 @@ class RegisterForm extends StatelessWidget {
       return 'Email tidak boleh kosong';
     }
 
-    // TODO: implement email regex checking
+    if (!email.isValidEmail) {
+      return 'Email tidak valid';
+    }
 
     return null;
   }
@@ -32,8 +35,6 @@ class RegisterForm extends StatelessWidget {
     if (password.length < 8) {
       return 'Panjang password minimal 8 karakter';
     }
-
-    // TODO: implement password regex checking
 
     return null;
   }
@@ -48,8 +49,6 @@ class RegisterForm extends StatelessWidget {
     if (password != passwordConfirmation) {
       return 'Password Konfirmasi harus sama dengan password';
     }
-
-    // TODO: implement password regex checking
 
     return null;
   }
@@ -165,7 +164,7 @@ class RegisterForm extends StatelessWidget {
 
                   FocusScope.of(context).unfocus();
 
-                  // TODO: send register event
+                  registerBloc.add(RegisterEvent.submitForm(email, password));
                 },
               ),
               style: ButtonStyle(
@@ -173,7 +172,7 @@ class RegisterForm extends StatelessWidget {
                 backgroundColor: MaterialStateProperty.all<Color>(
                   registerBloc.state.maybeMap(
                     orElse: () => Colors.white,
-                    // TODO: implement submittingRegister
+                    submittingForm: (_) => Colors.white24,
                   ),
                 ),
               ),

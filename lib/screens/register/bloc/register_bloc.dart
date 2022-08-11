@@ -7,8 +7,12 @@ part 'register_bloc.freezed.dart';
 
 class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   RegisterBloc() : super(const _Initial()) {
-    on<RegisterEvent>((event, emit) {
-      // TODO: implement event handler
+    on<_SubmitForm>((event, emit) async {
+      emit(const RegisterState.submittingForm());
+
+      // TODO: change to register procedure
+      await Future<void>.delayed(const Duration(seconds: 3));
+      emit(const RegisterState.initial());
     });
   }
 }

@@ -11,6 +11,7 @@ class RegisterScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: theme.backgroundColor,
+      extendBodyBehindAppBar: true,
       appBar: _appbar(context),
       body: _body(context),
     );
@@ -21,6 +22,8 @@ class RegisterScreen extends StatelessWidget {
 
     return AppBar(
       backgroundColor: theme.appBarTheme.backgroundColor,
+      elevation: 0,
+      centerTitle: true,
       title: const Text('Daftar Akun'),
       leading: IconButton(
         onPressed: () {
