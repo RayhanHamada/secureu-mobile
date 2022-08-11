@@ -57,7 +57,7 @@ class LoginForm extends StatelessWidget {
                 color: Colors.white,
               ),
               decoration: const InputDecoration(
-                hintText: 'contoh123@example.com',
+                hintText: 'example@example.com',
                 hintStyle: TextStyle(
                   color: Colors.white30,
                 ),
@@ -74,6 +74,14 @@ class LoginForm extends StatelessWidget {
                   'Email',
                 ),
                 enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.white,
+                  ),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(20),
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
                     color: Colors.white,
                   ),
