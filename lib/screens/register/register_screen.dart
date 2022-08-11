@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:secureu_mobile/config/routes.dart';
+import 'package:secureu_mobile/screens/register/views/register_form.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -20,6 +21,7 @@ class RegisterScreen extends StatelessWidget {
 
     return AppBar(
       backgroundColor: theme.appBarTheme.backgroundColor,
+      title: const Text('Daftar Akun'),
       leading: IconButton(
         onPressed: () {
           Navigator.pushReplacementNamed(context, SecureURoutes.login);
@@ -32,8 +34,38 @@ class RegisterScreen extends StatelessWidget {
   }
 
   Widget _body(BuildContext context) {
-    return const SingleChildScrollView(
-      child: null,
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        const Center(
+          child: Text(
+            'SecureU',
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 32,
+            ),
+          ),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        const Center(
+          child: Text(
+            'Welcome Back',
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.normal,
+              fontSize: 16,
+            ),
+          ),
+        ),
+        const SizedBox(
+          height: 40,
+        ),
+        RegisterForm()
+      ],
     );
   }
 }
