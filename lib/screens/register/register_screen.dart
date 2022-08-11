@@ -9,11 +9,30 @@ class RegisterScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: theme.backgroundColor,
-      // TODO: implement appbar
-      appBar: null,
+      appBar: _appbar(context),
+      body: _body(context),
+    );
+  }
 
-      // TODO: implement register body
-      body: null,
+  PreferredSizeWidget _appbar(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return AppBar(
+      backgroundColor: theme.appBarTheme.backgroundColor,
+      actions: [
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.arrow_back_ios,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _body(BuildContext context) {
+    return const SingleChildScrollView(
+      child: null,
     );
   }
 }

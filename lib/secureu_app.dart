@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:secureu_mobile/config/theme.dart';
 import 'package:secureu_mobile/config/routes.dart';
 import 'package:secureu_mobile/screens/login/login.dart';
+import 'package:secureu_mobile/screens/register/register.dart';
 import 'package:secureu_mobile/screens/splash/splash.dart';
 
 class SecureUApp extends StatelessWidget {
@@ -11,8 +12,8 @@ class SecureUApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: SecureUTheme.of(context),
       debugShowCheckedModeBanner: false,
+      theme: SecureUTheme.of(context),
       routes: <String, WidgetBuilder>{
         SecureURoutes.splash: (context) => BlocProvider(
               create: (context) => SplashBloc(),
@@ -21,6 +22,10 @@ class SecureUApp extends StatelessWidget {
         SecureURoutes.login: (context) => BlocProvider(
               create: (context) => LoginBloc(),
               child: const LoginScreen(),
+            ),
+        SecureURoutes.register: (context) => BlocProvider(
+              create: (context) => RegisterBloc(),
+              child: const RegisterScreen(),
             ),
       },
       initialRoute: SecureURoutes.splash,

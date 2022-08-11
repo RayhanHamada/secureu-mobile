@@ -6,6 +6,9 @@ class SecureUTheme {
 
     return theme.copyWith(
       backgroundColor: const Color.fromARGB(255, 64, 62, 62),
+      appBarTheme: const AppBarTheme(
+        backgroundColor: Colors.transparent,
+      ),
     );
   }
 }
