@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:secureu_mobile/screens/login/bloc/login_bloc.dart';
+import 'package:secureu_mobile/extensions.dart';
 
 class LoginForm extends StatelessWidget {
   LoginForm({Key? key}) : super(key: key);
@@ -21,7 +22,9 @@ class LoginForm extends StatelessWidget {
       return 'Email tidak boleh kosong';
     }
 
-    // TODO: implement email regex checking
+    if (!email.isValidEmail) {
+      return 'Email tidak valid';
+    }
 
     return null;
   }
@@ -30,8 +33,6 @@ class LoginForm extends StatelessWidget {
     if (password == null || password.isEmpty) {
       return 'Password tidak boleh kosong';
     }
-
-    // TODO: implement password regex checking
 
     return null;
   }
