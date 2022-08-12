@@ -4,7 +4,7 @@ import 'package:secureu_mobile/repos/datasource/pocketbase.dart';
 
 class AccountRepository {
   const AccountRepository();
-  static const recordName = 'account';
+  static const recordName = 'accounts';
 
   Future<Account?> getAccountByEmail(String email) async {
     final List<RecordModel> accountRecordModels;
@@ -30,10 +30,10 @@ class AccountRepository {
       accountRecordModel =
           await client.records.create(recordName, body: <String, dynamic>{
         'email': email,
-        'hashed_password': hashedPassword,
+        'password_hash': hashedPassword,
       });
-    } on Error {
-      print('gagal membuat akun');
+    } on Error catch (e) {
+      print('gagal membuat akun ${e.stackTrace}');
 
       return null;
     }
