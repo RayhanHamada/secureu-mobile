@@ -1,12 +1,15 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:secureu_mobile/repos/account_repository.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';
 part 'login_bloc.freezed.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  LoginBloc() : super(const _Initial()) {
+  final AccountRepository accountRepo;
+
+  LoginBloc({required this.accountRepo}) : super(const _Initial()) {
     on<_Started>((event, emit) {
       print('you\'ve entered login page');
     });

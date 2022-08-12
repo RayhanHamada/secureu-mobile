@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:secureu_mobile/config/theme.dart';
 import 'package:secureu_mobile/config/routes.dart';
+import 'package:secureu_mobile/repos/account_repository.dart';
 import 'package:secureu_mobile/screens/login/login.dart';
 import 'package:secureu_mobile/screens/register/register.dart';
 import 'package:secureu_mobile/screens/splash/splash.dart';
 
 class SecureUApp extends StatelessWidget {
   const SecureUApp({Key? key}) : super(key: key);
+
+  final accountRepo = const AccountRepository();
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +23,9 @@ class SecureUApp extends StatelessWidget {
               child: const SplashScreen(),
             ),
         SecureURoutes.login: (context) => BlocProvider(
-              create: (context) => LoginBloc(),
+              create: (context) => LoginBloc(
+                accountRepo: accountRepo,
+              ),
               child: const LoginScreen(),
             ),
         SecureURoutes.register: (context) => BlocProvider(
