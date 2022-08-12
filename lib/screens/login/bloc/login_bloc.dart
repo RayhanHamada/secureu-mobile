@@ -11,9 +11,15 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       print('you\'ve entered login page');
     });
 
-    on<_SubmitLogin>((event, emit) {
-      print('${event.email} ${event.password}');
+    on<_SubmitLogin>((event, emit) async {
       emit(const LoginState.submittingLogin());
+
+      // TODO: implement login (replace LoginState.initial with LoginState.successLogin)
+      await Future<void>.delayed(
+        const Duration(seconds: 3),
+      );
+
+      return emit(const LoginState.initial());
     });
   }
 }
