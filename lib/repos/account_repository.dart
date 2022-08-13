@@ -10,7 +10,7 @@ class AccountRepository {
     final List<RecordModel> accountRecordModels;
 
     try {
-      accountRecordModels = await client.records
+      accountRecordModels = await pocketbaseClient.records
           .getFullList(recordName, filter: 'email = "$email"');
     } on Error {
       print('gagal mengambil ');
@@ -27,8 +27,8 @@ class AccountRepository {
     final RecordModel accountRecordModel;
 
     try {
-      accountRecordModel =
-          await client.records.create(recordName, body: <String, dynamic>{
+      accountRecordModel = await pocketbaseClient.records
+          .create(recordName, body: <String, dynamic>{
         'email': email,
         'password': hashedPassword,
       });

@@ -12,7 +12,7 @@ Future<void> main() async {
     tearDownAll(() async {
       if (createdAccountId == null) return;
 
-      await client.records.delete('accounts', createdAccountId!);
+      await pocketbaseClient.records.delete('accounts', createdAccountId!);
     });
 
     test('Should able to create account', () async {
