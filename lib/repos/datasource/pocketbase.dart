@@ -1,5 +1,4 @@
 import 'package:pocketbase/pocketbase.dart';
+import 'package:secureu_mobile/config/constants.dart';
 
-const _pocketbaseURL = 'http://localhost:8090';
-
-final pocketbaseClient = PocketBase(_pocketbaseURL);
+final pocketbaseClient = PocketBase(pocketbaseURL.toString());
