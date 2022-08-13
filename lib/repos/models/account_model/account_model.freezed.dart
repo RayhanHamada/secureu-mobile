@@ -21,8 +21,8 @@ Account _$AccountFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Account {
   String get id => throw _privateConstructorUsedError;
-  String get accountEmail => throw _privateConstructorUsedError;
-  String get accountPassword => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
+  String get password => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +33,7 @@ mixin _$Account {
 abstract class $AccountCopyWith<$Res> {
   factory $AccountCopyWith(Account value, $Res Function(Account) then) =
       _$AccountCopyWithImpl<$Res>;
-  $Res call({String id, String accountEmail, String accountPassword});
+  $Res call({String id, String email, String password});
 }
 
 /// @nodoc
@@ -47,21 +47,21 @@ class _$AccountCopyWithImpl<$Res> implements $AccountCopyWith<$Res> {
   @override
   $Res call({
     Object? id = freezed,
-    Object? accountEmail = freezed,
-    Object? accountPassword = freezed,
+    Object? email = freezed,
+    Object? password = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      accountEmail: accountEmail == freezed
-          ? _value.accountEmail
-          : accountEmail // ignore: cast_nullable_to_non_nullable
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
               as String,
-      accountPassword: accountPassword == freezed
-          ? _value.accountPassword
-          : accountPassword // ignore: cast_nullable_to_non_nullable
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -73,7 +73,7 @@ abstract class _$$_AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
           _$_Account value, $Res Function(_$_Account) then) =
       __$$_AccountCopyWithImpl<$Res>;
   @override
-  $Res call({String id, String accountEmail, String accountPassword});
+  $Res call({String id, String email, String password});
 }
 
 /// @nodoc
@@ -88,21 +88,21 @@ class __$$_AccountCopyWithImpl<$Res> extends _$AccountCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? accountEmail = freezed,
-    Object? accountPassword = freezed,
+    Object? email = freezed,
+    Object? password = freezed,
   }) {
     return _then(_$_Account(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      accountEmail: accountEmail == freezed
-          ? _value.accountEmail
-          : accountEmail // ignore: cast_nullable_to_non_nullable
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
               as String,
-      accountPassword: accountPassword == freezed
-          ? _value.accountPassword
-          : accountPassword // ignore: cast_nullable_to_non_nullable
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -112,9 +112,7 @@ class __$$_AccountCopyWithImpl<$Res> extends _$AccountCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Account implements _Account {
   const _$_Account(
-      {required this.id,
-      required this.accountEmail,
-      required this.accountPassword});
+      {required this.id, required this.email, required this.password});
 
   factory _$_Account.fromJson(Map<String, dynamic> json) =>
       _$$_AccountFromJson(json);
@@ -122,13 +120,13 @@ class _$_Account implements _Account {
   @override
   final String id;
   @override
-  final String accountEmail;
+  final String email;
   @override
-  final String accountPassword;
+  final String password;
 
   @override
   String toString() {
-    return 'Account(id: $id, accountEmail: $accountEmail, accountPassword: $accountPassword)';
+    return 'Account(id: $id, email: $email, password: $password)';
   }
 
   @override
@@ -137,10 +135,8 @@ class _$_Account implements _Account {
         (other.runtimeType == runtimeType &&
             other is _$_Account &&
             const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality()
-                .equals(other.accountEmail, accountEmail) &&
-            const DeepCollectionEquality()
-                .equals(other.accountPassword, accountPassword));
+            const DeepCollectionEquality().equals(other.email, email) &&
+            const DeepCollectionEquality().equals(other.password, password));
   }
 
   @JsonKey(ignore: true)
@@ -148,8 +144,8 @@ class _$_Account implements _Account {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(accountEmail),
-      const DeepCollectionEquality().hash(accountPassword));
+      const DeepCollectionEquality().hash(email),
+      const DeepCollectionEquality().hash(password));
 
   @JsonKey(ignore: true)
   @override
@@ -167,17 +163,17 @@ class _$_Account implements _Account {
 abstract class _Account implements Account {
   const factory _Account(
       {required final String id,
-      required final String accountEmail,
-      required final String accountPassword}) = _$_Account;
+      required final String email,
+      required final String password}) = _$_Account;
 
   factory _Account.fromJson(Map<String, dynamic> json) = _$_Account.fromJson;
 
   @override
   String get id;
   @override
-  String get accountEmail;
+  String get email;
   @override
-  String get accountPassword;
+  String get password;
   @override
   @JsonKey(ignore: true)
   _$$_AccountCopyWith<_$_Account> get copyWith =>

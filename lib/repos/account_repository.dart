@@ -11,14 +11,14 @@ class AccountRepository {
 
     try {
       accountRecordModels = await client.records
-          .getFullList(recordName, filter: 'email = $email');
+          .getFullList(recordName, filter: 'email = "$email"');
     } on Error {
       print('gagal mengambil ');
 
       return null;
     }
-
-    final account = Account.fromJson(accountRecordModels.first.toJson());
+    final accountJson = accountRecordModels.first.toJson();
+    final account = Account.fromJson(accountJson);
 
     return account;
   }
@@ -30,7 +30,7 @@ class AccountRepository {
       accountRecordModel =
           await client.records.create(recordName, body: <String, dynamic>{
         'email': email,
-        'password_hash': hashedPassword,
+        'password': hashedPassword,
       });
     } on Error catch (e) {
       print('gagal membuat akun ${e.stackTrace}');

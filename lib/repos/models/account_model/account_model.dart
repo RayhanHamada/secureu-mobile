@@ -7,8 +7,8 @@ part 'account_model.g.dart';
 class Account with _$Account {
   const factory Account({
     required String id,
-    required String accountEmail,
-    required String accountPassword,
+    required String email,
+    required String password,
   }) = _Account;
 
   factory Account.fromJson(Map<String, dynamic> json) =>

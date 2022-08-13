@@ -8,13 +8,13 @@ part of 'account_model.dart';
 
 _$_Account _$$_AccountFromJson(Map<String, dynamic> json) => _$_Account(
       id: json['id'] as String,
-      accountEmail: json['accountEmail'] as String,
-      accountPassword: json['accountPassword'] as String,
+      email: json['email'] as String,
+      password: json['password'] as String,
     );
 
 Map<String, dynamic> _$$_AccountToJson(_$_Account instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'accountEmail': instance.accountEmail,
-      'accountPassword': instance.accountPassword,
+      'email': instance.email,
+      'password': instance.password,
     };
