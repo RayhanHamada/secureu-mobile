@@ -1,6 +1,6 @@
 import 'package:pocketbase/pocketbase.dart';
 import 'package:secureu_mobile/repos/models/account_model/account_model.dart';
-import 'package:secureu_mobile/repos/datasource/pocketbase.dart';
+import 'package:secureu_mobile/services/pocketbase.dart';
 
 class AccountRepository {
   const AccountRepository();
