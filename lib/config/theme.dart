@@ -5,6 +5,7 @@ class SecureUTheme {
     final theme = Theme.of(context);
 
     return theme.copyWith(
+      scaffoldBackgroundColor: const Color.fromARGB(255, 64, 62, 62),
       backgroundColor: const Color.fromARGB(255, 64, 62, 62),
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.transparent,
