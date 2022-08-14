@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:secureu_mobile/config/theme.dart';
 import 'package:secureu_mobile/config/routes.dart';
 import 'package:secureu_mobile/repos/account_repository.dart';
-import 'package:secureu_mobile/screens/dashboard/bloc/dashboard_bloc.dart';
 import 'package:secureu_mobile/screens/dashboard/dashboard.dart';
 import 'package:secureu_mobile/screens/login/login.dart';
 import 'package:secureu_mobile/screens/register/register.dart';

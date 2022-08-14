@@ -7,9 +7,12 @@ part 'login_state.dart';
 part 'login_bloc.freezed.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  final AccountRepository accountRepo;
+  late final AccountRepository _accountRepo;
 
-  LoginBloc({required this.accountRepo}) : super(const _Initial()) {
+  LoginBloc({required AccountRepository accountRepo})
+      : super(const _Initial()) {
+    _accountRepo = accountRepo;
+
     on<_Started>((event, emit) {
       print('you\'ve entered login page');
     });
