@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:hive/hive.dart';
 import 'package:secureu_mobile/config/constants.dart' as constants;
 import 'package:secureu_mobile/secureu_app.dart';
 
@@ -15,6 +16,8 @@ Future<void> main() async {
     } catch (e) {
       print('.env tidak ada/tidak ada isinya');
     }
+
+    Hive.init(null);
   } else {
     // jika production environment
   }

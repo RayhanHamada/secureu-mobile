@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:secureu_mobile/config/routes.dart';
 import 'package:secureu_mobile/screens/login/bloc/login_bloc.dart';
 import 'package:secureu_mobile/extensions.dart';
 
@@ -55,6 +56,10 @@ class LoginForm extends StatelessWidget {
               key: _emailKey,
               controller: _emailController,
               validator: _emailValidator,
+              enabled: loginBloc.state.maybeMap(
+                orElse: () => true,
+                submittingLogin: (_) => false,
+              ),
               style: const TextStyle(
                 color: Colors.white,
               ),
@@ -81,6 +86,10 @@ class LoginForm extends StatelessWidget {
               key: _passwordKey,
               validator: _passwordValidator,
               controller: _passwordController,
+              enabled: loginBloc.state.maybeMap(
+                orElse: () => true,
+                submittingLogin: (_) => false,
+              ),
               obscureText: true,
               obscuringCharacter: '*',
               style: const TextStyle(
@@ -108,36 +117,39 @@ class LoginForm extends StatelessWidget {
           SizedBox(
             width: 250.0,
             height: 45,
-            child: ElevatedButton(
-              onPressed: loginBloc.state.mapOrNull(
-                initial: (value) => () {
-                  if (!_formKey.currentState!.validate()) {
-                    return;
-                  }
+            child: BlocListener<LoginBloc, LoginState>(
+              listener: (context, state) {},
+              child: ElevatedButton(
+                onPressed: loginBloc.state.mapOrNull(
+                  initial: (value) => () {
+                    if (!_formKey.currentState!.validate()) {
+                      return;
+                    }
 
-                  final email = _emailController.text;
-                  final password = _passwordController.text;
+                    final email = _emailController.text;
+                    final password = _passwordController.text;
 
-                  FocusScope.of(context).unfocus();
+                    FocusScope.of(context).unfocus();
 
-                  loginBloc.add(LoginEvent.submitLogin(email, password));
-                },
-              ),
-              style: ButtonStyle(
-                shape: theme.elevatedButtonTheme.style!.shape,
-                backgroundColor: MaterialStateProperty.all<Color>(
-                  loginBloc.state.maybeMap(
-                    orElse: () => Colors.white,
-                    submittingLogin: (_) => Colors.white24,
+                    loginBloc.add(LoginEvent.submitLogin(email, password));
+                  },
+                ),
+                style: ButtonStyle(
+                  shape: theme.elevatedButtonTheme.style!.shape,
+                  backgroundColor: MaterialStateProperty.all<Color>(
+                    loginBloc.state.maybeMap(
+                      orElse: () => Colors.white,
+                      submittingLogin: (_) => Colors.white24,
+                    ),
                   ),
                 ),
-              ),
-              child: const Text(
-                'Login',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
+                child: const Text(
+                  'Login',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),

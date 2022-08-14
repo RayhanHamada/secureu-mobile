@@ -7,11 +7,9 @@ part 'login_state.dart';
 part 'login_bloc.freezed.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  late final AccountRepository _accountRepo;
-
   LoginBloc({required AccountRepository accountRepo})
       : super(const _Initial()) {
-    _accountRepo = accountRepo;
+    accountRepo;
 
     on<_Started>((event, emit) {
       print('you\'ve entered login page');
@@ -25,7 +23,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         const Duration(seconds: 3),
       );
 
-      return emit(const LoginState.initial());
+      return emit(const LoginState.successLogin());
     });
   }
 }
