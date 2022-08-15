@@ -8,8 +8,11 @@ part 'register_state.dart';
 part 'register_bloc.freezed.dart';
 
 class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
+  final AccountRepository _accountRepo;
+
   RegisterBloc({required AccountRepository accountRepo})
-      : super(const _Initial()) {
+      : _accountRepo = accountRepo,
+        super(const _Initial()) {
     on<_SubmitForm>((event, emit) async {
       emit(const RegisterState.submittingForm());
 
@@ -33,7 +36,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
       final masterPassword = event.password;
 
       final stretchedAccountPassword =
-          await Cryptography.derivePasswordToBase64HKDFString(
+          await Cryptography.passwordToBase64HKDFString(
         masterPassword: masterPassword,
         email: email,
       );

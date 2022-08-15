@@ -75,7 +75,7 @@ class Cryptography {
     return '';
   }
 
-  static Future<String?> derivePasswordToBase64HKDFString({
+  static Future<String?> passwordToBase64HKDFString({
     required String masterPassword,
     required String email,
   }) async {
