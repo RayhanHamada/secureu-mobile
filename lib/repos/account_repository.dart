@@ -23,6 +23,23 @@ class AccountRepository {
     return account;
   }
 
+  Future<bool?> isAccountExists(String email) async {
+    final List<RecordModel>? accountRecordModels;
+
+    try {
+      accountRecordModels = await pocketbaseClient.records.getFullList(
+        recordName,
+        filter: 'email = "$email"',
+      );
+    } on Error {
+      print('gagal mengambil ');
+
+      return null;
+    }
+
+    return accountRecordModels.isNotEmpty;
+  }
+
   Future<String?> createAccount(String email, String hashedPassword) async {
     final RecordModel accountRecordModel;
 

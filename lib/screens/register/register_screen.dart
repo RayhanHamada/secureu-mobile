@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:secureu_mobile/config/routes.dart';
+import 'package:secureu_mobile/screens/register/bloc/register_bloc.dart';
 import 'package:secureu_mobile/screens/register/views/register_form.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -9,11 +11,38 @@ class RegisterScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    return Scaffold(
-      backgroundColor: theme.scaffoldBackgroundColor,
-      extendBodyBehindAppBar: true,
-      appBar: _appbar(context),
-      body: _body(context),
+    return BlocListener<RegisterBloc, RegisterState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          failedSubmittingForm: (message) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(message),
+                backgroundColor: Colors.red,
+              ),
+            );
+          },
+          successSubmittingForm: () {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Sukses Membuat User'),
+                backgroundColor: Colors.green,
+              ),
+            );
+
+            // kembali ke login screen
+            Future<void>.delayed(const Duration(seconds: 1)).then((_) {
+              Navigator.pop(context);
+            });
+          },
+        );
+      },
+      child: Scaffold(
+        backgroundColor: theme.scaffoldBackgroundColor,
+        extendBodyBehindAppBar: true,
+        appBar: _appbar(context),
+        body: _body(context),
+      ),
     );
   }
 

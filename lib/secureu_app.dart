@@ -28,7 +28,9 @@ class SecureUApp extends StatelessWidget {
               child: const LoginScreen(),
             ),
         SecureURoutes.register: (context) => BlocProvider(
-              create: (context) => RegisterBloc(),
+              create: (context) => RegisterBloc(
+                accountRepo: const AccountRepository(),
+              ),
               child: const RegisterScreen(),
             ),
         SecureURoutes.dashboard: (context) => BlocProvider(

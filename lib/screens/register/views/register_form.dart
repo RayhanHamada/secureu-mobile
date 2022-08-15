@@ -69,6 +69,10 @@ class RegisterForm extends StatelessWidget {
               key: _emailKey,
               controller: _emailController,
               validator: _emailValidator,
+              enabled: registerBloc.state.maybeMap(
+                orElse: () => true,
+                submittingForm: (_) => false,
+              ),
               style: const TextStyle(
                 color: Colors.white,
               ),
@@ -97,6 +101,10 @@ class RegisterForm extends StatelessWidget {
               controller: _passwordController,
               obscureText: true,
               obscuringCharacter: '*',
+              enabled: registerBloc.state.maybeMap(
+                orElse: () => true,
+                submittingForm: (_) => false,
+              ),
               style: const TextStyle(
                 color: Colors.white,
               ),
@@ -118,7 +126,7 @@ class RegisterForm extends StatelessWidget {
             height: 20,
           ),
 
-          // Password
+          // Password Confirmation
           SizedBox(
             width: 250.0,
             child: TextFormField(
@@ -127,6 +135,10 @@ class RegisterForm extends StatelessWidget {
               controller: _passwordConfirmationController,
               obscureText: true,
               obscuringCharacter: '*',
+              enabled: registerBloc.state.maybeMap(
+                orElse: () => true,
+                submittingForm: (_) => false,
+              ),
               style: const TextStyle(
                 color: Colors.white,
               ),
@@ -153,9 +165,11 @@ class RegisterForm extends StatelessWidget {
             width: 250.0,
             height: 45,
             child: ElevatedButton(
-              onPressed: registerBloc.state.mapOrNull(
+              onPressed: registerBloc.state.maybeMap(
+                orElse: () => null,
                 initial: (value) => () {
-                  if (!_formKey.currentState!.validate()) {
+                  final formState = _formKey.currentState;
+                  if (!formState!.validate()) {
                     return;
                   }
 
@@ -163,6 +177,7 @@ class RegisterForm extends StatelessWidget {
                   final password = _passwordController.text;
 
                   FocusScope.of(context).unfocus();
+                  formState.reset();
 
                   registerBloc.add(RegisterEvent.submitForm(email, password));
                 },
