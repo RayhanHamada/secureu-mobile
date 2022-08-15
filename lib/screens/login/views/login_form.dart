@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:secureu_mobile/config/routes.dart';
 import 'package:secureu_mobile/screens/login/bloc/login_bloc.dart';
 import 'package:secureu_mobile/extensions.dart';
 
