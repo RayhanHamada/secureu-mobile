@@ -17,6 +17,11 @@ class AccountRepository {
 
       return null;
     }
+
+    if (accountRecordModels.isEmpty) {
+      return null;
+    }
+
     final accountJson = accountRecordModels.first.toJson();
     final account = Account.fromJson(accountJson);
 
