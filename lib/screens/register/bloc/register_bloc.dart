@@ -17,11 +17,14 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
       emit(const RegisterState.submittingForm());
 
       // check if user with email exists
-      final exists = await accountRepo.isAccountExists(event.email);
+      final exists = await _accountRepo.isAccountExists(event.email);
 
       if (exists == null) {
-        return emit(const RegisterState.failedSubmittingForm(
-            'Gagal terhubung ke database'));
+        return emit(
+          const RegisterState.failedSubmittingForm(
+            'Gagal terhubung ke database',
+          ),
+        );
       }
 
       if (exists) {
@@ -50,7 +53,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
       }
 
       final createdAccountId =
-          await accountRepo.createAccount(email, stretchedAccountPassword);
+          await _accountRepo.createAccount(email, stretchedAccountPassword);
 
       if (createdAccountId == null) {
         return emit(
