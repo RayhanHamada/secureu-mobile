@@ -14,7 +14,7 @@ Future<void> main() async {
     tearDownAll(() async {
       if (createdAccountId == null) return;
 
-      await pocketbaseClient.records.delete('accounts', createdAccountId!);
+      await pocketbaseClient.records.delete('accounts', createdAccountId);
     });
 
     test('Should able to create account', () async {
@@ -26,9 +26,17 @@ Future<void> main() async {
         fail('Error when creating account');
       }
 
-      createdAccountId = accountId;
+      expect(
+        accountId != null,
+        true,
+        reason: 'accountId is null',
+      );
 
-      expect(accountId != null, true);
+      expect(
+        accountId!.isNotEmpty,
+        true,
+        reason: 'accountId is empty',
+      );
     });
 
     test('should able to check by email if an account exists', () async {
@@ -40,7 +48,7 @@ Future<void> main() async {
         fail('Gagal mengecek akun $mockEmail');
       }
 
-      expect(isExists != null, true);
+      expect(isExists, true, reason: 'Account $mockEmail should be exists');
     });
 
     test('Should able to get accounts by email', () async {
@@ -51,8 +59,11 @@ Future<void> main() async {
         fail('Error when getting account');
       }
 
-      expect(account != null, true,
-          reason: 'account $mockEmail tidak ditemukan');
+      expect(
+        account != null,
+        true,
+        reason: 'account $mockEmail tidak ditemukan',
+      );
     });
   });
 }
