@@ -75,7 +75,7 @@ class Cryptography {
     return '';
   }
 
-  static Future<String?> derivePasswordForRegister({
+  static Future<String?> derivePasswordToBase64HKDFString({
     required String masterPassword,
     required String email,
   }) async {
@@ -116,9 +116,11 @@ class Cryptography {
     // melakukan enkripsi data pengguna tidak sama dengan kunci
     // yang digunakan untuk melakukan autentikasi pada saat masuk
     // kedalam aplikasi SecureU.
+    const salt = 'rahasia123';
+    final utf8Salt = utf8.encode(salt);
     final stretchedMasterKey = await hkdfAlgorithm.deriveKey(
       secretKey: masterKey,
-      nonce: [0],
+      nonce: utf8Salt,
     );
 
     // Konversikan master key yang telah dipanjangkan kedalam

@@ -33,7 +33,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
       final masterPassword = event.password;
 
       final stretchedAccountPassword =
-          await Cryptography.derivePasswordForRegister(
+          await Cryptography.derivePasswordToBase64HKDFString(
         masterPassword: masterPassword,
         email: email,
       );
