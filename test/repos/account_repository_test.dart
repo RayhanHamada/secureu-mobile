@@ -8,6 +8,8 @@ Future<void> main() async {
     const accountRepo = AccountRepository();
 
     String? createdAccountId;
+    const mockEmail = 'from@testing.com';
+    const mockPassword = 'testpassword';
 
     tearDownAll(() async {
       if (createdAccountId == null) return;
@@ -19,8 +21,7 @@ Future<void> main() async {
       final String? accountId;
 
       try {
-        accountId =
-            await accountRepo.createAccount('from@testing.com', 'testpassword');
+        accountId = await accountRepo.createAccount(mockEmail, mockPassword);
       } on Error {
         fail('Error when creating account');
       }
@@ -30,15 +31,28 @@ Future<void> main() async {
       expect(accountId != null, true);
     });
 
+    test('should able to check by email if an account exists', () async {
+      final bool? isExists;
+
+      try {
+        isExists = await accountRepo.isAccountExists(mockEmail);
+      } on Error {
+        fail('Gagal mengecek akun $mockEmail');
+      }
+
+      expect(isExists != null, true);
+    });
+
     test('Should able to get accounts by email', () async {
       final Account? account;
       try {
-        account = await accountRepo.getAccountByEmail('from@testing.com');
+        account = await accountRepo.getAccountByEmail(mockEmail);
       } on Error {
         fail('Error when getting account');
       }
 
-      expect(account != null, true, reason: 'account tidak ditemukan');
+      expect(account != null, true,
+          reason: 'account $mockEmail tidak ditemukan');
     });
   });
 }
