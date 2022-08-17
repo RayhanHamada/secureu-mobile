@@ -61,10 +61,14 @@ class DashboardScreen extends StatelessWidget {
   Widget _body(BuildContext context) {
     final dashboardBloc = context.watch<DashboardBloc>();
 
-    return ListView.separated(
-      itemBuilder: (context, idx) => const ListTile(),
-      separatorBuilder: (_, __) => const Divider(color: Colors.white),
-      itemCount: 20,
+    // TODO: implement list view
+    return RefreshIndicator(
+      onRefresh: () async {},
+      child: ListView.separated(
+        itemBuilder: (context, idx) => const ListTile(),
+        separatorBuilder: (_, __) => const Divider(color: Colors.white),
+        itemCount: 20,
+      ),
     );
   }
 }
