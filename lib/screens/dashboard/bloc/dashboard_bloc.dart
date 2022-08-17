@@ -17,6 +17,8 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
           appsessionBox.get(HiveConstants.userEmail, defaultValue: 'No email');
 
       emit(DashboardState.successFetchEmail(email: userEmail!));
+
+      // TODO: implement fetching secret list
     });
   }
 }

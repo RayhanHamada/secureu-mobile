@@ -67,6 +67,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         await appsessionBox.put(
             HiveConstants.encryptionKey, derivedInputPassword);
         await appsessionBox.put(HiveConstants.userEmail, account.email);
+        await appsessionBox.put(HiveConstants.userId, account.id);
       } catch (e) {
         print('Kesalahan saat persisting data ke hive DB');
 
