@@ -8,14 +8,16 @@ part of 'secret_model.dart';
 
 _$_Secret _$$_SecretFromJson(Map<String, dynamic> json) => _$_Secret(
       id: json['id'] as String,
-      secretName: json['secretName'] as String,
-      secretUsernameOrEmail: json['secretUsernameOrEmail'] as String,
-      secretPassword: json['secretPassword'] as String,
+      name: json['name'] as String,
+      emailOrUsername: json['emailOrUsername'] as String,
+      password: json['password'] as String,
+      accountId: json['accountId'] as String,
     );
 
 Map<String, dynamic> _$$_SecretToJson(_$_Secret instance) => <String, dynamic>{
       'id': instance.id,
-      'secretName': instance.secretName,
-      'secretUsernameOrEmail': instance.secretUsernameOrEmail,
-      'secretPassword': instance.secretPassword,
+      'name': instance.name,
+      'emailOrUsername': instance.emailOrUsername,
+      'password': instance.password,
+      'accountId': instance.accountId,
     };

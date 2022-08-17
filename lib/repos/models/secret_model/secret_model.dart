@@ -7,9 +7,10 @@ part 'secret_model.g.dart';
 class Secret with _$Secret {
   const factory Secret({
     required String id,
-    required String secretName,
-    required String secretUsernameOrEmail,
-    required String secretPassword,
+    required String name,
+    required String emailOrUsername,
+    required String password,
+    required String accountId,
   }) = _Secret;
 
   factory Secret.fromJson(Map<String, dynamic> json) => _$SecretFromJson(json);
