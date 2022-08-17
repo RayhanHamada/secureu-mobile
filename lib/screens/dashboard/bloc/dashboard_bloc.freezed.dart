@@ -19,32 +19,38 @@ mixin _$DashboardEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() deleteSessionData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? deleteSessionData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? deleteSessionData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_DeleteSessionData value) deleteSessionData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_DeleteSessionData value)? deleteSessionData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_DeleteSessionData value)? deleteSessionData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +113,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() deleteSessionData,
   }) {
     return started();
   }
@@ -115,6 +122,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? deleteSessionData,
   }) {
     return started?.call();
   }
@@ -123,6 +131,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? deleteSessionData,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -135,6 +144,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_DeleteSessionData value) deleteSessionData,
   }) {
     return started(this);
   }
@@ -143,6 +153,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_DeleteSessionData value)? deleteSessionData,
   }) {
     return started?.call(this);
   }
@@ -151,6 +162,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_DeleteSessionData value)? deleteSessionData,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -165,23 +177,131 @@ abstract class _Started implements DashboardEvent {
 }
 
 /// @nodoc
+abstract class _$$_DeleteSessionDataCopyWith<$Res> {
+  factory _$$_DeleteSessionDataCopyWith(_$_DeleteSessionData value,
+          $Res Function(_$_DeleteSessionData) then) =
+      __$$_DeleteSessionDataCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_DeleteSessionDataCopyWithImpl<$Res>
+    extends _$DashboardEventCopyWithImpl<$Res>
+    implements _$$_DeleteSessionDataCopyWith<$Res> {
+  __$$_DeleteSessionDataCopyWithImpl(
+      _$_DeleteSessionData _value, $Res Function(_$_DeleteSessionData) _then)
+      : super(_value, (v) => _then(v as _$_DeleteSessionData));
+
+  @override
+  _$_DeleteSessionData get _value => super._value as _$_DeleteSessionData;
+}
+
+/// @nodoc
+
+class _$_DeleteSessionData implements _DeleteSessionData {
+  const _$_DeleteSessionData();
+
+  @override
+  String toString() {
+    return 'DashboardEvent.deleteSessionData()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_DeleteSessionData);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() deleteSessionData,
+  }) {
+    return deleteSessionData();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? deleteSessionData,
+  }) {
+    return deleteSessionData?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? deleteSessionData,
+    required TResult orElse(),
+  }) {
+    if (deleteSessionData != null) {
+      return deleteSessionData();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_DeleteSessionData value) deleteSessionData,
+  }) {
+    return deleteSessionData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_DeleteSessionData value)? deleteSessionData,
+  }) {
+    return deleteSessionData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_DeleteSessionData value)? deleteSessionData,
+    required TResult orElse(),
+  }) {
+    if (deleteSessionData != null) {
+      return deleteSessionData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteSessionData implements DashboardEvent {
+  const factory _DeleteSessionData() = _$_DeleteSessionData;
+}
+
+/// @nodoc
 mixin _$DashboardState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(String email) successFetchEmail,
+    required TResult Function() successDeleteSessionData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String email)? successFetchEmail,
+    TResult Function()? successDeleteSessionData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String email)? successFetchEmail,
+    TResult Function()? successDeleteSessionData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -189,18 +309,22 @@ mixin _$DashboardState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_SuccecssFetchEmail value) successFetchEmail,
+    required TResult Function(_SuccessDeleteSessionData value)
+        successDeleteSessionData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_SuccecssFetchEmail value)? successFetchEmail,
+    TResult Function(_SuccessDeleteSessionData value)? successDeleteSessionData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_SuccecssFetchEmail value)? successFetchEmail,
+    TResult Function(_SuccessDeleteSessionData value)? successDeleteSessionData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -264,6 +388,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(String email) successFetchEmail,
+    required TResult Function() successDeleteSessionData,
   }) {
     return initial();
   }
@@ -273,6 +398,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String email)? successFetchEmail,
+    TResult Function()? successDeleteSessionData,
   }) {
     return initial?.call();
   }
@@ -282,6 +408,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String email)? successFetchEmail,
+    TResult Function()? successDeleteSessionData,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -295,6 +422,8 @@ class _$_Initial implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_SuccecssFetchEmail value) successFetchEmail,
+    required TResult Function(_SuccessDeleteSessionData value)
+        successDeleteSessionData,
   }) {
     return initial(this);
   }
@@ -304,6 +433,7 @@ class _$_Initial implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_SuccecssFetchEmail value)? successFetchEmail,
+    TResult Function(_SuccessDeleteSessionData value)? successDeleteSessionData,
   }) {
     return initial?.call(this);
   }
@@ -313,6 +443,7 @@ class _$_Initial implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_SuccecssFetchEmail value)? successFetchEmail,
+    TResult Function(_SuccessDeleteSessionData value)? successDeleteSessionData,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -394,6 +525,7 @@ class _$_SuccecssFetchEmail implements _SuccecssFetchEmail {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(String email) successFetchEmail,
+    required TResult Function() successDeleteSessionData,
   }) {
     return successFetchEmail(email);
   }
@@ -403,6 +535,7 @@ class _$_SuccecssFetchEmail implements _SuccecssFetchEmail {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String email)? successFetchEmail,
+    TResult Function()? successDeleteSessionData,
   }) {
     return successFetchEmail?.call(email);
   }
@@ -412,6 +545,7 @@ class _$_SuccecssFetchEmail implements _SuccecssFetchEmail {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String email)? successFetchEmail,
+    TResult Function()? successDeleteSessionData,
     required TResult orElse(),
   }) {
     if (successFetchEmail != null) {
@@ -425,6 +559,8 @@ class _$_SuccecssFetchEmail implements _SuccecssFetchEmail {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_SuccecssFetchEmail value) successFetchEmail,
+    required TResult Function(_SuccessDeleteSessionData value)
+        successDeleteSessionData,
   }) {
     return successFetchEmail(this);
   }
@@ -434,6 +570,7 @@ class _$_SuccecssFetchEmail implements _SuccecssFetchEmail {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_SuccecssFetchEmail value)? successFetchEmail,
+    TResult Function(_SuccessDeleteSessionData value)? successDeleteSessionData,
   }) {
     return successFetchEmail?.call(this);
   }
@@ -443,6 +580,7 @@ class _$_SuccecssFetchEmail implements _SuccecssFetchEmail {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_SuccecssFetchEmail value)? successFetchEmail,
+    TResult Function(_SuccessDeleteSessionData value)? successDeleteSessionData,
     required TResult orElse(),
   }) {
     if (successFetchEmail != null) {
@@ -460,4 +598,119 @@ abstract class _SuccecssFetchEmail implements DashboardState {
   @JsonKey(ignore: true)
   _$$_SuccecssFetchEmailCopyWith<_$_SuccecssFetchEmail> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SuccessDeleteSessionDataCopyWith<$Res> {
+  factory _$$_SuccessDeleteSessionDataCopyWith(
+          _$_SuccessDeleteSessionData value,
+          $Res Function(_$_SuccessDeleteSessionData) then) =
+      __$$_SuccessDeleteSessionDataCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SuccessDeleteSessionDataCopyWithImpl<$Res>
+    extends _$DashboardStateCopyWithImpl<$Res>
+    implements _$$_SuccessDeleteSessionDataCopyWith<$Res> {
+  __$$_SuccessDeleteSessionDataCopyWithImpl(_$_SuccessDeleteSessionData _value,
+      $Res Function(_$_SuccessDeleteSessionData) _then)
+      : super(_value, (v) => _then(v as _$_SuccessDeleteSessionData));
+
+  @override
+  _$_SuccessDeleteSessionData get _value =>
+      super._value as _$_SuccessDeleteSessionData;
+}
+
+/// @nodoc
+
+class _$_SuccessDeleteSessionData implements _SuccessDeleteSessionData {
+  const _$_SuccessDeleteSessionData();
+
+  @override
+  String toString() {
+    return 'DashboardState.successDeleteSessionData()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SuccessDeleteSessionData);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String email) successFetchEmail,
+    required TResult Function() successDeleteSessionData,
+  }) {
+    return successDeleteSessionData();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String email)? successFetchEmail,
+    TResult Function()? successDeleteSessionData,
+  }) {
+    return successDeleteSessionData?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String email)? successFetchEmail,
+    TResult Function()? successDeleteSessionData,
+    required TResult orElse(),
+  }) {
+    if (successDeleteSessionData != null) {
+      return successDeleteSessionData();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_SuccecssFetchEmail value) successFetchEmail,
+    required TResult Function(_SuccessDeleteSessionData value)
+        successDeleteSessionData,
+  }) {
+    return successDeleteSessionData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SuccecssFetchEmail value)? successFetchEmail,
+    TResult Function(_SuccessDeleteSessionData value)? successDeleteSessionData,
+  }) {
+    return successDeleteSessionData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SuccecssFetchEmail value)? successFetchEmail,
+    TResult Function(_SuccessDeleteSessionData value)? successDeleteSessionData,
+    required TResult orElse(),
+  }) {
+    if (successDeleteSessionData != null) {
+      return successDeleteSessionData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SuccessDeleteSessionData implements DashboardState {
+  const factory _SuccessDeleteSessionData() = _$_SuccessDeleteSessionData;
 }

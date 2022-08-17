@@ -20,5 +20,17 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
 
       // TODO: implement fetching secret list
     });
+
+    on<_DeleteSessionData>((event, emit) async {
+      final appSessionBox = Hive.box<String>(HiveConstants.appsession);
+
+      await appSessionBox.deleteAll([
+        HiveConstants.encryptionKey,
+        HiveConstants.userEmail,
+        HiveConstants.userId,
+      ]);
+
+      emit(const DashboardState.successDeleteSessionData());
+    });
   }
 }

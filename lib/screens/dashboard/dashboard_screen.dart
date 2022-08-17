@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:secureu_mobile/config/routes.dart';
 import 'package:secureu_mobile/screens/dashboard/dashboard.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -9,15 +10,24 @@ class DashboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    return Scaffold(
-      backgroundColor: theme.scaffoldBackgroundColor,
-      appBar: _appbar(context),
-      body: _body(context),
-      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.black,
-        child: const Icon(Icons.add, color: Colors.white),
-        onPressed: () {},
+    return BlocListener<DashboardBloc, DashboardState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          successDeleteSessionData: () {
+            Navigator.pushReplacementNamed(context, SecureURoutes.login);
+          },
+        );
+      },
+      child: Scaffold(
+        backgroundColor: theme.scaffoldBackgroundColor,
+        appBar: _appbar(context),
+        body: _body(context),
+        floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.black,
+          child: const Icon(Icons.add, color: Colors.white),
+          onPressed: () {},
+        ),
       ),
     );
   }
@@ -48,7 +58,9 @@ class DashboardScreen extends StatelessWidget {
       ),
       actions: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            dashboardBloc.add(const DashboardEvent.deleteSessionData());
+          },
           icon: const Icon(
             Icons.logout_outlined,
             color: Colors.white,
@@ -59,8 +71,6 @@ class DashboardScreen extends StatelessWidget {
   }
 
   Widget _body(BuildContext context) {
-    final dashboardBloc = context.watch<DashboardBloc>();
-
     // TODO: implement list view
     return RefreshIndicator(
       onRefresh: () async {},
