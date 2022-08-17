@@ -5,6 +5,6 @@ class SecureURoutes {
   static const dashboard = 'dashboard';
   static const profile = 'profile';
   static const createSecret = 'create_secret';
-  static const secretDetail = 'secret_detail';
-  static const secretEdit = 'secret_edit';
+  static const viewSecret = 'view_secret';
+  static const editSecret = 'edit_secret';
 }
