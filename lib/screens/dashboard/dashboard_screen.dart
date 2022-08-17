@@ -26,7 +26,9 @@ class DashboardScreen extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.black,
           child: const Icon(Icons.add, color: Colors.white),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushReplacementNamed(context, SecureURoutes.createSecret);
+          },
         ),
       ),
     );
