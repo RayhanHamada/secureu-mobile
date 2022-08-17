@@ -166,8 +166,7 @@ class RegisterForm extends StatelessWidget {
             height: 45,
             child: ElevatedButton(
               onPressed: registerBloc.state.maybeMap(
-                orElse: () => null,
-                initial: (value) => () {
+                orElse: () => () {
                   final formState = _formKey.currentState;
                   if (!formState!.validate()) {
                     return;
@@ -181,6 +180,7 @@ class RegisterForm extends StatelessWidget {
 
                   registerBloc.add(RegisterEvent.submitForm(email, password));
                 },
+                submittingForm: (_) => null,
               ),
               style: ButtonStyle(
                 shape: theme.elevatedButtonTheme.style!.shape,

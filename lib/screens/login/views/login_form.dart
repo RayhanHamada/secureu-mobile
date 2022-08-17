@@ -119,8 +119,8 @@ class LoginForm extends StatelessWidget {
             child: BlocListener<LoginBloc, LoginState>(
               listener: (context, state) {},
               child: ElevatedButton(
-                onPressed: loginBloc.state.mapOrNull(
-                  initial: (value) => () {
+                onPressed: loginBloc.state.maybeMap(
+                  orElse: () => () {
                     if (!_formKey.currentState!.validate()) {
                       return;
                     }
@@ -132,6 +132,7 @@ class LoginForm extends StatelessWidget {
 
                     loginBloc.add(LoginEvent.submitLogin(email, password));
                   },
+                  submittingLogin: (_) => null,
                 ),
                 style: ButtonStyle(
                   shape: theme.elevatedButtonTheme.style!.shape,
