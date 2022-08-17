@@ -22,9 +22,13 @@ Secret _$SecretFromJson(Map<String, dynamic> json) {
 mixin _$Secret {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  @JsonKey(name: 'email_or_username')
   String get emailOrUsername => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
+  @JsonKey(name: 'account_id')
   String get accountId => throw _privateConstructorUsedError;
+  @JsonKey(nullable: true)
+  DateTime? get updated => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,9 +42,10 @@ abstract class $SecretCopyWith<$Res> {
   $Res call(
       {String id,
       String name,
-      String emailOrUsername,
+      @JsonKey(name: 'email_or_username') String emailOrUsername,
       String password,
-      String accountId});
+      @JsonKey(name: 'account_id') String accountId,
+      @JsonKey(nullable: true) DateTime? updated});
 }
 
 /// @nodoc
@@ -58,6 +63,7 @@ class _$SecretCopyWithImpl<$Res> implements $SecretCopyWith<$Res> {
     Object? emailOrUsername = freezed,
     Object? password = freezed,
     Object? accountId = freezed,
+    Object? updated = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -80,6 +86,10 @@ class _$SecretCopyWithImpl<$Res> implements $SecretCopyWith<$Res> {
           ? _value.accountId
           : accountId // ignore: cast_nullable_to_non_nullable
               as String,
+      updated: updated == freezed
+          ? _value.updated
+          : updated // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
@@ -92,9 +102,10 @@ abstract class _$$_SecretCopyWith<$Res> implements $SecretCopyWith<$Res> {
   $Res call(
       {String id,
       String name,
-      String emailOrUsername,
+      @JsonKey(name: 'email_or_username') String emailOrUsername,
       String password,
-      String accountId});
+      @JsonKey(name: 'account_id') String accountId,
+      @JsonKey(nullable: true) DateTime? updated});
 }
 
 /// @nodoc
@@ -113,6 +124,7 @@ class __$$_SecretCopyWithImpl<$Res> extends _$SecretCopyWithImpl<$Res>
     Object? emailOrUsername = freezed,
     Object? password = freezed,
     Object? accountId = freezed,
+    Object? updated = freezed,
   }) {
     return _then(_$_Secret(
       id: id == freezed
@@ -135,6 +147,10 @@ class __$$_SecretCopyWithImpl<$Res> extends _$SecretCopyWithImpl<$Res>
           ? _value.accountId
           : accountId // ignore: cast_nullable_to_non_nullable
               as String,
+      updated: updated == freezed
+          ? _value.updated
+          : updated // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
@@ -145,9 +161,10 @@ class _$_Secret implements _Secret {
   const _$_Secret(
       {required this.id,
       required this.name,
-      required this.emailOrUsername,
+      @JsonKey(name: 'email_or_username') required this.emailOrUsername,
       required this.password,
-      required this.accountId});
+      @JsonKey(name: 'account_id') required this.accountId,
+      @JsonKey(nullable: true) required this.updated});
 
   factory _$_Secret.fromJson(Map<String, dynamic> json) =>
       _$$_SecretFromJson(json);
@@ -157,15 +174,20 @@ class _$_Secret implements _Secret {
   @override
   final String name;
   @override
+  @JsonKey(name: 'email_or_username')
   final String emailOrUsername;
   @override
   final String password;
   @override
+  @JsonKey(name: 'account_id')
   final String accountId;
+  @override
+  @JsonKey(nullable: true)
+  final DateTime? updated;
 
   @override
   String toString() {
-    return 'Secret(id: $id, name: $name, emailOrUsername: $emailOrUsername, password: $password, accountId: $accountId)';
+    return 'Secret(id: $id, name: $name, emailOrUsername: $emailOrUsername, password: $password, accountId: $accountId, updated: $updated)';
   }
 
   @override
@@ -178,7 +200,8 @@ class _$_Secret implements _Secret {
             const DeepCollectionEquality()
                 .equals(other.emailOrUsername, emailOrUsername) &&
             const DeepCollectionEquality().equals(other.password, password) &&
-            const DeepCollectionEquality().equals(other.accountId, accountId));
+            const DeepCollectionEquality().equals(other.accountId, accountId) &&
+            const DeepCollectionEquality().equals(other.updated, updated));
   }
 
   @JsonKey(ignore: true)
@@ -189,7 +212,8 @@ class _$_Secret implements _Secret {
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(emailOrUsername),
       const DeepCollectionEquality().hash(password),
-      const DeepCollectionEquality().hash(accountId));
+      const DeepCollectionEquality().hash(accountId),
+      const DeepCollectionEquality().hash(updated));
 
   @JsonKey(ignore: true)
   @override
@@ -208,9 +232,10 @@ abstract class _Secret implements Secret {
   const factory _Secret(
       {required final String id,
       required final String name,
-      required final String emailOrUsername,
+      @JsonKey(name: 'email_or_username') required final String emailOrUsername,
       required final String password,
-      required final String accountId}) = _$_Secret;
+      @JsonKey(name: 'account_id') required final String accountId,
+      @JsonKey(nullable: true) required final DateTime? updated}) = _$_Secret;
 
   factory _Secret.fromJson(Map<String, dynamic> json) = _$_Secret.fromJson;
 
@@ -219,11 +244,16 @@ abstract class _Secret implements Secret {
   @override
   String get name;
   @override
+  @JsonKey(name: 'email_or_username')
   String get emailOrUsername;
   @override
   String get password;
   @override
+  @JsonKey(name: 'account_id')
   String get accountId;
+  @override
+  @JsonKey(nullable: true)
+  DateTime? get updated;
   @override
   @JsonKey(ignore: true)
   _$$_SecretCopyWith<_$_Secret> get copyWith =>

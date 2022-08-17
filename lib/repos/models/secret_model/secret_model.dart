@@ -8,9 +8,10 @@ class Secret with _$Secret {
   const factory Secret({
     required String id,
     required String name,
-    required String emailOrUsername,
+    @JsonKey(name: 'email_or_username') required String emailOrUsername,
     required String password,
-    required String accountId,
+    @JsonKey(name: 'account_id') required String accountId,
+    @JsonKey(nullable: true) required DateTime? updated,
   }) = _Secret;
 
   factory Secret.fromJson(Map<String, dynamic> json) => _$SecretFromJson(json);

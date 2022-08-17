@@ -3,31 +3,33 @@ import 'package:secureu_mobile/repos/models/secret_model/secret_model.dart';
 class SecretRepository {
   const SecretRepository();
 
-  Future<Secret?> getSecretById(String id) async {
+  Future<Secret?> getSecretById(String secretId) async {
     return null;
   }
 
-  Future<List<Secret>?> getSecrets() async {
+  Future<List<Secret>?> getSecretsByUserId(String userId) async {
     return null;
   }
 
-  Future<String?> createSecret({
-    required String secretName,
-    required String secretEmailOrUsername,
-    required String secretPassword,
+  Future<String?> createSecret(
+    String userId, {
+    required String name,
+    required String emailOrUsername,
+    required String password,
   }) async {
     return null;
   }
 
-  Future<String?> updateSecret({
-    required String secretName,
-    required String secretEmailOrUsername,
-    required String secretPassword,
+  Future<String?> updateSecret(
+    String secretId, {
+    required String name,
+    required String emailOrUsername,
+    required String password,
   }) async {
     return null;
   }
 
-  Future<String?> deleteSecretById(String id) async {
+  Future<String?> deleteSecretById(String secretId) async {
     return null;
   }
 }
