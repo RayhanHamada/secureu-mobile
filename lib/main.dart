@@ -12,7 +12,7 @@ Future<void> main() async {
 
     Hive.init(constants.hivePath);
 
-    await Hive.openBox('appsession');
+    await Hive.openBox<String>('appsession');
   } else {
     // jika production environment
   }

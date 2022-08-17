@@ -1,5 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hive/hive.dart';
+import 'package:secureu_mobile/config/hive_constants.dart';
 import 'package:secureu_mobile/repos/account_repository.dart';
 import 'package:secureu_mobile/utils/cryptography.dart';
 
@@ -27,7 +29,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         return emit(const LoginState.failedLogin('Akun tidak ditemukan'));
       }
 
-      final accountPassword = account.password;
+      final derivedPasswordFromDB = account.password;
 
       // derive password to pbkdf2 string
       final derivedPassword = await Cryptography.passwordToBase64HKDFString(
@@ -42,17 +44,36 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         );
       }
 
-      if (accountPassword != derivedPassword) {
+      if (derivedPasswordFromDB != derivedPassword) {
         return emit(const LoginState.failedLogin('Kesalahan saat login'));
       }
 
       // turunkan master password menjadi string PBKDF2 base64
-      final derivedInputPassword = Cryptography.passwordToBase64PBKDF2String(
+      final derivedInputPassword =
+          await Cryptography.passwordToBase64PBKDF2String(
         email: event.email,
         masterPassword: event.password,
       );
 
-      // TODO: implement hive/shared_preferences to save derived input password
+      if (derivedInputPassword == null) {
+        return emit(
+          const LoginState.failedLogin('Kesalahan saat memproses password'),
+        );
+      }
+
+      final appsessionBox = Hive.box<String>(HiveConstants.appsession);
+
+      try {
+        await appsessionBox.put(
+            HiveConstants.encryptionKey, derivedInputPassword);
+        await appsessionBox.put(HiveConstants.userEmail, account.email);
+      } catch (e) {
+        print('Kesalahan saat persisting data ke hive DB');
+
+        return emit(
+          const LoginState.failedLogin('Kesalahan saat menyimpan data'),
+        );
+      }
 
       return emit(const LoginState.successLogin());
     });

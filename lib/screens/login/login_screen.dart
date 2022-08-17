@@ -21,6 +21,14 @@ class LoginScreen extends StatelessWidget {
               SecureURoutes.dashboard,
             );
           },
+          failedLogin: (msg) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(msg),
+                backgroundColor: Colors.red,
+              ),
+            );
+          },
         );
       },
       child: Scaffold(
@@ -60,10 +68,11 @@ class LoginScreen extends StatelessWidget {
             SizedBox(
               width: 250.0,
               child: TextButton(
-                onPressed: loginBloc.state.mapOrNull(
-                  initial: (_) => () {
+                onPressed: loginBloc.state.maybeMap(
+                  orElse: () => () {
                     Navigator.pushNamed(context, SecureURoutes.register);
                   },
+                  submittingLogin: (_) => null,
                 ),
                 child: const Text(
                   'Belum punya akun',
