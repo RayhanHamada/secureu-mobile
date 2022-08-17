@@ -9,6 +9,7 @@
 .history
 .svn/
 .env
+hive_datas
 migrate_working_dir/
 
 # IntelliJ related

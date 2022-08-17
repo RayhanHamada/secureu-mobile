@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 import 'package:hive/hive.dart';
 import 'package:secureu_mobile/config/constants.dart' as constants;
 import 'package:secureu_mobile/secureu_app.dart';
@@ -10,14 +10,9 @@ Future<void> main() async {
 
     print('Development mode');
 
-    // ambil .env
-    try {
-      await dotenv.load(fileName: '.env');
-    } catch (e) {
-      print('.env tidak ada/tidak ada isinya');
-    }
+    Hive.init(constants.hivePath);
 
-    Hive.init(null);
+    await Hive.openBox<Map<String, dynamic>>('appsession');
   } else {
     // jika production environment
   }
