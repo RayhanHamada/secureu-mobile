@@ -12,7 +12,7 @@ class AccountRepository {
     try {
       accountRecordModels = await pocketbaseClient.records
           .getFullList(recordName, filter: 'email = "$email"');
-    } on Error {
+    } catch (e) {
       print('gagal mengambil ');
 
       return null;
@@ -36,7 +36,7 @@ class AccountRepository {
         recordName,
         filter: 'email = "$email"',
       );
-    } on Error {
+    } catch (e) {
       print('gagal mengambil ');
 
       return null;
@@ -54,8 +54,8 @@ class AccountRepository {
         'email': email,
         'password': hashedPassword,
       });
-    } on Error catch (e) {
-      print('gagal membuat akun ${e.stackTrace}');
+    } catch (e) {
+      print('gagal membuat akun');
 
       return null;
     }
