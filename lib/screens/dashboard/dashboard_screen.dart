@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hive/hive.dart';
-import 'package:secureu_mobile/config/hive_constants.dart';
 import 'package:secureu_mobile/screens/dashboard/dashboard.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -25,23 +23,28 @@ class DashboardScreen extends StatelessWidget {
   }
 
   PreferredSizeWidget _appbar(BuildContext context) {
-    final appsession = Hive.box<String>(HiveConstants.appsession);
     final dashboardBloc = context.watch<DashboardBloc>();
+    dashboardBloc.add(const DashboardEvent.started());
 
     return AppBar(
-      leading: IconButton(
-        onPressed: () {},
-        icon: const Icon(
-          Icons.person_outline_sharp,
-          color: Colors.white,
+      leading: null,
+      centerTitle: false,
+      title: BlocConsumer<DashboardBloc, DashboardState>(
+        listener: (context, state) {},
+        builder: (context, state) => Text(
+          state.maybeMap(
+            orElse: () => 'Fetching Email...',
+            successFetchEmail: (value) => value.email,
+          ),
         ),
-      ),
-      centerTitle: true,
-      title: Text(
-        appsession.get(
-          HiveConstants.userEmail,
-          defaultValue: 'Fetching email..',
-        )!,
+        buildWhen: (previous, current) => current.maybeMap(
+          orElse: () => false,
+          successFetchEmail: (_) => true,
+        ),
+        listenWhen: (previous, current) => current.maybeMap(
+          orElse: () => false,
+          successFetchEmail: (_) => true,
+        ),
       ),
       actions: [
         IconButton(

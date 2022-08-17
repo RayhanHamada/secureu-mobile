@@ -169,32 +169,38 @@ mixin _$DashboardState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function(String email) successFetchEmail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String email)? successFetchEmail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String email)? successFetchEmail,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_SuccecssFetchEmail value) successFetchEmail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_SuccecssFetchEmail value)? successFetchEmail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_SuccecssFetchEmail value)? successFetchEmail,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -257,6 +263,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function(String email) successFetchEmail,
   }) {
     return initial();
   }
@@ -265,6 +272,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String email)? successFetchEmail,
   }) {
     return initial?.call();
   }
@@ -273,6 +281,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String email)? successFetchEmail,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -285,6 +294,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_SuccecssFetchEmail value) successFetchEmail,
   }) {
     return initial(this);
   }
@@ -293,6 +303,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_SuccecssFetchEmail value)? successFetchEmail,
   }) {
     return initial?.call(this);
   }
@@ -301,6 +312,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_SuccecssFetchEmail value)? successFetchEmail,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -312,4 +324,140 @@ class _$_Initial implements _Initial {
 
 abstract class _Initial implements DashboardState {
   const factory _Initial() = _$_Initial;
+}
+
+/// @nodoc
+abstract class _$$_SuccecssFetchEmailCopyWith<$Res> {
+  factory _$$_SuccecssFetchEmailCopyWith(_$_SuccecssFetchEmail value,
+          $Res Function(_$_SuccecssFetchEmail) then) =
+      __$$_SuccecssFetchEmailCopyWithImpl<$Res>;
+  $Res call({String email});
+}
+
+/// @nodoc
+class __$$_SuccecssFetchEmailCopyWithImpl<$Res>
+    extends _$DashboardStateCopyWithImpl<$Res>
+    implements _$$_SuccecssFetchEmailCopyWith<$Res> {
+  __$$_SuccecssFetchEmailCopyWithImpl(
+      _$_SuccecssFetchEmail _value, $Res Function(_$_SuccecssFetchEmail) _then)
+      : super(_value, (v) => _then(v as _$_SuccecssFetchEmail));
+
+  @override
+  _$_SuccecssFetchEmail get _value => super._value as _$_SuccecssFetchEmail;
+
+  @override
+  $Res call({
+    Object? email = freezed,
+  }) {
+    return _then(_$_SuccecssFetchEmail(
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SuccecssFetchEmail implements _SuccecssFetchEmail {
+  const _$_SuccecssFetchEmail({required this.email});
+
+  @override
+  final String email;
+
+  @override
+  String toString() {
+    return 'DashboardState.successFetchEmail(email: $email)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SuccecssFetchEmail &&
+            const DeepCollectionEquality().equals(other.email, email));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(email));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_SuccecssFetchEmailCopyWith<_$_SuccecssFetchEmail> get copyWith =>
+      __$$_SuccecssFetchEmailCopyWithImpl<_$_SuccecssFetchEmail>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String email) successFetchEmail,
+  }) {
+    return successFetchEmail(email);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String email)? successFetchEmail,
+  }) {
+    return successFetchEmail?.call(email);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String email)? successFetchEmail,
+    required TResult orElse(),
+  }) {
+    if (successFetchEmail != null) {
+      return successFetchEmail(email);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_SuccecssFetchEmail value) successFetchEmail,
+  }) {
+    return successFetchEmail(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SuccecssFetchEmail value)? successFetchEmail,
+  }) {
+    return successFetchEmail?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SuccecssFetchEmail value)? successFetchEmail,
+    required TResult orElse(),
+  }) {
+    if (successFetchEmail != null) {
+      return successFetchEmail(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SuccecssFetchEmail implements DashboardState {
+  const factory _SuccecssFetchEmail({required final String email}) =
+      _$_SuccecssFetchEmail;
+
+  String get email;
+  @JsonKey(ignore: true)
+  _$$_SuccecssFetchEmailCopyWith<_$_SuccecssFetchEmail> get copyWith =>
+      throw _privateConstructorUsedError;
 }
