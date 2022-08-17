@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:hive/hive.dart';
 import 'package:secureu_mobile/config/constants.dart' as constants;
+import 'package:secureu_mobile/config/hive_constants.dart';
 import 'package:secureu_mobile/secureu_app.dart';
 
 Future<void> main() async {
@@ -12,7 +13,7 @@ Future<void> main() async {
 
     Hive.init(constants.hivePath);
 
-    await Hive.openBox<String>('appsession');
+    await Hive.openBox<String>(HiveConstants.appsession);
   } else {
     // jika production environment
   }

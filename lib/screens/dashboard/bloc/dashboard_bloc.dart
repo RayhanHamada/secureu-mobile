@@ -7,8 +7,8 @@ part 'dashboard_bloc.freezed.dart';
 
 class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
   DashboardBloc() : super(const _Initial()) {
-    on<DashboardEvent>((event, emit) {
-      // TODO: implement event handler
+    on<_Started>((event, emit) {
+      print('you entered dashboard');
     });
   }
 }
