@@ -22,7 +22,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<_SubmitLogin>((event, emit) async {
       emit(const LoginState.submittingLogin());
 
-      // get matched account
+      /// get matched account
       final account = await _accountRepo.getAccountByEmail(event.email);
 
       if (account == null) {
@@ -31,43 +31,60 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
       final derivedPasswordFromDB = account.password;
 
-      // derive password to pbkdf2 string
-      final derivedPassword = await Cryptography.passwordToBase64HKDFString(
+      /// turunkan master password menggunakan algoritma PBKDF2
+      final pbkdf2DerivedKey = await Cryptography.derivePasswordWithPBKDF2(
         masterPassword: event.password,
         email: event.email,
       );
 
-      // if there's any error when processing password
-      if (derivedPassword == null) {
+      if (pbkdf2DerivedKey == null) {
+        print('kesalahan saat menurunkan master password menggunakan pbkdf2');
+
         return emit(
           const LoginState.failedLogin('Kesalahan saat memproses password'),
         );
       }
 
-      if (derivedPasswordFromDB != derivedPassword) {
+      /// turunkan lagi dan panjangkan master key
+      /// menggunakan algoritma HKDF
+      final hkdfDerivedKey =
+          await Cryptography.deriveKeyWithHKDF(key: pbkdf2DerivedKey);
+
+      if (hkdfDerivedKey == null) {
+        print('kesalahan saat menurunkan master key menggunakan HKDF');
+
+        return emit(
+          const LoginState.failedLogin('Kesalahan saat memproses password'),
+        );
+      }
+
+      /// convert HKDF derived key kedalam format base64
+      final base64Hkdf = await Cryptography.keyToBase64(key: hkdfDerivedKey);
+
+      if (base64Hkdf != derivedPasswordFromDB) {
+        print('Password salah');
+
         return emit(const LoginState.failedLogin('Kesalahan saat login'));
       }
 
-      // turunkan master password menjadi string PBKDF2 base64
-      final derivedInputPassword =
-          await Cryptography.passwordToBase64PBKDF2String(
-        email: event.email,
-        masterPassword: event.password,
-      );
+      /// convert PBKDF2 derived key kedalam format base64
+      final base64PBKDF = await Cryptography.keyToBase64(key: pbkdf2DerivedKey);
 
-      if (derivedInputPassword == null) {
+      if (base64PBKDF == null) {
+        print('kesalahan saat convert pbkdf2DerivedKey ke base64');
+
         return emit(
           const LoginState.failedLogin('Kesalahan saat memproses password'),
         );
       }
 
+      /// save data session app
       final appsessionBox = Hive.box<String>(HiveConstants.appsession);
 
       try {
-        await appsessionBox.put(
-            HiveConstants.encryptionKey, derivedInputPassword);
-        await appsessionBox.put(HiveConstants.userEmail, account.email);
         await appsessionBox.put(HiveConstants.userId, account.id);
+        await appsessionBox.put(HiveConstants.userEmail, account.email);
+        await appsessionBox.put(HiveConstants.encryptionKey, base64PBKDF);
       } catch (e) {
         print('Kesalahan saat persisting data ke hive DB');
 

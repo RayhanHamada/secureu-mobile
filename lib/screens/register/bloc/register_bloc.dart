@@ -30,7 +30,8 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
       if (exists) {
         return emit(
           const RegisterState.failedSubmittingForm(
-              'Email tidak dapat digunakan'),
+            'Email tidak dapat digunakan',
+          ),
         );
       }
 
@@ -38,8 +39,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
       final email = event.email;
       final masterPassword = event.password;
 
-      final stretchedAccountPassword =
-          await Cryptography.passwordToBase64HKDFString(
+      final stretchedAccountPassword = await Cryptography.forRegister(
         masterPassword: masterPassword,
         email: email,
       );
