@@ -7,13 +7,16 @@ class Cryptography {
     required String masterPassword,
     required String email,
   }) async {
-    // Kodekan untai master password dan email kedalam kode UTF-8
+    /// Kodekan untai master password dan email kedalam kode UTF-8
     final utf8MasterPassword = utf8.encode(masterPassword);
     final utf8Email = utf8.encode(email);
 
-    // Definisikan algoritma PBKDF2 dengan menggunakan
-    // Pseduorandom Function HMAC-SHA256 dengan iterasi
-    // sebanyak 100000 kali, yang menghasilkan array 32 byte
+    /// jadikan untai master password menjadi secretKey
+    final masterPasswordKey = SecretKey(utf8MasterPassword);
+
+    /// Definisikan algoritma PBKDF2 dengan menggunakan
+    /// Pseduorandom Function HMAC-SHA256 dengan iterasi
+    /// sebanyak 100000 kali, yang menghasilkan array 32 byte
     final pbkdf2Algorithm = Pbkdf2(
       macAlgorithm: Hmac.sha256(),
       iterations: 100000,
@@ -25,7 +28,7 @@ class Cryptography {
     // Nilai dari key ini akan menjadi kunci enkripsi data
     // akun pengguna.
     final masterKey = await pbkdf2Algorithm.deriveKey(
-      secretKey: SecretKey(utf8MasterPassword),
+      secretKey: masterPasswordKey,
       nonce: utf8Email,
     );
 
