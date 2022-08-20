@@ -3,13 +3,13 @@ import 'dart:convert';
 import 'package:cryptography/cryptography.dart';
 
 class Cryptography {
-  static Future<SecretKey?> derivePasswordWithPBKDF2({
-    required String masterPassword,
-    required String email,
+  static Future<SecretKey?> deriveStringWithPBKDF2({
+    required String keyString,
+    required String saltString,
   }) async {
     /// Kodekan untai master password dan email kedalam kode UTF-8
-    final utf8MasterPassword = utf8.encode(masterPassword);
-    final utf8Email = utf8.encode(email);
+    final utf8MasterPassword = utf8.encode(keyString);
+    final utf8Email = utf8.encode(saltString);
 
     /// jadikan untai master password menjadi secretKey
     final masterPasswordKey = SecretKey(utf8MasterPassword);
@@ -35,35 +35,31 @@ class Cryptography {
     return masterKey;
   }
 
-  static Future<SecretKey?> deriveKeyWithHKDF({
+  static Future<SecretKey?> deriveKeyWithPBKDF2({
     required SecretKey key,
-    int outputLength = 64,
+    required String saltString,
   }) async {
-    /// Definisikan algoritma HKDF dengan menggunakan
-    /// Algorithma Hash-based Message Authentication Code
-    /// atau HMAC-SHA256 yang akan menghasilkan array integer
-    /// dengan panjang 64 byte atau 512 bit.
-    final hkdfAlgorithm = Hkdf(
-      hmac: Hmac.sha256(),
-      outputLength: outputLength,
+    final utf8Email = utf8.encode(saltString);
+
+    /// Definisikan algoritma PBKDF2 dengan menggunakan
+    /// Pseduorandom Function HMAC-SHA256 dengan iterasi
+    /// sebanyak 100000 kali, yang menghasilkan array 32 byte
+    final pbkdf2Algorithm = Pbkdf2(
+      macAlgorithm: Hmac.sha256(),
+      iterations: 100000,
+      bits: 256,
     );
 
-    /// salt tetap
-    const salt = 'rahasia123';
-    final utf8Salt = utf8.encode(salt);
-
-    /// Turunkan dan panjangkan master key menggunakan algoritma
-    /// HKDF yang telah didefinisikan, menggunakan salt tetap [0].
-    /// Prosedur ini dilakukan agar kunci yang digunakan untuk
-    /// melakukan enkripsi data pengguna tidak sama dengan kunci
-    /// yang digunakan untuk melakukan autentikasi pada saat masuk
-    /// kedalam aplikasi SecureU.
-    final stretchedMasterKey = await hkdfAlgorithm.deriveKey(
+    // Turunkan master password menggunakan algoritma PBKDF2
+    // yang telah didefinisikan, dengan salt berupa email.
+    // Nilai dari key ini akan menjadi kunci enkripsi data
+    // akun pengguna.
+    final masterKey = await pbkdf2Algorithm.deriveKey(
       secretKey: key,
-      nonce: utf8Salt,
+      nonce: utf8Email,
     );
 
-    return stretchedMasterKey;
+    return masterKey;
   }
 
   static Future<String?> keyToBase64({required SecretKey key}) async {
@@ -86,16 +82,20 @@ class Cryptography {
   }) async {
     /// Turunkan master password dengan algoritma PBKDF2,
     /// menghasilkan master key
-    final masterKey = await derivePasswordWithPBKDF2(
-        masterPassword: masterPassword, email: email);
+    final masterKey = await deriveStringWithPBKDF2(
+      keyString: masterPassword,
+      saltString: email,
+    );
 
     if (masterKey == null) {
       return null;
     }
 
-    /// Turunkan lagi master key menggunakan
-    /// algoritma HKDF, dan panjangkan menjadi key 64 bytes
-    final stretchedMasterKey = await deriveKeyWithHKDF(key: masterKey);
+    /// Turunkan lagi master key menggunakan algoritma PBKDF2
+    final stretchedMasterKey = await deriveKeyWithPBKDF2(
+      key: masterKey,
+      saltString: email,
+    );
 
     if (stretchedMasterKey == null) {
       return null;
@@ -107,4 +107,22 @@ class Cryptography {
 
     return base64Bytes;
   }
+
+  // static Future<String?> encryptWithAES256({
+  //   required String base64KeyString,
+  //   required String salt,
+  //   required String plaintext,
+  // }) async {
+  //   final key = SecretKey(base64.decode(base64KeyString));
+
+  //   return null;
+  // }
+
+  // static Future<String?> decryptWithAES256({
+  //   required String base64KeyString,
+  //   required String salt,
+  //   required String cipherText,
+  // }) async {
+  //   return null;
+  // }
 }

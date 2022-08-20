@@ -32,36 +32,40 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       final derivedPasswordFromDB = account.password;
 
       /// turunkan master password menggunakan algoritma PBKDF2
-      final pbkdf2DerivedKey = await Cryptography.derivePasswordWithPBKDF2(
-        masterPassword: event.password,
-        email: event.email,
+      final pbkdf2DerivedKey = await Cryptography.deriveStringWithPBKDF2(
+        keyString: event.password,
+        saltString: event.email,
       );
 
       if (pbkdf2DerivedKey == null) {
-        print('kesalahan saat menurunkan master password menggunakan pbkdf2');
+        print(
+            'kesalahan saat menurunkan master password menggunakan PBKDF2 - stage 1');
 
         return emit(
           const LoginState.failedLogin('Kesalahan saat memproses password'),
         );
       }
 
-      /// turunkan lagi dan panjangkan master key
-      /// menggunakan algoritma HKDF
-      final hkdfDerivedKey =
-          await Cryptography.deriveKeyWithHKDF(key: pbkdf2DerivedKey);
+      /// turunkan lagi master key menggunakan algoritma PBKDF2
+      final pbkdf2DerivedKey2 = await Cryptography.deriveKeyWithPBKDF2(
+        key: pbkdf2DerivedKey,
+        saltString: event.email,
+      );
 
-      if (hkdfDerivedKey == null) {
-        print('kesalahan saat menurunkan master key menggunakan HKDF');
+      if (pbkdf2DerivedKey2 == null) {
+        print(
+            'kesalahan saat menurunkan master key menggunakan PBKDF2 - stage 2');
 
         return emit(
           const LoginState.failedLogin('Kesalahan saat memproses password'),
         );
       }
 
-      /// convert HKDF derived key kedalam format base64
-      final base64Hkdf = await Cryptography.keyToBase64(key: hkdfDerivedKey);
+      /// convert PBKDF2 derived key kedalam format base64
+      final base64PBKDF2 =
+          await Cryptography.keyToBase64(key: pbkdf2DerivedKey2);
 
-      if (base64Hkdf != derivedPasswordFromDB) {
+      if (base64PBKDF2 != derivedPasswordFromDB) {
         print('Password salah');
 
         return emit(const LoginState.failedLogin('Kesalahan saat login'));
@@ -71,7 +75,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       final base64PBKDF = await Cryptography.keyToBase64(key: pbkdf2DerivedKey);
 
       if (base64PBKDF == null) {
-        print('kesalahan saat convert pbkdf2DerivedKey ke base64');
+        print('kesalahan saat convert pbkdf2DerivedKey2 ke base64');
 
         return emit(
           const LoginState.failedLogin('Kesalahan saat memproses password'),
