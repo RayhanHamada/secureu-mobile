@@ -113,33 +113,32 @@ class _CreateSecretFormState extends State<CreateSecretForm> {
 
           /// Password textfield
           SizedBox(
-            width: 250.0,
-            child: TextFormField(
-              controller: _passwordController,
-              validator: _validatePassword,
-              obscureText: _hidePasswordField,
-              style: const TextStyle(
-                color: Colors.white,
-              ),
-              obscuringCharacter: '*',
-              decoration: InputDecoration(
-                hintStyle: theme.inputDecorationTheme.hintStyle,
-                labelStyle: theme.inputDecorationTheme.labelStyle,
-                border: theme.inputDecorationTheme.border,
-                enabledBorder: theme.inputDecorationTheme.enabledBorder,
-                focusedBorder: theme.inputDecorationTheme.focusedBorder,
-                suffixIcon: IconButton(
-                  onPressed: _toggleHidePassword,
-                  icon: Icon(
-                    color: Colors.white,
-                    _hidePasswordField
-                        ? Icons.visibility
-                        : Icons.visibility_off,
+              width: 250.0,
+              child: TextFormField(
+                controller: _passwordController,
+                validator: _validatePassword,
+                obscureText: _hidePasswordField,
+                style: const TextStyle(
+                  color: Colors.white,
+                ),
+                obscuringCharacter: '*',
+                decoration: InputDecoration(
+                  hintStyle: theme.inputDecorationTheme.hintStyle,
+                  labelStyle: theme.inputDecorationTheme.labelStyle,
+                  border: theme.inputDecorationTheme.border,
+                  enabledBorder: theme.inputDecorationTheme.enabledBorder,
+                  focusedBorder: theme.inputDecorationTheme.focusedBorder,
+                  suffixIcon: IconButton(
+                    onPressed: _toggleHidePassword,
+                    icon: Icon(
+                      color: Colors.white,
+                      _hidePasswordField
+                          ? Icons.visibility
+                          : Icons.visibility_off,
+                    ),
                   ),
                 ),
-              ),
-            ),
-          ),
+              )),
 
           const SizedBox(
             height: 20.0,
