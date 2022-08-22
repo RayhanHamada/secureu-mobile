@@ -129,7 +129,7 @@ class DashboardScreen extends StatelessWidget {
                         style: const TextStyle(color: Colors.white),
                       ),
                       subtitle: Text(
-                        date,
+                        'Diupdate: $date',
                         style: const TextStyle(
                           color: Colors.white54,
                         ),

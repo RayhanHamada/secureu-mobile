@@ -14,7 +14,7 @@ class _CreateSecretFormState extends State<CreateSecretForm> {
   final _emailOrUsernameController = TextEditingController(text: '');
   final _passwordController = TextEditingController(text: '');
 
-  var _formKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
   var _hidePasswordField = true;
 
   String? _validateName(String? name) {
@@ -73,7 +73,7 @@ class _CreateSecretFormState extends State<CreateSecretForm> {
                 color: Colors.white,
               ),
               decoration: InputDecoration(
-                labelText: 'Secret Name',
+                labelText: 'Nama Rahasia',
                 hintStyle: theme.inputDecorationTheme.hintStyle,
                 labelStyle: theme.inputDecorationTheme.labelStyle,
                 border: theme.inputDecorationTheme.border,
@@ -97,7 +97,7 @@ class _CreateSecretFormState extends State<CreateSecretForm> {
                 color: Colors.white,
               ),
               decoration: InputDecoration(
-                labelText: 'Secret Email or Username',
+                labelText: 'Email atau Username Rahasia',
                 hintStyle: theme.inputDecorationTheme.hintStyle,
                 labelStyle: theme.inputDecorationTheme.labelStyle,
                 border: theme.inputDecorationTheme.border,
@@ -123,7 +123,7 @@ class _CreateSecretFormState extends State<CreateSecretForm> {
                   color: Colors.white,
                 ),
                 decoration: InputDecoration(
-                  labelText: 'Secret Password',
+                  labelText: 'Password Rahasia',
                   hintStyle: theme.inputDecorationTheme.hintStyle,
                   labelStyle: theme.inputDecorationTheme.labelStyle,
                   border: theme.inputDecorationTheme.border,
@@ -177,7 +177,7 @@ class _CreateSecretFormState extends State<CreateSecretForm> {
                 ),
               ),
               child: const Text(
-                'Create Secret',
+                'Tambahkan Rahasia',
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 16,

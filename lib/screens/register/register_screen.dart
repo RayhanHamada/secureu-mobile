@@ -85,7 +85,7 @@ class RegisterScreen extends StatelessWidget {
         ),
         const Center(
           child: Text(
-            'Welcome Back',
+            'Halo Pengguna Baru !',
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.normal,

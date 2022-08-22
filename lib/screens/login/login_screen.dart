@@ -52,7 +52,7 @@ class LoginScreen extends StatelessWidget {
             ),
             const Center(
               child: Text(
-                'Welcome Back',
+                'Selamat Datang Kembali !',
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.normal,

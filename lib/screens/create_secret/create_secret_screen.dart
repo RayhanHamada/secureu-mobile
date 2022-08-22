@@ -28,7 +28,7 @@ class CreateSecretScreen extends StatelessWidget {
 
   PreferredSizeWidget _appbar(BuildContext context) {
     return AppBar(
-      title: const Text('Create Secret'),
+      title: const Text('Tambahkan Rahasia'),
       centerTitle: true,
       leading: IconButton(
         onPressed: () => Navigator.of(context).pop(),
