@@ -20,18 +20,21 @@ mixin _$DashboardEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() deleteSessionData,
+    required TResult Function() fetchSecretList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? deleteSessionData,
+    TResult Function()? fetchSecretList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? deleteSessionData,
+    TResult Function()? fetchSecretList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$DashboardEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_DeleteSessionData value) deleteSessionData,
+    required TResult Function(_FetchSecretList value) fetchSecretList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_DeleteSessionData value)? deleteSessionData,
+    TResult Function(_FetchSecretList value)? fetchSecretList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_DeleteSessionData value)? deleteSessionData,
+    TResult Function(_FetchSecretList value)? fetchSecretList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -114,6 +120,7 @@ class _$_Started implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() deleteSessionData,
+    required TResult Function() fetchSecretList,
   }) {
     return started();
   }
@@ -123,6 +130,7 @@ class _$_Started implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? deleteSessionData,
+    TResult Function()? fetchSecretList,
   }) {
     return started?.call();
   }
@@ -132,6 +140,7 @@ class _$_Started implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? deleteSessionData,
+    TResult Function()? fetchSecretList,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -145,6 +154,7 @@ class _$_Started implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_DeleteSessionData value) deleteSessionData,
+    required TResult Function(_FetchSecretList value) fetchSecretList,
   }) {
     return started(this);
   }
@@ -154,6 +164,7 @@ class _$_Started implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_DeleteSessionData value)? deleteSessionData,
+    TResult Function(_FetchSecretList value)? fetchSecretList,
   }) {
     return started?.call(this);
   }
@@ -163,6 +174,7 @@ class _$_Started implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_DeleteSessionData value)? deleteSessionData,
+    TResult Function(_FetchSecretList value)? fetchSecretList,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -219,6 +231,7 @@ class _$_DeleteSessionData implements _DeleteSessionData {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() deleteSessionData,
+    required TResult Function() fetchSecretList,
   }) {
     return deleteSessionData();
   }
@@ -228,6 +241,7 @@ class _$_DeleteSessionData implements _DeleteSessionData {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? deleteSessionData,
+    TResult Function()? fetchSecretList,
   }) {
     return deleteSessionData?.call();
   }
@@ -237,6 +251,7 @@ class _$_DeleteSessionData implements _DeleteSessionData {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? deleteSessionData,
+    TResult Function()? fetchSecretList,
     required TResult orElse(),
   }) {
     if (deleteSessionData != null) {
@@ -250,6 +265,7 @@ class _$_DeleteSessionData implements _DeleteSessionData {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_DeleteSessionData value) deleteSessionData,
+    required TResult Function(_FetchSecretList value) fetchSecretList,
   }) {
     return deleteSessionData(this);
   }
@@ -259,6 +275,7 @@ class _$_DeleteSessionData implements _DeleteSessionData {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_DeleteSessionData value)? deleteSessionData,
+    TResult Function(_FetchSecretList value)? fetchSecretList,
   }) {
     return deleteSessionData?.call(this);
   }
@@ -268,6 +285,7 @@ class _$_DeleteSessionData implements _DeleteSessionData {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_DeleteSessionData value)? deleteSessionData,
+    TResult Function(_FetchSecretList value)? fetchSecretList,
     required TResult orElse(),
   }) {
     if (deleteSessionData != null) {
@@ -282,12 +300,126 @@ abstract class _DeleteSessionData implements DashboardEvent {
 }
 
 /// @nodoc
+abstract class _$$_FetchSecretListCopyWith<$Res> {
+  factory _$$_FetchSecretListCopyWith(
+          _$_FetchSecretList value, $Res Function(_$_FetchSecretList) then) =
+      __$$_FetchSecretListCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_FetchSecretListCopyWithImpl<$Res>
+    extends _$DashboardEventCopyWithImpl<$Res>
+    implements _$$_FetchSecretListCopyWith<$Res> {
+  __$$_FetchSecretListCopyWithImpl(
+      _$_FetchSecretList _value, $Res Function(_$_FetchSecretList) _then)
+      : super(_value, (v) => _then(v as _$_FetchSecretList));
+
+  @override
+  _$_FetchSecretList get _value => super._value as _$_FetchSecretList;
+}
+
+/// @nodoc
+
+class _$_FetchSecretList implements _FetchSecretList {
+  const _$_FetchSecretList();
+
+  @override
+  String toString() {
+    return 'DashboardEvent.fetchSecretList()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_FetchSecretList);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() deleteSessionData,
+    required TResult Function() fetchSecretList,
+  }) {
+    return fetchSecretList();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? deleteSessionData,
+    TResult Function()? fetchSecretList,
+  }) {
+    return fetchSecretList?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? deleteSessionData,
+    TResult Function()? fetchSecretList,
+    required TResult orElse(),
+  }) {
+    if (fetchSecretList != null) {
+      return fetchSecretList();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_DeleteSessionData value) deleteSessionData,
+    required TResult Function(_FetchSecretList value) fetchSecretList,
+  }) {
+    return fetchSecretList(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_DeleteSessionData value)? deleteSessionData,
+    TResult Function(_FetchSecretList value)? fetchSecretList,
+  }) {
+    return fetchSecretList?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_DeleteSessionData value)? deleteSessionData,
+    TResult Function(_FetchSecretList value)? fetchSecretList,
+    required TResult orElse(),
+  }) {
+    if (fetchSecretList != null) {
+      return fetchSecretList(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchSecretList implements DashboardEvent {
+  const factory _FetchSecretList() = _$_FetchSecretList;
+}
+
+/// @nodoc
 mixin _$DashboardState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(String email) successFetchEmail,
     required TResult Function() successDeleteSessionData,
+    required TResult Function() fetchingSecrets,
+    required TResult Function(List<Secret> secrets) successFetchingSecrets,
+    required TResult Function(String msg) failedFetchingSecrets,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -295,6 +427,9 @@ mixin _$DashboardState {
     TResult Function()? initial,
     TResult Function(String email)? successFetchEmail,
     TResult Function()? successDeleteSessionData,
+    TResult Function()? fetchingSecrets,
+    TResult Function(List<Secret> secrets)? successFetchingSecrets,
+    TResult Function(String msg)? failedFetchingSecrets,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -302,6 +437,9 @@ mixin _$DashboardState {
     TResult Function()? initial,
     TResult Function(String email)? successFetchEmail,
     TResult Function()? successDeleteSessionData,
+    TResult Function()? fetchingSecrets,
+    TResult Function(List<Secret> secrets)? successFetchingSecrets,
+    TResult Function(String msg)? failedFetchingSecrets,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -311,6 +449,11 @@ mixin _$DashboardState {
     required TResult Function(_SuccecssFetchEmail value) successFetchEmail,
     required TResult Function(_SuccessDeleteSessionData value)
         successDeleteSessionData,
+    required TResult Function(_FetchingSecrets value) fetchingSecrets,
+    required TResult Function(_SuccessFetchingSecrets value)
+        successFetchingSecrets,
+    required TResult Function(_FailedFetchingSecrets value)
+        failedFetchingSecrets,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -318,6 +461,9 @@ mixin _$DashboardState {
     TResult Function(_Initial value)? initial,
     TResult Function(_SuccecssFetchEmail value)? successFetchEmail,
     TResult Function(_SuccessDeleteSessionData value)? successDeleteSessionData,
+    TResult Function(_FetchingSecrets value)? fetchingSecrets,
+    TResult Function(_SuccessFetchingSecrets value)? successFetchingSecrets,
+    TResult Function(_FailedFetchingSecrets value)? failedFetchingSecrets,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -325,6 +471,9 @@ mixin _$DashboardState {
     TResult Function(_Initial value)? initial,
     TResult Function(_SuccecssFetchEmail value)? successFetchEmail,
     TResult Function(_SuccessDeleteSessionData value)? successDeleteSessionData,
+    TResult Function(_FetchingSecrets value)? fetchingSecrets,
+    TResult Function(_SuccessFetchingSecrets value)? successFetchingSecrets,
+    TResult Function(_FailedFetchingSecrets value)? failedFetchingSecrets,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -389,6 +538,9 @@ class _$_Initial implements _Initial {
     required TResult Function() initial,
     required TResult Function(String email) successFetchEmail,
     required TResult Function() successDeleteSessionData,
+    required TResult Function() fetchingSecrets,
+    required TResult Function(List<Secret> secrets) successFetchingSecrets,
+    required TResult Function(String msg) failedFetchingSecrets,
   }) {
     return initial();
   }
@@ -399,6 +551,9 @@ class _$_Initial implements _Initial {
     TResult Function()? initial,
     TResult Function(String email)? successFetchEmail,
     TResult Function()? successDeleteSessionData,
+    TResult Function()? fetchingSecrets,
+    TResult Function(List<Secret> secrets)? successFetchingSecrets,
+    TResult Function(String msg)? failedFetchingSecrets,
   }) {
     return initial?.call();
   }
@@ -409,6 +564,9 @@ class _$_Initial implements _Initial {
     TResult Function()? initial,
     TResult Function(String email)? successFetchEmail,
     TResult Function()? successDeleteSessionData,
+    TResult Function()? fetchingSecrets,
+    TResult Function(List<Secret> secrets)? successFetchingSecrets,
+    TResult Function(String msg)? failedFetchingSecrets,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -424,6 +582,11 @@ class _$_Initial implements _Initial {
     required TResult Function(_SuccecssFetchEmail value) successFetchEmail,
     required TResult Function(_SuccessDeleteSessionData value)
         successDeleteSessionData,
+    required TResult Function(_FetchingSecrets value) fetchingSecrets,
+    required TResult Function(_SuccessFetchingSecrets value)
+        successFetchingSecrets,
+    required TResult Function(_FailedFetchingSecrets value)
+        failedFetchingSecrets,
   }) {
     return initial(this);
   }
@@ -434,6 +597,9 @@ class _$_Initial implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_SuccecssFetchEmail value)? successFetchEmail,
     TResult Function(_SuccessDeleteSessionData value)? successDeleteSessionData,
+    TResult Function(_FetchingSecrets value)? fetchingSecrets,
+    TResult Function(_SuccessFetchingSecrets value)? successFetchingSecrets,
+    TResult Function(_FailedFetchingSecrets value)? failedFetchingSecrets,
   }) {
     return initial?.call(this);
   }
@@ -444,6 +610,9 @@ class _$_Initial implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_SuccecssFetchEmail value)? successFetchEmail,
     TResult Function(_SuccessDeleteSessionData value)? successDeleteSessionData,
+    TResult Function(_FetchingSecrets value)? fetchingSecrets,
+    TResult Function(_SuccessFetchingSecrets value)? successFetchingSecrets,
+    TResult Function(_FailedFetchingSecrets value)? failedFetchingSecrets,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -526,6 +695,9 @@ class _$_SuccecssFetchEmail implements _SuccecssFetchEmail {
     required TResult Function() initial,
     required TResult Function(String email) successFetchEmail,
     required TResult Function() successDeleteSessionData,
+    required TResult Function() fetchingSecrets,
+    required TResult Function(List<Secret> secrets) successFetchingSecrets,
+    required TResult Function(String msg) failedFetchingSecrets,
   }) {
     return successFetchEmail(email);
   }
@@ -536,6 +708,9 @@ class _$_SuccecssFetchEmail implements _SuccecssFetchEmail {
     TResult Function()? initial,
     TResult Function(String email)? successFetchEmail,
     TResult Function()? successDeleteSessionData,
+    TResult Function()? fetchingSecrets,
+    TResult Function(List<Secret> secrets)? successFetchingSecrets,
+    TResult Function(String msg)? failedFetchingSecrets,
   }) {
     return successFetchEmail?.call(email);
   }
@@ -546,6 +721,9 @@ class _$_SuccecssFetchEmail implements _SuccecssFetchEmail {
     TResult Function()? initial,
     TResult Function(String email)? successFetchEmail,
     TResult Function()? successDeleteSessionData,
+    TResult Function()? fetchingSecrets,
+    TResult Function(List<Secret> secrets)? successFetchingSecrets,
+    TResult Function(String msg)? failedFetchingSecrets,
     required TResult orElse(),
   }) {
     if (successFetchEmail != null) {
@@ -561,6 +739,11 @@ class _$_SuccecssFetchEmail implements _SuccecssFetchEmail {
     required TResult Function(_SuccecssFetchEmail value) successFetchEmail,
     required TResult Function(_SuccessDeleteSessionData value)
         successDeleteSessionData,
+    required TResult Function(_FetchingSecrets value) fetchingSecrets,
+    required TResult Function(_SuccessFetchingSecrets value)
+        successFetchingSecrets,
+    required TResult Function(_FailedFetchingSecrets value)
+        failedFetchingSecrets,
   }) {
     return successFetchEmail(this);
   }
@@ -571,6 +754,9 @@ class _$_SuccecssFetchEmail implements _SuccecssFetchEmail {
     TResult Function(_Initial value)? initial,
     TResult Function(_SuccecssFetchEmail value)? successFetchEmail,
     TResult Function(_SuccessDeleteSessionData value)? successDeleteSessionData,
+    TResult Function(_FetchingSecrets value)? fetchingSecrets,
+    TResult Function(_SuccessFetchingSecrets value)? successFetchingSecrets,
+    TResult Function(_FailedFetchingSecrets value)? failedFetchingSecrets,
   }) {
     return successFetchEmail?.call(this);
   }
@@ -581,6 +767,9 @@ class _$_SuccecssFetchEmail implements _SuccecssFetchEmail {
     TResult Function(_Initial value)? initial,
     TResult Function(_SuccecssFetchEmail value)? successFetchEmail,
     TResult Function(_SuccessDeleteSessionData value)? successDeleteSessionData,
+    TResult Function(_FetchingSecrets value)? fetchingSecrets,
+    TResult Function(_SuccessFetchingSecrets value)? successFetchingSecrets,
+    TResult Function(_FailedFetchingSecrets value)? failedFetchingSecrets,
     required TResult orElse(),
   }) {
     if (successFetchEmail != null) {
@@ -647,6 +836,9 @@ class _$_SuccessDeleteSessionData implements _SuccessDeleteSessionData {
     required TResult Function() initial,
     required TResult Function(String email) successFetchEmail,
     required TResult Function() successDeleteSessionData,
+    required TResult Function() fetchingSecrets,
+    required TResult Function(List<Secret> secrets) successFetchingSecrets,
+    required TResult Function(String msg) failedFetchingSecrets,
   }) {
     return successDeleteSessionData();
   }
@@ -657,6 +849,9 @@ class _$_SuccessDeleteSessionData implements _SuccessDeleteSessionData {
     TResult Function()? initial,
     TResult Function(String email)? successFetchEmail,
     TResult Function()? successDeleteSessionData,
+    TResult Function()? fetchingSecrets,
+    TResult Function(List<Secret> secrets)? successFetchingSecrets,
+    TResult Function(String msg)? failedFetchingSecrets,
   }) {
     return successDeleteSessionData?.call();
   }
@@ -667,6 +862,9 @@ class _$_SuccessDeleteSessionData implements _SuccessDeleteSessionData {
     TResult Function()? initial,
     TResult Function(String email)? successFetchEmail,
     TResult Function()? successDeleteSessionData,
+    TResult Function()? fetchingSecrets,
+    TResult Function(List<Secret> secrets)? successFetchingSecrets,
+    TResult Function(String msg)? failedFetchingSecrets,
     required TResult orElse(),
   }) {
     if (successDeleteSessionData != null) {
@@ -682,6 +880,11 @@ class _$_SuccessDeleteSessionData implements _SuccessDeleteSessionData {
     required TResult Function(_SuccecssFetchEmail value) successFetchEmail,
     required TResult Function(_SuccessDeleteSessionData value)
         successDeleteSessionData,
+    required TResult Function(_FetchingSecrets value) fetchingSecrets,
+    required TResult Function(_SuccessFetchingSecrets value)
+        successFetchingSecrets,
+    required TResult Function(_FailedFetchingSecrets value)
+        failedFetchingSecrets,
   }) {
     return successDeleteSessionData(this);
   }
@@ -692,6 +895,9 @@ class _$_SuccessDeleteSessionData implements _SuccessDeleteSessionData {
     TResult Function(_Initial value)? initial,
     TResult Function(_SuccecssFetchEmail value)? successFetchEmail,
     TResult Function(_SuccessDeleteSessionData value)? successDeleteSessionData,
+    TResult Function(_FetchingSecrets value)? fetchingSecrets,
+    TResult Function(_SuccessFetchingSecrets value)? successFetchingSecrets,
+    TResult Function(_FailedFetchingSecrets value)? failedFetchingSecrets,
   }) {
     return successDeleteSessionData?.call(this);
   }
@@ -702,6 +908,9 @@ class _$_SuccessDeleteSessionData implements _SuccessDeleteSessionData {
     TResult Function(_Initial value)? initial,
     TResult Function(_SuccecssFetchEmail value)? successFetchEmail,
     TResult Function(_SuccessDeleteSessionData value)? successDeleteSessionData,
+    TResult Function(_FetchingSecrets value)? fetchingSecrets,
+    TResult Function(_SuccessFetchingSecrets value)? successFetchingSecrets,
+    TResult Function(_FailedFetchingSecrets value)? failedFetchingSecrets,
     required TResult orElse(),
   }) {
     if (successDeleteSessionData != null) {
@@ -713,4 +922,469 @@ class _$_SuccessDeleteSessionData implements _SuccessDeleteSessionData {
 
 abstract class _SuccessDeleteSessionData implements DashboardState {
   const factory _SuccessDeleteSessionData() = _$_SuccessDeleteSessionData;
+}
+
+/// @nodoc
+abstract class _$$_FetchingSecretsCopyWith<$Res> {
+  factory _$$_FetchingSecretsCopyWith(
+          _$_FetchingSecrets value, $Res Function(_$_FetchingSecrets) then) =
+      __$$_FetchingSecretsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_FetchingSecretsCopyWithImpl<$Res>
+    extends _$DashboardStateCopyWithImpl<$Res>
+    implements _$$_FetchingSecretsCopyWith<$Res> {
+  __$$_FetchingSecretsCopyWithImpl(
+      _$_FetchingSecrets _value, $Res Function(_$_FetchingSecrets) _then)
+      : super(_value, (v) => _then(v as _$_FetchingSecrets));
+
+  @override
+  _$_FetchingSecrets get _value => super._value as _$_FetchingSecrets;
+}
+
+/// @nodoc
+
+class _$_FetchingSecrets implements _FetchingSecrets {
+  const _$_FetchingSecrets();
+
+  @override
+  String toString() {
+    return 'DashboardState.fetchingSecrets()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_FetchingSecrets);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String email) successFetchEmail,
+    required TResult Function() successDeleteSessionData,
+    required TResult Function() fetchingSecrets,
+    required TResult Function(List<Secret> secrets) successFetchingSecrets,
+    required TResult Function(String msg) failedFetchingSecrets,
+  }) {
+    return fetchingSecrets();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String email)? successFetchEmail,
+    TResult Function()? successDeleteSessionData,
+    TResult Function()? fetchingSecrets,
+    TResult Function(List<Secret> secrets)? successFetchingSecrets,
+    TResult Function(String msg)? failedFetchingSecrets,
+  }) {
+    return fetchingSecrets?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String email)? successFetchEmail,
+    TResult Function()? successDeleteSessionData,
+    TResult Function()? fetchingSecrets,
+    TResult Function(List<Secret> secrets)? successFetchingSecrets,
+    TResult Function(String msg)? failedFetchingSecrets,
+    required TResult orElse(),
+  }) {
+    if (fetchingSecrets != null) {
+      return fetchingSecrets();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_SuccecssFetchEmail value) successFetchEmail,
+    required TResult Function(_SuccessDeleteSessionData value)
+        successDeleteSessionData,
+    required TResult Function(_FetchingSecrets value) fetchingSecrets,
+    required TResult Function(_SuccessFetchingSecrets value)
+        successFetchingSecrets,
+    required TResult Function(_FailedFetchingSecrets value)
+        failedFetchingSecrets,
+  }) {
+    return fetchingSecrets(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SuccecssFetchEmail value)? successFetchEmail,
+    TResult Function(_SuccessDeleteSessionData value)? successDeleteSessionData,
+    TResult Function(_FetchingSecrets value)? fetchingSecrets,
+    TResult Function(_SuccessFetchingSecrets value)? successFetchingSecrets,
+    TResult Function(_FailedFetchingSecrets value)? failedFetchingSecrets,
+  }) {
+    return fetchingSecrets?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SuccecssFetchEmail value)? successFetchEmail,
+    TResult Function(_SuccessDeleteSessionData value)? successDeleteSessionData,
+    TResult Function(_FetchingSecrets value)? fetchingSecrets,
+    TResult Function(_SuccessFetchingSecrets value)? successFetchingSecrets,
+    TResult Function(_FailedFetchingSecrets value)? failedFetchingSecrets,
+    required TResult orElse(),
+  }) {
+    if (fetchingSecrets != null) {
+      return fetchingSecrets(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchingSecrets implements DashboardState {
+  const factory _FetchingSecrets() = _$_FetchingSecrets;
+}
+
+/// @nodoc
+abstract class _$$_SuccessFetchingSecretsCopyWith<$Res> {
+  factory _$$_SuccessFetchingSecretsCopyWith(_$_SuccessFetchingSecrets value,
+          $Res Function(_$_SuccessFetchingSecrets) then) =
+      __$$_SuccessFetchingSecretsCopyWithImpl<$Res>;
+  $Res call({List<Secret> secrets});
+}
+
+/// @nodoc
+class __$$_SuccessFetchingSecretsCopyWithImpl<$Res>
+    extends _$DashboardStateCopyWithImpl<$Res>
+    implements _$$_SuccessFetchingSecretsCopyWith<$Res> {
+  __$$_SuccessFetchingSecretsCopyWithImpl(_$_SuccessFetchingSecrets _value,
+      $Res Function(_$_SuccessFetchingSecrets) _then)
+      : super(_value, (v) => _then(v as _$_SuccessFetchingSecrets));
+
+  @override
+  _$_SuccessFetchingSecrets get _value =>
+      super._value as _$_SuccessFetchingSecrets;
+
+  @override
+  $Res call({
+    Object? secrets = freezed,
+  }) {
+    return _then(_$_SuccessFetchingSecrets(
+      secrets: secrets == freezed
+          ? _value._secrets
+          : secrets // ignore: cast_nullable_to_non_nullable
+              as List<Secret>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SuccessFetchingSecrets implements _SuccessFetchingSecrets {
+  const _$_SuccessFetchingSecrets({required final List<Secret> secrets})
+      : _secrets = secrets;
+
+  final List<Secret> _secrets;
+  @override
+  List<Secret> get secrets {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_secrets);
+  }
+
+  @override
+  String toString() {
+    return 'DashboardState.successFetchingSecrets(secrets: $secrets)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SuccessFetchingSecrets &&
+            const DeepCollectionEquality().equals(other._secrets, _secrets));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_secrets));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_SuccessFetchingSecretsCopyWith<_$_SuccessFetchingSecrets> get copyWith =>
+      __$$_SuccessFetchingSecretsCopyWithImpl<_$_SuccessFetchingSecrets>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String email) successFetchEmail,
+    required TResult Function() successDeleteSessionData,
+    required TResult Function() fetchingSecrets,
+    required TResult Function(List<Secret> secrets) successFetchingSecrets,
+    required TResult Function(String msg) failedFetchingSecrets,
+  }) {
+    return successFetchingSecrets(secrets);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String email)? successFetchEmail,
+    TResult Function()? successDeleteSessionData,
+    TResult Function()? fetchingSecrets,
+    TResult Function(List<Secret> secrets)? successFetchingSecrets,
+    TResult Function(String msg)? failedFetchingSecrets,
+  }) {
+    return successFetchingSecrets?.call(secrets);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String email)? successFetchEmail,
+    TResult Function()? successDeleteSessionData,
+    TResult Function()? fetchingSecrets,
+    TResult Function(List<Secret> secrets)? successFetchingSecrets,
+    TResult Function(String msg)? failedFetchingSecrets,
+    required TResult orElse(),
+  }) {
+    if (successFetchingSecrets != null) {
+      return successFetchingSecrets(secrets);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_SuccecssFetchEmail value) successFetchEmail,
+    required TResult Function(_SuccessDeleteSessionData value)
+        successDeleteSessionData,
+    required TResult Function(_FetchingSecrets value) fetchingSecrets,
+    required TResult Function(_SuccessFetchingSecrets value)
+        successFetchingSecrets,
+    required TResult Function(_FailedFetchingSecrets value)
+        failedFetchingSecrets,
+  }) {
+    return successFetchingSecrets(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SuccecssFetchEmail value)? successFetchEmail,
+    TResult Function(_SuccessDeleteSessionData value)? successDeleteSessionData,
+    TResult Function(_FetchingSecrets value)? fetchingSecrets,
+    TResult Function(_SuccessFetchingSecrets value)? successFetchingSecrets,
+    TResult Function(_FailedFetchingSecrets value)? failedFetchingSecrets,
+  }) {
+    return successFetchingSecrets?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SuccecssFetchEmail value)? successFetchEmail,
+    TResult Function(_SuccessDeleteSessionData value)? successDeleteSessionData,
+    TResult Function(_FetchingSecrets value)? fetchingSecrets,
+    TResult Function(_SuccessFetchingSecrets value)? successFetchingSecrets,
+    TResult Function(_FailedFetchingSecrets value)? failedFetchingSecrets,
+    required TResult orElse(),
+  }) {
+    if (successFetchingSecrets != null) {
+      return successFetchingSecrets(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SuccessFetchingSecrets implements DashboardState {
+  const factory _SuccessFetchingSecrets({required final List<Secret> secrets}) =
+      _$_SuccessFetchingSecrets;
+
+  List<Secret> get secrets;
+  @JsonKey(ignore: true)
+  _$$_SuccessFetchingSecretsCopyWith<_$_SuccessFetchingSecrets> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_FailedFetchingSecretsCopyWith<$Res> {
+  factory _$$_FailedFetchingSecretsCopyWith(_$_FailedFetchingSecrets value,
+          $Res Function(_$_FailedFetchingSecrets) then) =
+      __$$_FailedFetchingSecretsCopyWithImpl<$Res>;
+  $Res call({String msg});
+}
+
+/// @nodoc
+class __$$_FailedFetchingSecretsCopyWithImpl<$Res>
+    extends _$DashboardStateCopyWithImpl<$Res>
+    implements _$$_FailedFetchingSecretsCopyWith<$Res> {
+  __$$_FailedFetchingSecretsCopyWithImpl(_$_FailedFetchingSecrets _value,
+      $Res Function(_$_FailedFetchingSecrets) _then)
+      : super(_value, (v) => _then(v as _$_FailedFetchingSecrets));
+
+  @override
+  _$_FailedFetchingSecrets get _value =>
+      super._value as _$_FailedFetchingSecrets;
+
+  @override
+  $Res call({
+    Object? msg = freezed,
+  }) {
+    return _then(_$_FailedFetchingSecrets(
+      msg: msg == freezed
+          ? _value.msg
+          : msg // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_FailedFetchingSecrets implements _FailedFetchingSecrets {
+  const _$_FailedFetchingSecrets({required this.msg});
+
+  @override
+  final String msg;
+
+  @override
+  String toString() {
+    return 'DashboardState.failedFetchingSecrets(msg: $msg)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_FailedFetchingSecrets &&
+            const DeepCollectionEquality().equals(other.msg, msg));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(msg));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_FailedFetchingSecretsCopyWith<_$_FailedFetchingSecrets> get copyWith =>
+      __$$_FailedFetchingSecretsCopyWithImpl<_$_FailedFetchingSecrets>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String email) successFetchEmail,
+    required TResult Function() successDeleteSessionData,
+    required TResult Function() fetchingSecrets,
+    required TResult Function(List<Secret> secrets) successFetchingSecrets,
+    required TResult Function(String msg) failedFetchingSecrets,
+  }) {
+    return failedFetchingSecrets(msg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String email)? successFetchEmail,
+    TResult Function()? successDeleteSessionData,
+    TResult Function()? fetchingSecrets,
+    TResult Function(List<Secret> secrets)? successFetchingSecrets,
+    TResult Function(String msg)? failedFetchingSecrets,
+  }) {
+    return failedFetchingSecrets?.call(msg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String email)? successFetchEmail,
+    TResult Function()? successDeleteSessionData,
+    TResult Function()? fetchingSecrets,
+    TResult Function(List<Secret> secrets)? successFetchingSecrets,
+    TResult Function(String msg)? failedFetchingSecrets,
+    required TResult orElse(),
+  }) {
+    if (failedFetchingSecrets != null) {
+      return failedFetchingSecrets(msg);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_SuccecssFetchEmail value) successFetchEmail,
+    required TResult Function(_SuccessDeleteSessionData value)
+        successDeleteSessionData,
+    required TResult Function(_FetchingSecrets value) fetchingSecrets,
+    required TResult Function(_SuccessFetchingSecrets value)
+        successFetchingSecrets,
+    required TResult Function(_FailedFetchingSecrets value)
+        failedFetchingSecrets,
+  }) {
+    return failedFetchingSecrets(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SuccecssFetchEmail value)? successFetchEmail,
+    TResult Function(_SuccessDeleteSessionData value)? successDeleteSessionData,
+    TResult Function(_FetchingSecrets value)? fetchingSecrets,
+    TResult Function(_SuccessFetchingSecrets value)? successFetchingSecrets,
+    TResult Function(_FailedFetchingSecrets value)? failedFetchingSecrets,
+  }) {
+    return failedFetchingSecrets?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SuccecssFetchEmail value)? successFetchEmail,
+    TResult Function(_SuccessDeleteSessionData value)? successDeleteSessionData,
+    TResult Function(_FetchingSecrets value)? fetchingSecrets,
+    TResult Function(_SuccessFetchingSecrets value)? successFetchingSecrets,
+    TResult Function(_FailedFetchingSecrets value)? failedFetchingSecrets,
+    required TResult orElse(),
+  }) {
+    if (failedFetchingSecrets != null) {
+      return failedFetchingSecrets(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FailedFetchingSecrets implements DashboardState {
+  const factory _FailedFetchingSecrets({required final String msg}) =
+      _$_FailedFetchingSecrets;
+
+  String get msg;
+  @JsonKey(ignore: true)
+  _$$_FailedFetchingSecretsCopyWith<_$_FailedFetchingSecrets> get copyWith =>
+      throw _privateConstructorUsedError;
 }

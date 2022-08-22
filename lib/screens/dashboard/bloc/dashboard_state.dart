@@ -7,4 +7,9 @@ class DashboardState with _$DashboardState {
       _SuccecssFetchEmail;
   const factory DashboardState.successDeleteSessionData() =
       _SuccessDeleteSessionData;
+  const factory DashboardState.fetchingSecrets() = _FetchingSecrets;
+  const factory DashboardState.successFetchingSecrets(
+      {required List<Secret> secrets}) = _SuccessFetchingSecrets;
+  const factory DashboardState.failedFetchingSecrets({required String msg}) =
+      _FailedFetchingSecrets;
 }

@@ -42,7 +42,9 @@ class SecureUApp extends StatelessWidget {
               child: const RegisterScreen(),
             ),
         SecureURoutes.dashboard: (context) => BlocProvider(
-              create: (context) => DashboardBloc(),
+              create: (context) => DashboardBloc(
+                secretRepo: const SecretRepository(),
+              ),
               child: const DashboardScreen(),
             ),
         SecureURoutes.createSecret: (context) => BlocProvider(

@@ -4,4 +4,5 @@ part of 'dashboard_bloc.dart';
 class DashboardEvent with _$DashboardEvent {
   const factory DashboardEvent.started() = _Started;
   const factory DashboardEvent.deleteSessionData() = _DeleteSessionData;
+  const factory DashboardEvent.fetchSecretList() = _FetchSecretList;
 }

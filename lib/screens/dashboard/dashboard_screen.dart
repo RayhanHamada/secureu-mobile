@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive/hive.dart';
+import 'package:secureu_mobile/config/hive_constants.dart';
 import 'package:secureu_mobile/config/routes.dart';
+import 'package:secureu_mobile/repos/models/secret_model/secret_model.dart';
+import 'package:secureu_mobile/repos/secret_repository.dart';
 import 'package:secureu_mobile/screens/dashboard/dashboard.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -9,10 +13,20 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final dashboardBloc = context.watch<DashboardBloc>();
+
+    dashboardBloc.add(const DashboardEvent.started());
 
     return BlocListener<DashboardBloc, DashboardState>(
       listener: (context, state) {
         state.whenOrNull(
+          failedFetchingSecrets: (msg) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(msg),
+              ),
+            );
+          },
           successDeleteSessionData: () {
             Navigator.pushReplacementNamed(context, SecureURoutes.login);
           },
@@ -36,7 +50,6 @@ class DashboardScreen extends StatelessWidget {
 
   PreferredSizeWidget _appbar(BuildContext context) {
     final dashboardBloc = context.watch<DashboardBloc>();
-    dashboardBloc.add(const DashboardEvent.started());
 
     return AppBar(
       leading: null,
@@ -53,10 +66,7 @@ class DashboardScreen extends StatelessWidget {
           orElse: () => false,
           successFetchEmail: (_) => true,
         ),
-        listenWhen: (previous, current) => current.maybeMap(
-          orElse: () => false,
-          successFetchEmail: (_) => true,
-        ),
+        listenWhen: (previous, current) => false,
       ),
       actions: [
         IconButton(
@@ -73,14 +83,70 @@ class DashboardScreen extends StatelessWidget {
   }
 
   Widget _body(BuildContext context) {
-    // TODO: implement list view
+    final appSession = Hive.box<String>(HiveConstants.appsession);
+    final userId = appSession.get(HiveConstants.userId);
+    const secretRepository = SecretRepository();
+
     return RefreshIndicator(
       onRefresh: () async {},
-      child: ListView.separated(
-        itemBuilder: (context, idx) => const ListTile(),
-        separatorBuilder: (_, __) => const Divider(color: Colors.white),
-        itemCount: 20,
-      ),
+      child: userId == null
+          ? Container()
+          : FutureBuilder<List<Secret>?>(
+              future: secretRepository.getSecretsByUserId(userId),
+              initialData: const [],
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: const [
+                      Center(
+                        child: CircularProgressIndicator(),
+                      ),
+                    ],
+                  );
+                }
+
+                if (snapshot.hasError || !snapshot.hasData) {
+                  return const Text('Gagal mengambil data');
+                }
+
+                final data = snapshot.data!;
+
+                return ListView.separated(
+                  itemCount: snapshot.data!.length,
+                  separatorBuilder: (_, __) =>
+                      const Divider(color: Colors.white),
+                  itemBuilder: (context, index) {
+                    final secret = data[index];
+
+                    final date =
+                        '${secret.updated!.day}/${secret.updated!.month}/${secret.updated!.year}';
+
+                    return ListTile(
+                      title: Text(
+                        secret.name,
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                      subtitle: Text(
+                        date,
+                        style: const TextStyle(
+                          color: Colors.white54,
+                        ),
+                      ),
+                      onTap: () {},
+                      trailing: IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.delete_outline,
+                          color: Colors.red,
+                        ),
+                      ),
+                    );
+                  },
+                );
+              },
+            ),
     );
   }
 }
