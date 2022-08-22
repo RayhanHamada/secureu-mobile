@@ -7,28 +7,21 @@ part 'create_secret_bloc.freezed.dart';
 
 class CreateSecretBloc extends Bloc<CreateSecretEvent, CreateSecretState> {
   CreateSecretBloc() : super(const _Initial()) {
-    on<CreateSecretEvent>((event, emit) {
-      event.whenOrNull(
-        started: () {
+    on<CreateSecretEvent>((event, emit) async {
+      await event.whenOrNull(
+        started: () async {
           print('you\'ve entered create secret screen');
         },
-        // togglePasswordVisibility: () {
-        //   final currentPasswordToggle = state.mapOrNull(
-        //     passwordVisibility: (value) => value.isVisible,
-        //   )!;
+        submitForm: (name, emailOrUsername, password) async {
+          emit(const CreateSecretState.submittingForm());
+          print('submit form triggered');
 
-        //   final toggled = !currentPasswordToggle;
+          await Future<void>.delayed(const Duration(seconds: 2));
+          // TODO: encrypt emailOrUsername and password here
+          // TODO: create secret
 
-        //   emit(CreateSecretState.passwordVisibility(isVisible: toggled));
-        // },
-        // submitForm: (name, emailOrUsername, password) {
-        //   emit(const CreateSecretState.submittingForm());
-
-        //   // TODO: encrypt emailOrUsername and password here
-        //   // TODO: create secret
-
-        //   emit(const CreateSecretState.successSubmittingForm());
-        // },
+          return emit(const CreateSecretState.successSubmittingForm());
+        },
       );
     });
   }

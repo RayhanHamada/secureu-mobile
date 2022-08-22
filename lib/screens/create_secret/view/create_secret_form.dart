@@ -14,7 +14,7 @@ class _CreateSecretFormState extends State<CreateSecretForm> {
   final _emailOrUsernameController = TextEditingController(text: '');
   final _passwordController = TextEditingController(text: '');
 
-  final _formKey = GlobalKey<FormState>();
+  var _formKey = GlobalKey<FormState>();
   var _hidePasswordField = true;
 
   String? _validateName(String? name) {
@@ -149,7 +149,25 @@ class _CreateSecretFormState extends State<CreateSecretForm> {
             width: 250.0,
             height: 45.0,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: createSecretBloc.state.maybeMap(
+                submittingForm: (_) => null,
+                orElse: () => () {
+                  if (_formKey.currentState != null &&
+                      !_formKey.currentState!.validate()) return;
+
+                  final name = _nameController.text;
+                  final emailOrUsername = _emailOrUsernameController.text;
+                  final password = _passwordController.text;
+
+                  createSecretBloc.add(
+                    CreateSecretEvent.submitForm(
+                      name: name,
+                      emailOrUsername: emailOrUsername,
+                      password: password,
+                    ),
+                  );
+                },
+              ),
               style: ButtonStyle(
                 shape: theme.elevatedButtonTheme.style!.shape,
                 backgroundColor: MaterialStateProperty.all<Color>(

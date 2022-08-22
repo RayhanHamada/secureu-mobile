@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:secureu_mobile/screens/create_secret/bloc/create_secret_bloc.dart';
 import 'package:secureu_mobile/screens/create_secret/view/create_secret_form.dart';
 
 class CreateSecretScreen extends StatelessWidget {
@@ -8,10 +10,19 @@ class CreateSecretScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    return Scaffold(
-      backgroundColor: theme.scaffoldBackgroundColor,
-      appBar: _appbar(context),
-      body: _body(context),
+    return BlocListener<CreateSecretBloc, CreateSecretState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          successSubmittingForm: () {
+            Navigator.of(context).pop();
+          },
+        );
+      },
+      child: Scaffold(
+        backgroundColor: theme.scaffoldBackgroundColor,
+        appBar: _appbar(context),
+        body: _body(context),
+      ),
     );
   }
 
@@ -20,9 +31,7 @@ class CreateSecretScreen extends StatelessWidget {
       title: const Text('Create Secret'),
       centerTitle: true,
       leading: IconButton(
-        onPressed: () {
-          Navigator.of(context).pop();
-        },
+        onPressed: () => Navigator.of(context).pop(),
         icon: const Icon(
           Icons.arrow_back_ios,
         ),
