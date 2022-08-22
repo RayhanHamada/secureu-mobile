@@ -108,21 +108,21 @@ class Cryptography {
     return base64Bytes;
   }
 
-  // static Future<String?> encryptWithAES256({
-  //   required String base64KeyString,
-  //   required String salt,
-  //   required String plaintext,
-  // }) async {
-  //   final key = SecretKey(base64.decode(base64KeyString));
+  static Future<String?> encryptWithAES256({
+    required String base64KeyString,
+    required String salt,
+    required String plaintext,
+  }) async {
+    final aesAlgorithm = AesCbc.with256bits(macAlgorithm: MacAlgorithm.empty);
 
-  //   return null;
-  // }
+    return null;
+  }
 
-  // static Future<String?> decryptWithAES256({
-  //   required String base64KeyString,
-  //   required String salt,
-  //   required String cipherText,
-  // }) async {
-  //   return null;
-  // }
+  static Future<String?> decryptWithAES256({
+    required String base64KeyString,
+    required String salt,
+    required String cipherText,
+  }) async {
+    return null;
+  }
 }

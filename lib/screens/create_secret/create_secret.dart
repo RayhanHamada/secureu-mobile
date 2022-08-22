@@ -1,1 +1,1 @@
-export './create_secret_screen.dart';
+export 'create_secret_screen.dart';
