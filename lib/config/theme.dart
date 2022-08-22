@@ -14,8 +14,11 @@ class SecureUTheme {
         hintStyle: TextStyle(
           color: Colors.white30,
         ),
-        labelStyle: TextStyle(
+        floatingLabelStyle: TextStyle(
           color: Colors.white,
+        ),
+        labelStyle: TextStyle(
+          color: Colors.white54,
         ),
         border: OutlineInputBorder(
           borderSide: BorderSide(

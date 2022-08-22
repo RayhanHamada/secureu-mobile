@@ -73,7 +73,7 @@ class _CreateSecretFormState extends State<CreateSecretForm> {
                 color: Colors.white,
               ),
               decoration: InputDecoration(
-                label: const Text('Secret Name'),
+                labelText: 'Secret Name',
                 hintStyle: theme.inputDecorationTheme.hintStyle,
                 labelStyle: theme.inputDecorationTheme.labelStyle,
                 border: theme.inputDecorationTheme.border,
@@ -97,7 +97,7 @@ class _CreateSecretFormState extends State<CreateSecretForm> {
                 color: Colors.white,
               ),
               decoration: InputDecoration(
-                label: const Text('Secret Email or Username'),
+                labelText: 'Secret Email or Username',
                 hintStyle: theme.inputDecorationTheme.hintStyle,
                 labelStyle: theme.inputDecorationTheme.labelStyle,
                 border: theme.inputDecorationTheme.border,
@@ -118,11 +118,12 @@ class _CreateSecretFormState extends State<CreateSecretForm> {
                 controller: _passwordController,
                 validator: _validatePassword,
                 obscureText: _hidePasswordField,
+                obscuringCharacter: '*',
                 style: const TextStyle(
                   color: Colors.white,
                 ),
-                obscuringCharacter: '*',
                 decoration: InputDecoration(
+                  labelText: 'Secret Password',
                   hintStyle: theme.inputDecorationTheme.hintStyle,
                   labelStyle: theme.inputDecorationTheme.labelStyle,
                   border: theme.inputDecorationTheme.border,

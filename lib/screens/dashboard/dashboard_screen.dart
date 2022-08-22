@@ -27,7 +27,7 @@ class DashboardScreen extends StatelessWidget {
           backgroundColor: Colors.black,
           child: const Icon(Icons.add, color: Colors.white),
           onPressed: () {
-            Navigator.pushReplacementNamed(context, SecureURoutes.createSecret);
+            Navigator.pushNamed(context, SecureURoutes.createSecret);
           },
         ),
       ),

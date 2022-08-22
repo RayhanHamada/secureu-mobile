@@ -20,7 +20,9 @@ class CreateSecretScreen extends StatelessWidget {
       title: const Text('Create Secret'),
       centerTitle: true,
       leading: IconButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
         icon: const Icon(
           Icons.arrow_back_ios,
         ),
