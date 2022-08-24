@@ -19,6 +19,21 @@ class DashboardScreen extends StatelessWidget {
               ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(msg),
+              backgroundColor: Colors.red,
+            ),
+          ),
+          failedDeletingSecret: (msg) =>
+              ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(msg),
+              backgroundColor: Colors.red,
+            ),
+          ),
+          successDeletingSecret: () =>
+              ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Berhasil menghapus data'),
+              backgroundColor: Colors.green,
             ),
           ),
           successDeleteSessionData: () => Navigator.pushReplacementNamed(
@@ -119,6 +134,11 @@ class DashboardScreen extends StatelessWidget {
                   return ListTile(
                     onTap: () {
                       print(secret.name);
+                      BlocProvider.of<DashboardBloc>(context).add(
+                        DashboardEvent.setSecretId(secretId: secret.id),
+                      );
+
+                      Navigator.pushNamed(context, SecureURoutes.viewSecret);
                     },
                     title: Text(
                       secret.name,
@@ -133,7 +153,11 @@ class DashboardScreen extends StatelessWidget {
                       ),
                     ),
                     trailing: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        BlocProvider.of<DashboardBloc>(context).add(
+                          DashboardEvent.deleteSecret(secretId: secret.id),
+                        );
+                      },
                       icon: const Icon(
                         Icons.delete_outline,
                         color: Colors.red,

@@ -57,6 +57,30 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
 
           emit(DashboardState.successFetchingSecrets(secrets: secrets));
         },
+        setSecretId: (secretId) async {
+          final appSessionBox = Hive.box<String>(HiveConstants.appsession);
+          await appSessionBox.put(HiveConstants.secretId, secretId);
+        },
+        deleteSecret: (secretId) async {
+          final appSessionBox = Hive.box<String>(HiveConstants.appsession);
+          final idFromBox = appSessionBox.get(HiveConstants.secretId);
+
+          if (idFromBox == secretId) {
+            await appSessionBox.delete(HiveConstants.secretId);
+          }
+
+          final deletedId = await _secretRepo.deleteSecretById(secretId);
+
+          if (deletedId == null) {
+            return emit(
+              const DashboardState.failedDeletingSecret(
+                  msg: 'Kesalahan saat menghapus rahasia'),
+            );
+          }
+
+          add(const DashboardEvent.fetchSecretList());
+          return emit(const DashboardState.successDeletingSecret());
+        },
         deleteSessionData: () async {
           final appSessionBox = Hive.box<String>(HiveConstants.appsession);
 
