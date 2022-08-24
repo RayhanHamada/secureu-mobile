@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
 import 'package:secureu_mobile/config/hive_constants.dart';
 import 'package:secureu_mobile/repos/secret_repository.dart';
+import 'package:secureu_mobile/utils/cryptography.dart';
 
 part 'create_secret_event.dart';
 part 'create_secret_state.dart';
@@ -43,13 +44,50 @@ class CreateSecretBloc extends Bloc<CreateSecretEvent, CreateSecretState> {
             );
           }
 
-          // TODO: encrypt emailOrUsername and password here
+          final encryptionKey = appSessionBox.get(HiveConstants.encryptionKey);
+          final email = appSessionBox.get(HiveConstants.userEmail);
+
+          if (encryptionKey == null || email == null) {
+            return emit(
+              const CreateSecretState.failedSubmittingForm(
+                msg: 'Terjadi Kesalahan saat mengambil data',
+              ),
+            );
+          }
+
+          final secretEmailOrUsername = await Cryptography.encryptWithAES256(
+            base64KeyString: encryptionKey,
+            salt: email,
+            plaintext: emailOrUsername,
+          );
+
+          if (secretEmailOrUsername == null) {
+            return emit(
+              const CreateSecretState.failedSubmittingForm(
+                msg: 'Terjadi masalah',
+              ),
+            );
+          }
+
+          final secretPassword = await Cryptography.encryptWithAES256(
+            base64KeyString: encryptionKey,
+            salt: email,
+            plaintext: emailOrUsername,
+          );
+
+          if (secretPassword == null) {
+            return emit(
+              const CreateSecretState.failedSubmittingForm(
+                msg: 'Terjadi masalah',
+              ),
+            );
+          }
 
           final secretId = await _secretRepo.createSecret(
             userId,
             name: name,
-            emailOrUsername: emailOrUsername,
-            password: password,
+            emailOrUsername: secretEmailOrUsername,
+            password: secretPassword,
           );
 
           if (secretId == null) {

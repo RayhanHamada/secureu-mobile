@@ -14,8 +14,26 @@ class CreateSecretScreen extends StatelessWidget {
       listener: (context, state) {
         state.whenOrNull(
           successSubmittingForm: () {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                backgroundColor: Colors.green,
+                content: Text(
+                  'Sukses membuat Rahasia',
+                ),
+              ),
+            );
+
             Navigator.of(context).pop();
           },
+          failedSubmittingForm: (msg) =>
+              ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              backgroundColor: Colors.red,
+              content: Text(
+                msg,
+              ),
+            ),
+          ),
         );
       },
       child: Scaffold(
