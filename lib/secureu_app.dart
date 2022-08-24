@@ -2,18 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:secureu_mobile/config/theme.dart';
 import 'package:secureu_mobile/config/routes.dart';
-import 'package:secureu_mobile/repos/account_repository.dart';
 import 'package:secureu_mobile/repos/secret_repository.dart';
-import 'package:secureu_mobile/screens/create_secret/bloc/create_secret_bloc.dart';
-import 'package:secureu_mobile/screens/create_secret/create_secret.dart';
-import 'package:secureu_mobile/screens/dashboard/dashboard.dart';
-import 'package:secureu_mobile/screens/edit_secret/bloc/edit_secret_bloc.dart';
-import 'package:secureu_mobile/screens/edit_secret/edit_secret.dart';
+import 'package:secureu_mobile/repos/account_repository.dart';
 import 'package:secureu_mobile/screens/login/login.dart';
-import 'package:secureu_mobile/screens/register/register.dart';
 import 'package:secureu_mobile/screens/splash/splash.dart';
-import 'package:secureu_mobile/screens/view_secret/bloc/view_secret_bloc.dart';
+import 'package:secureu_mobile/screens/register/register.dart';
+import 'package:secureu_mobile/screens/dashboard/dashboard.dart';
 import 'package:secureu_mobile/screens/view_secret/view_secret.dart';
+import 'package:secureu_mobile/screens/create_secret/create_secret.dart';
 
 class SecureUApp extends StatelessWidget {
   const SecureUApp({Key? key}) : super(key: key);
@@ -25,41 +21,37 @@ class SecureUApp extends StatelessWidget {
       theme: SecureUTheme.of(context),
       initialRoute: SecureURoutes.splash,
       routes: <String, WidgetBuilder>{
-        SecureURoutes.splash: (context) => BlocProvider(
-              create: (context) =>
-                  SplashBloc()..add(const SplashEvent.started()),
+        SecureURoutes.splash: (_) => BlocProvider(
+              create: (_) => SplashBloc()..add(const SplashEvent.started()),
               child: const SplashScreen(),
             ),
-        SecureURoutes.login: (context) => BlocProvider(
-              create: (context) =>
-                  LoginBloc(accountRepo: const AccountRepository())
-                    ..add(const LoginEvent.started()),
+        SecureURoutes.login: (_) => BlocProvider(
+              create: (_) => LoginBloc(
+                accountRepo: const AccountRepository(),
+              )..add(const LoginEvent.started()),
               child: const LoginScreen(),
             ),
-        SecureURoutes.register: (context) => BlocProvider(
-              create: (context) =>
-                  RegisterBloc(accountRepo: const AccountRepository())
-                    ..add(const RegisterEvent.started()),
+        SecureURoutes.register: (_) => BlocProvider(
+              create: (_) => RegisterBloc(
+                accountRepo: const AccountRepository(),
+              )..add(const RegisterEvent.started()),
               child: const RegisterScreen(),
             ),
-        SecureURoutes.dashboard: (context) => BlocProvider(
-              create: (context) =>
-                  DashboardBloc(secretRepo: const SecretRepository())
-                    ..add(const DashboardEvent.started()),
+        SecureURoutes.dashboard: (_) => BlocProvider(
+              create: (_) => DashboardBloc(
+                secretRepo: const SecretRepository(),
+              )..add(const DashboardEvent.started()),
               child: const DashboardScreen(),
             ),
-        SecureURoutes.createSecret: (context) => BlocProvider(
-              create: (context) =>
-                  CreateSecretBloc(secretRepo: const SecretRepository()),
+        SecureURoutes.createSecret: (_) => BlocProvider(
+              create: (_) => CreateSecretBloc(
+                secretRepo: const SecretRepository(),
+              ),
               child: const CreateSecretScreen(),
             ),
-        SecureURoutes.viewSecret: (context) => BlocProvider(
+        SecureURoutes.viewSecret: (_) => BlocProvider(
               create: (_) => ViewSecretBloc(),
               child: const ViewSecretScreen(),
-            ),
-        SecureURoutes.editSecret: (context) => BlocProvider(
-              create: (_) => EditSecretBloc(),
-              child: const EditSecretScreen(),
             ),
       },
     );

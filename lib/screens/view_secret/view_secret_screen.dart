@@ -32,16 +32,6 @@ class ViewSecretScreen extends StatelessWidget {
           Icons.arrow_back_ios,
         ),
       ),
-      actions: [
-        IconButton(
-          onPressed: () {
-            Navigator.pushNamed(context, SecureURoutes.editSecret);
-          },
-          icon: const Icon(
-            Icons.edit_outlined,
-          ),
-        ),
-      ],
     );
   }
 
