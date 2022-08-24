@@ -7,8 +7,10 @@ part 'view_secret_bloc.freezed.dart';
 
 class ViewSecretBloc extends Bloc<ViewSecretEvent, ViewSecretState> {
   ViewSecretBloc() : super(const _Initial()) {
-    on<ViewSecretEvent>((event, emit) {
-      // TODO: implement event handler
+    on<ViewSecretEvent>((event, emit) async {
+      await event.whenOrNull(
+        started: () async {},
+      );
     });
   }
 }

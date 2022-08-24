@@ -9,8 +9,6 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final splashBloc = context.watch<SplashBloc>();
-    splashBloc.add(const SplashEvent.started());
 
     return BlocListener<SplashBloc, SplashState>(
       listener: (context, state) {

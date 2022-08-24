@@ -26,31 +26,31 @@ class SecureUApp extends StatelessWidget {
       initialRoute: SecureURoutes.splash,
       routes: <String, WidgetBuilder>{
         SecureURoutes.splash: (context) => BlocProvider(
-              create: (context) => SplashBloc(),
+              create: (context) =>
+                  SplashBloc()..add(const SplashEvent.started()),
               child: const SplashScreen(),
             ),
         SecureURoutes.login: (context) => BlocProvider(
-              create: (context) => LoginBloc(
-                accountRepo: const AccountRepository(),
-              ),
+              create: (context) =>
+                  LoginBloc(accountRepo: const AccountRepository())
+                    ..add(const LoginEvent.started()),
               child: const LoginScreen(),
             ),
         SecureURoutes.register: (context) => BlocProvider(
-              create: (context) => RegisterBloc(
-                accountRepo: const AccountRepository(),
-              ),
+              create: (context) =>
+                  RegisterBloc(accountRepo: const AccountRepository())
+                    ..add(const RegisterEvent.started()),
               child: const RegisterScreen(),
             ),
         SecureURoutes.dashboard: (context) => BlocProvider(
-              create: (context) => DashboardBloc(
-                secretRepo: const SecretRepository(),
-              )..add(const DashboardEvent.started()),
+              create: (context) =>
+                  DashboardBloc(secretRepo: const SecretRepository())
+                    ..add(const DashboardEvent.started()),
               child: const DashboardScreen(),
             ),
         SecureURoutes.createSecret: (context) => BlocProvider(
-              create: (context) => CreateSecretBloc(
-                secretRepo: const SecretRepository(),
-              ),
+              create: (context) =>
+                  CreateSecretBloc(secretRepo: const SecretRepository()),
               child: const CreateSecretScreen(),
             ),
         SecureURoutes.viewSecret: (context) => BlocProvider(
