@@ -13,24 +13,18 @@ class LoginScreen extends StatelessWidget {
     final loginBloc = context.watch<LoginBloc>();
 
     return BlocListener<LoginBloc, LoginState>(
-      listener: (context, state) {
-        state.whenOrNull(
-          successLogin: () {
-            Navigator.pushReplacementNamed(
-              context,
-              SecureURoutes.dashboard,
-            );
-          },
-          failedLogin: (msg) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(msg),
-                backgroundColor: Colors.red,
-              ),
-            );
-          },
-        );
-      },
+      listener: (context, state) => state.whenOrNull(
+        successLogin: () => Navigator.pushReplacementNamed(
+          context,
+          SecureURoutes.dashboard,
+        ),
+        failedLogin: (msg) => ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(msg),
+            backgroundColor: Colors.red,
+          ),
+        ),
+      ),
       child: Scaffold(
         backgroundColor: theme.scaffoldBackgroundColor,
         body: Column(

@@ -13,23 +13,20 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final dashboardBloc = context.watch<DashboardBloc>();
-
-    dashboardBloc.add(const DashboardEvent.started());
 
     return BlocListener<DashboardBloc, DashboardState>(
       listener: (context, state) {
         state.whenOrNull(
-          failedFetchingSecrets: (msg) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(msg),
-              ),
-            );
-          },
-          successDeleteSessionData: () {
-            Navigator.pushReplacementNamed(context, SecureURoutes.login);
-          },
+          failedFetchingSecrets: (msg) =>
+              ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(msg),
+            ),
+          ),
+          successDeleteSessionData: () => Navigator.pushReplacementNamed(
+            context,
+            SecureURoutes.login,
+          ),
         );
       },
       child: Scaffold(
@@ -54,19 +51,13 @@ class DashboardScreen extends StatelessWidget {
     return AppBar(
       leading: null,
       centerTitle: false,
-      title: BlocConsumer<DashboardBloc, DashboardState>(
-        listener: (context, state) {},
+      title: BlocBuilder<DashboardBloc, DashboardState>(
         builder: (context, state) => Text(
           state.maybeMap(
             orElse: () => 'Fetching Email...',
             successFetchEmail: (value) => value.email,
           ),
         ),
-        buildWhen: (previous, current) => current.maybeMap(
-          orElse: () => false,
-          successFetchEmail: (_) => true,
-        ),
-        listenWhen: (previous, current) => false,
       ),
       actions: [
         IconButton(
