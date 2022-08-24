@@ -115,7 +115,23 @@ class Cryptography {
   }) async {
     final aesAlgorithm = AesCbc.with256bits(macAlgorithm: MacAlgorithm.empty);
 
-    return null;
+    try {
+      final keyBytes = base64.decode(base64KeyString);
+      final utf8Salt = utf8.encode(salt);
+      final utf8PlainText = utf8.encode(plaintext);
+
+      final secretBox = await aesAlgorithm.encrypt(
+        utf8PlainText,
+        secretKey: SecretKey(keyBytes),
+        nonce: [0, ...utf8Salt, 0],
+      );
+
+      return base64.encode(secretBox.cipherText);
+    } catch (e) {
+      print('Gagal mengenkripsi untai');
+
+      return null;
+    }
   }
 
   static Future<String?> decryptWithAES256({
@@ -123,6 +139,29 @@ class Cryptography {
     required String salt,
     required String cipherText,
   }) async {
-    return null;
+    final aesAlgorithm = AesCbc.with256bits(macAlgorithm: MacAlgorithm.empty);
+
+    try {
+      final keyBytes = base64.decode(base64KeyString);
+      final utf8Salt = utf8.encode(salt);
+      final cipherTextBytes = base64.decode(cipherText);
+
+      final secretBox = SecretBox(
+        cipherTextBytes,
+        nonce: [0, ...utf8Salt, 0],
+        mac: Mac.empty,
+      );
+
+      final decrypted = await aesAlgorithm.decrypt(
+        secretBox,
+        secretKey: SecretKey(keyBytes),
+      );
+
+      return utf8.decode(decrypted);
+    } catch (e) {
+      print('Gagal mendekripsi data');
+
+      return null;
+    }
   }
 }
