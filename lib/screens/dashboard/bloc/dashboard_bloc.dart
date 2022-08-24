@@ -36,6 +36,7 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
             HiveConstants.encryptionKey,
             HiveConstants.userEmail,
             HiveConstants.userId,
+            HiveConstants.secretId,
           ]);
 
           emit(const DashboardState.successDeleteSessionData());
