@@ -9,7 +9,9 @@ class ViewSecretBloc extends Bloc<ViewSecretEvent, ViewSecretState> {
   ViewSecretBloc() : super(const _Initial()) {
     on<ViewSecretEvent>((event, emit) async {
       await event.whenOrNull(
-        started: () async {},
+        started: () async {
+          print("You've entered view secret");
+        },
       );
     });
   }

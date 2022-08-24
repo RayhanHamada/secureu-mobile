@@ -4,4 +4,5 @@ class HiveConstants {
   static const userId = 'userId';
   static const userEmail = 'userEmail';
   static const encryptionKey = 'encryptionKey';
+  static const secretId = 'secretId';
 }

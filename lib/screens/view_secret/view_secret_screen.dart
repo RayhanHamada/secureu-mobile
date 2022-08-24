@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:secureu_mobile/config/routes.dart';
 import 'package:secureu_mobile/screens/view_secret/bloc/view_secret_bloc.dart';
 
 class ViewSecretScreen extends StatelessWidget {
