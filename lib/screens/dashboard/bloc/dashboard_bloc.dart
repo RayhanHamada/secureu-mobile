@@ -28,6 +28,34 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
           );
 
           emit(DashboardState.successFetchEmail(email: userEmail!));
+
+          add(const DashboardEvent.fetchSecretList());
+        },
+        fetchSecretList: () async {
+          print('fetch secret list');
+
+          final appSessionBox = Hive.box<String>(HiveConstants.appsession);
+          final userId = appSessionBox.get(HiveConstants.userId);
+
+          if (userId == null) {
+            return emit(
+              const DashboardState.failedFetchingSecrets(
+                  msg: 'Kesalahan membaca user id'),
+            );
+          }
+
+          final secrets = await _secretRepo.getSecretsByUserId(userId);
+
+          if (secrets == null) {
+            emit(const DashboardState.successFetchingSecrets(secrets: []));
+
+            return emit(
+              const DashboardState.failedFetchingSecrets(
+                  msg: 'Kesalahan saat mengambil rahasia'),
+            );
+          }
+
+          emit(DashboardState.successFetchingSecrets(secrets: secrets));
         },
         deleteSessionData: () async {
           final appSessionBox = Hive.box<String>(HiveConstants.appsession);
