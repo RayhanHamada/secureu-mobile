@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:secureu_mobile/screens/view_secret/bloc/view_secret_bloc.dart';
+import 'package:secureu_mobile/screens/view_secret/view/view_secret_form.dart';
 
 class ViewSecretScreen extends StatelessWidget {
   const ViewSecretScreen({Key? key}) : super(key: key);
@@ -21,7 +22,7 @@ class ViewSecretScreen extends StatelessWidget {
 
   PreferredSizeWidget _appbar(BuildContext context) {
     return AppBar(
-      title: const Text('View Secret'),
+      title: const Text('Lihat Rahasia'),
       centerTitle: true,
       leading: IconButton(
         onPressed: () {
@@ -37,7 +38,9 @@ class ViewSecretScreen extends StatelessWidget {
   Widget _body(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: const [],
+      children: const [
+        ViewSecretForm(),
+      ],
     );
   }
 }

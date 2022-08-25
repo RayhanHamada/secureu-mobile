@@ -355,48 +355,72 @@ mixin _$ViewSecretState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() fetchingSecret,
     required TResult Function(
             String name, String emailOrUsername, String password)
         successFetchSecret,
     required TResult Function() failedFetchSecret,
+    required TResult Function() submittingForm,
+    required TResult Function() successSubmitForm,
+    required TResult Function(String msg) failedSubmitForm,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? fetchingSecret,
     TResult Function(String name, String emailOrUsername, String password)?
         successFetchSecret,
     TResult Function()? failedFetchSecret,
+    TResult Function()? submittingForm,
+    TResult Function()? successSubmitForm,
+    TResult Function(String msg)? failedSubmitForm,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? fetchingSecret,
     TResult Function(String name, String emailOrUsername, String password)?
         successFetchSecret,
     TResult Function()? failedFetchSecret,
+    TResult Function()? submittingForm,
+    TResult Function()? successSubmitForm,
+    TResult Function(String msg)? failedSubmitForm,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_FetchingSecret value) fetchingSecret,
     required TResult Function(_SuccessFetchSecret value) successFetchSecret,
     required TResult Function(_FailedFetchSecret value) failedFetchSecret,
+    required TResult Function(_SubmittingForm value) submittingForm,
+    required TResult Function(_SuccessSubmitForm value) successSubmitForm,
+    required TResult Function(_FailedSubmitForm value) failedSubmitForm,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_FetchingSecret value)? fetchingSecret,
     TResult Function(_SuccessFetchSecret value)? successFetchSecret,
     TResult Function(_FailedFetchSecret value)? failedFetchSecret,
+    TResult Function(_SubmittingForm value)? submittingForm,
+    TResult Function(_SuccessSubmitForm value)? successSubmitForm,
+    TResult Function(_FailedSubmitForm value)? failedSubmitForm,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_FetchingSecret value)? fetchingSecret,
     TResult Function(_SuccessFetchSecret value)? successFetchSecret,
     TResult Function(_FailedFetchSecret value)? failedFetchSecret,
+    TResult Function(_SubmittingForm value)? submittingForm,
+    TResult Function(_SuccessSubmitForm value)? successSubmitForm,
+    TResult Function(_FailedSubmitForm value)? failedSubmitForm,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -459,10 +483,14 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() fetchingSecret,
     required TResult Function(
             String name, String emailOrUsername, String password)
         successFetchSecret,
     required TResult Function() failedFetchSecret,
+    required TResult Function() submittingForm,
+    required TResult Function() successSubmitForm,
+    required TResult Function(String msg) failedSubmitForm,
   }) {
     return initial();
   }
@@ -471,9 +499,13 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? fetchingSecret,
     TResult Function(String name, String emailOrUsername, String password)?
         successFetchSecret,
     TResult Function()? failedFetchSecret,
+    TResult Function()? submittingForm,
+    TResult Function()? successSubmitForm,
+    TResult Function(String msg)? failedSubmitForm,
   }) {
     return initial?.call();
   }
@@ -482,9 +514,13 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? fetchingSecret,
     TResult Function(String name, String emailOrUsername, String password)?
         successFetchSecret,
     TResult Function()? failedFetchSecret,
+    TResult Function()? submittingForm,
+    TResult Function()? successSubmitForm,
+    TResult Function(String msg)? failedSubmitForm,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -497,8 +533,12 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_FetchingSecret value) fetchingSecret,
     required TResult Function(_SuccessFetchSecret value) successFetchSecret,
     required TResult Function(_FailedFetchSecret value) failedFetchSecret,
+    required TResult Function(_SubmittingForm value) submittingForm,
+    required TResult Function(_SuccessSubmitForm value) successSubmitForm,
+    required TResult Function(_FailedSubmitForm value) failedSubmitForm,
   }) {
     return initial(this);
   }
@@ -507,8 +547,12 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_FetchingSecret value)? fetchingSecret,
     TResult Function(_SuccessFetchSecret value)? successFetchSecret,
     TResult Function(_FailedFetchSecret value)? failedFetchSecret,
+    TResult Function(_SubmittingForm value)? submittingForm,
+    TResult Function(_SuccessSubmitForm value)? successSubmitForm,
+    TResult Function(_FailedSubmitForm value)? failedSubmitForm,
   }) {
     return initial?.call(this);
   }
@@ -517,8 +561,12 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_FetchingSecret value)? fetchingSecret,
     TResult Function(_SuccessFetchSecret value)? successFetchSecret,
     TResult Function(_FailedFetchSecret value)? failedFetchSecret,
+    TResult Function(_SubmittingForm value)? submittingForm,
+    TResult Function(_SuccessSubmitForm value)? successSubmitForm,
+    TResult Function(_FailedSubmitForm value)? failedSubmitForm,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -530,6 +578,145 @@ class _$_Initial implements _Initial {
 
 abstract class _Initial implements ViewSecretState {
   const factory _Initial() = _$_Initial;
+}
+
+/// @nodoc
+abstract class _$$_FetchingSecretCopyWith<$Res> {
+  factory _$$_FetchingSecretCopyWith(
+          _$_FetchingSecret value, $Res Function(_$_FetchingSecret) then) =
+      __$$_FetchingSecretCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_FetchingSecretCopyWithImpl<$Res>
+    extends _$ViewSecretStateCopyWithImpl<$Res>
+    implements _$$_FetchingSecretCopyWith<$Res> {
+  __$$_FetchingSecretCopyWithImpl(
+      _$_FetchingSecret _value, $Res Function(_$_FetchingSecret) _then)
+      : super(_value, (v) => _then(v as _$_FetchingSecret));
+
+  @override
+  _$_FetchingSecret get _value => super._value as _$_FetchingSecret;
+}
+
+/// @nodoc
+
+class _$_FetchingSecret implements _FetchingSecret {
+  const _$_FetchingSecret();
+
+  @override
+  String toString() {
+    return 'ViewSecretState.fetchingSecret()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_FetchingSecret);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() fetchingSecret,
+    required TResult Function(
+            String name, String emailOrUsername, String password)
+        successFetchSecret,
+    required TResult Function() failedFetchSecret,
+    required TResult Function() submittingForm,
+    required TResult Function() successSubmitForm,
+    required TResult Function(String msg) failedSubmitForm,
+  }) {
+    return fetchingSecret();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? fetchingSecret,
+    TResult Function(String name, String emailOrUsername, String password)?
+        successFetchSecret,
+    TResult Function()? failedFetchSecret,
+    TResult Function()? submittingForm,
+    TResult Function()? successSubmitForm,
+    TResult Function(String msg)? failedSubmitForm,
+  }) {
+    return fetchingSecret?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? fetchingSecret,
+    TResult Function(String name, String emailOrUsername, String password)?
+        successFetchSecret,
+    TResult Function()? failedFetchSecret,
+    TResult Function()? submittingForm,
+    TResult Function()? successSubmitForm,
+    TResult Function(String msg)? failedSubmitForm,
+    required TResult orElse(),
+  }) {
+    if (fetchingSecret != null) {
+      return fetchingSecret();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_FetchingSecret value) fetchingSecret,
+    required TResult Function(_SuccessFetchSecret value) successFetchSecret,
+    required TResult Function(_FailedFetchSecret value) failedFetchSecret,
+    required TResult Function(_SubmittingForm value) submittingForm,
+    required TResult Function(_SuccessSubmitForm value) successSubmitForm,
+    required TResult Function(_FailedSubmitForm value) failedSubmitForm,
+  }) {
+    return fetchingSecret(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_FetchingSecret value)? fetchingSecret,
+    TResult Function(_SuccessFetchSecret value)? successFetchSecret,
+    TResult Function(_FailedFetchSecret value)? failedFetchSecret,
+    TResult Function(_SubmittingForm value)? submittingForm,
+    TResult Function(_SuccessSubmitForm value)? successSubmitForm,
+    TResult Function(_FailedSubmitForm value)? failedSubmitForm,
+  }) {
+    return fetchingSecret?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_FetchingSecret value)? fetchingSecret,
+    TResult Function(_SuccessFetchSecret value)? successFetchSecret,
+    TResult Function(_FailedFetchSecret value)? failedFetchSecret,
+    TResult Function(_SubmittingForm value)? submittingForm,
+    TResult Function(_SuccessSubmitForm value)? successSubmitForm,
+    TResult Function(_FailedSubmitForm value)? failedSubmitForm,
+    required TResult orElse(),
+  }) {
+    if (fetchingSecret != null) {
+      return fetchingSecret(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchingSecret implements ViewSecretState {
+  const factory _FetchingSecret() = _$_FetchingSecret;
 }
 
 /// @nodoc
@@ -622,10 +809,14 @@ class _$_SuccessFetchSecret implements _SuccessFetchSecret {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() fetchingSecret,
     required TResult Function(
             String name, String emailOrUsername, String password)
         successFetchSecret,
     required TResult Function() failedFetchSecret,
+    required TResult Function() submittingForm,
+    required TResult Function() successSubmitForm,
+    required TResult Function(String msg) failedSubmitForm,
   }) {
     return successFetchSecret(name, emailOrUsername, password);
   }
@@ -634,9 +825,13 @@ class _$_SuccessFetchSecret implements _SuccessFetchSecret {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? fetchingSecret,
     TResult Function(String name, String emailOrUsername, String password)?
         successFetchSecret,
     TResult Function()? failedFetchSecret,
+    TResult Function()? submittingForm,
+    TResult Function()? successSubmitForm,
+    TResult Function(String msg)? failedSubmitForm,
   }) {
     return successFetchSecret?.call(name, emailOrUsername, password);
   }
@@ -645,9 +840,13 @@ class _$_SuccessFetchSecret implements _SuccessFetchSecret {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? fetchingSecret,
     TResult Function(String name, String emailOrUsername, String password)?
         successFetchSecret,
     TResult Function()? failedFetchSecret,
+    TResult Function()? submittingForm,
+    TResult Function()? successSubmitForm,
+    TResult Function(String msg)? failedSubmitForm,
     required TResult orElse(),
   }) {
     if (successFetchSecret != null) {
@@ -660,8 +859,12 @@ class _$_SuccessFetchSecret implements _SuccessFetchSecret {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_FetchingSecret value) fetchingSecret,
     required TResult Function(_SuccessFetchSecret value) successFetchSecret,
     required TResult Function(_FailedFetchSecret value) failedFetchSecret,
+    required TResult Function(_SubmittingForm value) submittingForm,
+    required TResult Function(_SuccessSubmitForm value) successSubmitForm,
+    required TResult Function(_FailedSubmitForm value) failedSubmitForm,
   }) {
     return successFetchSecret(this);
   }
@@ -670,8 +873,12 @@ class _$_SuccessFetchSecret implements _SuccessFetchSecret {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_FetchingSecret value)? fetchingSecret,
     TResult Function(_SuccessFetchSecret value)? successFetchSecret,
     TResult Function(_FailedFetchSecret value)? failedFetchSecret,
+    TResult Function(_SubmittingForm value)? submittingForm,
+    TResult Function(_SuccessSubmitForm value)? successSubmitForm,
+    TResult Function(_FailedSubmitForm value)? failedSubmitForm,
   }) {
     return successFetchSecret?.call(this);
   }
@@ -680,8 +887,12 @@ class _$_SuccessFetchSecret implements _SuccessFetchSecret {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_FetchingSecret value)? fetchingSecret,
     TResult Function(_SuccessFetchSecret value)? successFetchSecret,
     TResult Function(_FailedFetchSecret value)? failedFetchSecret,
+    TResult Function(_SubmittingForm value)? submittingForm,
+    TResult Function(_SuccessSubmitForm value)? successSubmitForm,
+    TResult Function(_FailedSubmitForm value)? failedSubmitForm,
     required TResult orElse(),
   }) {
     if (successFetchSecret != null) {
@@ -747,10 +958,14 @@ class _$_FailedFetchSecret implements _FailedFetchSecret {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() fetchingSecret,
     required TResult Function(
             String name, String emailOrUsername, String password)
         successFetchSecret,
     required TResult Function() failedFetchSecret,
+    required TResult Function() submittingForm,
+    required TResult Function() successSubmitForm,
+    required TResult Function(String msg) failedSubmitForm,
   }) {
     return failedFetchSecret();
   }
@@ -759,9 +974,13 @@ class _$_FailedFetchSecret implements _FailedFetchSecret {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? fetchingSecret,
     TResult Function(String name, String emailOrUsername, String password)?
         successFetchSecret,
     TResult Function()? failedFetchSecret,
+    TResult Function()? submittingForm,
+    TResult Function()? successSubmitForm,
+    TResult Function(String msg)? failedSubmitForm,
   }) {
     return failedFetchSecret?.call();
   }
@@ -770,9 +989,13 @@ class _$_FailedFetchSecret implements _FailedFetchSecret {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? fetchingSecret,
     TResult Function(String name, String emailOrUsername, String password)?
         successFetchSecret,
     TResult Function()? failedFetchSecret,
+    TResult Function()? submittingForm,
+    TResult Function()? successSubmitForm,
+    TResult Function(String msg)? failedSubmitForm,
     required TResult orElse(),
   }) {
     if (failedFetchSecret != null) {
@@ -785,8 +1008,12 @@ class _$_FailedFetchSecret implements _FailedFetchSecret {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_FetchingSecret value) fetchingSecret,
     required TResult Function(_SuccessFetchSecret value) successFetchSecret,
     required TResult Function(_FailedFetchSecret value) failedFetchSecret,
+    required TResult Function(_SubmittingForm value) submittingForm,
+    required TResult Function(_SuccessSubmitForm value) successSubmitForm,
+    required TResult Function(_FailedSubmitForm value) failedSubmitForm,
   }) {
     return failedFetchSecret(this);
   }
@@ -795,8 +1022,12 @@ class _$_FailedFetchSecret implements _FailedFetchSecret {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_FetchingSecret value)? fetchingSecret,
     TResult Function(_SuccessFetchSecret value)? successFetchSecret,
     TResult Function(_FailedFetchSecret value)? failedFetchSecret,
+    TResult Function(_SubmittingForm value)? submittingForm,
+    TResult Function(_SuccessSubmitForm value)? successSubmitForm,
+    TResult Function(_FailedSubmitForm value)? failedSubmitForm,
   }) {
     return failedFetchSecret?.call(this);
   }
@@ -805,8 +1036,12 @@ class _$_FailedFetchSecret implements _FailedFetchSecret {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_FetchingSecret value)? fetchingSecret,
     TResult Function(_SuccessFetchSecret value)? successFetchSecret,
     TResult Function(_FailedFetchSecret value)? failedFetchSecret,
+    TResult Function(_SubmittingForm value)? submittingForm,
+    TResult Function(_SuccessSubmitForm value)? successSubmitForm,
+    TResult Function(_FailedSubmitForm value)? failedSubmitForm,
     required TResult orElse(),
   }) {
     if (failedFetchSecret != null) {
@@ -818,4 +1053,451 @@ class _$_FailedFetchSecret implements _FailedFetchSecret {
 
 abstract class _FailedFetchSecret implements ViewSecretState {
   const factory _FailedFetchSecret() = _$_FailedFetchSecret;
+}
+
+/// @nodoc
+abstract class _$$_SubmittingFormCopyWith<$Res> {
+  factory _$$_SubmittingFormCopyWith(
+          _$_SubmittingForm value, $Res Function(_$_SubmittingForm) then) =
+      __$$_SubmittingFormCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SubmittingFormCopyWithImpl<$Res>
+    extends _$ViewSecretStateCopyWithImpl<$Res>
+    implements _$$_SubmittingFormCopyWith<$Res> {
+  __$$_SubmittingFormCopyWithImpl(
+      _$_SubmittingForm _value, $Res Function(_$_SubmittingForm) _then)
+      : super(_value, (v) => _then(v as _$_SubmittingForm));
+
+  @override
+  _$_SubmittingForm get _value => super._value as _$_SubmittingForm;
+}
+
+/// @nodoc
+
+class _$_SubmittingForm implements _SubmittingForm {
+  const _$_SubmittingForm();
+
+  @override
+  String toString() {
+    return 'ViewSecretState.submittingForm()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_SubmittingForm);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() fetchingSecret,
+    required TResult Function(
+            String name, String emailOrUsername, String password)
+        successFetchSecret,
+    required TResult Function() failedFetchSecret,
+    required TResult Function() submittingForm,
+    required TResult Function() successSubmitForm,
+    required TResult Function(String msg) failedSubmitForm,
+  }) {
+    return submittingForm();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? fetchingSecret,
+    TResult Function(String name, String emailOrUsername, String password)?
+        successFetchSecret,
+    TResult Function()? failedFetchSecret,
+    TResult Function()? submittingForm,
+    TResult Function()? successSubmitForm,
+    TResult Function(String msg)? failedSubmitForm,
+  }) {
+    return submittingForm?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? fetchingSecret,
+    TResult Function(String name, String emailOrUsername, String password)?
+        successFetchSecret,
+    TResult Function()? failedFetchSecret,
+    TResult Function()? submittingForm,
+    TResult Function()? successSubmitForm,
+    TResult Function(String msg)? failedSubmitForm,
+    required TResult orElse(),
+  }) {
+    if (submittingForm != null) {
+      return submittingForm();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_FetchingSecret value) fetchingSecret,
+    required TResult Function(_SuccessFetchSecret value) successFetchSecret,
+    required TResult Function(_FailedFetchSecret value) failedFetchSecret,
+    required TResult Function(_SubmittingForm value) submittingForm,
+    required TResult Function(_SuccessSubmitForm value) successSubmitForm,
+    required TResult Function(_FailedSubmitForm value) failedSubmitForm,
+  }) {
+    return submittingForm(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_FetchingSecret value)? fetchingSecret,
+    TResult Function(_SuccessFetchSecret value)? successFetchSecret,
+    TResult Function(_FailedFetchSecret value)? failedFetchSecret,
+    TResult Function(_SubmittingForm value)? submittingForm,
+    TResult Function(_SuccessSubmitForm value)? successSubmitForm,
+    TResult Function(_FailedSubmitForm value)? failedSubmitForm,
+  }) {
+    return submittingForm?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_FetchingSecret value)? fetchingSecret,
+    TResult Function(_SuccessFetchSecret value)? successFetchSecret,
+    TResult Function(_FailedFetchSecret value)? failedFetchSecret,
+    TResult Function(_SubmittingForm value)? submittingForm,
+    TResult Function(_SuccessSubmitForm value)? successSubmitForm,
+    TResult Function(_FailedSubmitForm value)? failedSubmitForm,
+    required TResult orElse(),
+  }) {
+    if (submittingForm != null) {
+      return submittingForm(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SubmittingForm implements ViewSecretState {
+  const factory _SubmittingForm() = _$_SubmittingForm;
+}
+
+/// @nodoc
+abstract class _$$_SuccessSubmitFormCopyWith<$Res> {
+  factory _$$_SuccessSubmitFormCopyWith(_$_SuccessSubmitForm value,
+          $Res Function(_$_SuccessSubmitForm) then) =
+      __$$_SuccessSubmitFormCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SuccessSubmitFormCopyWithImpl<$Res>
+    extends _$ViewSecretStateCopyWithImpl<$Res>
+    implements _$$_SuccessSubmitFormCopyWith<$Res> {
+  __$$_SuccessSubmitFormCopyWithImpl(
+      _$_SuccessSubmitForm _value, $Res Function(_$_SuccessSubmitForm) _then)
+      : super(_value, (v) => _then(v as _$_SuccessSubmitForm));
+
+  @override
+  _$_SuccessSubmitForm get _value => super._value as _$_SuccessSubmitForm;
+}
+
+/// @nodoc
+
+class _$_SuccessSubmitForm implements _SuccessSubmitForm {
+  const _$_SuccessSubmitForm();
+
+  @override
+  String toString() {
+    return 'ViewSecretState.successSubmitForm()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_SuccessSubmitForm);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() fetchingSecret,
+    required TResult Function(
+            String name, String emailOrUsername, String password)
+        successFetchSecret,
+    required TResult Function() failedFetchSecret,
+    required TResult Function() submittingForm,
+    required TResult Function() successSubmitForm,
+    required TResult Function(String msg) failedSubmitForm,
+  }) {
+    return successSubmitForm();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? fetchingSecret,
+    TResult Function(String name, String emailOrUsername, String password)?
+        successFetchSecret,
+    TResult Function()? failedFetchSecret,
+    TResult Function()? submittingForm,
+    TResult Function()? successSubmitForm,
+    TResult Function(String msg)? failedSubmitForm,
+  }) {
+    return successSubmitForm?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? fetchingSecret,
+    TResult Function(String name, String emailOrUsername, String password)?
+        successFetchSecret,
+    TResult Function()? failedFetchSecret,
+    TResult Function()? submittingForm,
+    TResult Function()? successSubmitForm,
+    TResult Function(String msg)? failedSubmitForm,
+    required TResult orElse(),
+  }) {
+    if (successSubmitForm != null) {
+      return successSubmitForm();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_FetchingSecret value) fetchingSecret,
+    required TResult Function(_SuccessFetchSecret value) successFetchSecret,
+    required TResult Function(_FailedFetchSecret value) failedFetchSecret,
+    required TResult Function(_SubmittingForm value) submittingForm,
+    required TResult Function(_SuccessSubmitForm value) successSubmitForm,
+    required TResult Function(_FailedSubmitForm value) failedSubmitForm,
+  }) {
+    return successSubmitForm(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_FetchingSecret value)? fetchingSecret,
+    TResult Function(_SuccessFetchSecret value)? successFetchSecret,
+    TResult Function(_FailedFetchSecret value)? failedFetchSecret,
+    TResult Function(_SubmittingForm value)? submittingForm,
+    TResult Function(_SuccessSubmitForm value)? successSubmitForm,
+    TResult Function(_FailedSubmitForm value)? failedSubmitForm,
+  }) {
+    return successSubmitForm?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_FetchingSecret value)? fetchingSecret,
+    TResult Function(_SuccessFetchSecret value)? successFetchSecret,
+    TResult Function(_FailedFetchSecret value)? failedFetchSecret,
+    TResult Function(_SubmittingForm value)? submittingForm,
+    TResult Function(_SuccessSubmitForm value)? successSubmitForm,
+    TResult Function(_FailedSubmitForm value)? failedSubmitForm,
+    required TResult orElse(),
+  }) {
+    if (successSubmitForm != null) {
+      return successSubmitForm(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SuccessSubmitForm implements ViewSecretState {
+  const factory _SuccessSubmitForm() = _$_SuccessSubmitForm;
+}
+
+/// @nodoc
+abstract class _$$_FailedSubmitFormCopyWith<$Res> {
+  factory _$$_FailedSubmitFormCopyWith(
+          _$_FailedSubmitForm value, $Res Function(_$_FailedSubmitForm) then) =
+      __$$_FailedSubmitFormCopyWithImpl<$Res>;
+  $Res call({String msg});
+}
+
+/// @nodoc
+class __$$_FailedSubmitFormCopyWithImpl<$Res>
+    extends _$ViewSecretStateCopyWithImpl<$Res>
+    implements _$$_FailedSubmitFormCopyWith<$Res> {
+  __$$_FailedSubmitFormCopyWithImpl(
+      _$_FailedSubmitForm _value, $Res Function(_$_FailedSubmitForm) _then)
+      : super(_value, (v) => _then(v as _$_FailedSubmitForm));
+
+  @override
+  _$_FailedSubmitForm get _value => super._value as _$_FailedSubmitForm;
+
+  @override
+  $Res call({
+    Object? msg = freezed,
+  }) {
+    return _then(_$_FailedSubmitForm(
+      msg: msg == freezed
+          ? _value.msg
+          : msg // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_FailedSubmitForm implements _FailedSubmitForm {
+  const _$_FailedSubmitForm({required this.msg});
+
+  @override
+  final String msg;
+
+  @override
+  String toString() {
+    return 'ViewSecretState.failedSubmitForm(msg: $msg)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_FailedSubmitForm &&
+            const DeepCollectionEquality().equals(other.msg, msg));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(msg));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_FailedSubmitFormCopyWith<_$_FailedSubmitForm> get copyWith =>
+      __$$_FailedSubmitFormCopyWithImpl<_$_FailedSubmitForm>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() fetchingSecret,
+    required TResult Function(
+            String name, String emailOrUsername, String password)
+        successFetchSecret,
+    required TResult Function() failedFetchSecret,
+    required TResult Function() submittingForm,
+    required TResult Function() successSubmitForm,
+    required TResult Function(String msg) failedSubmitForm,
+  }) {
+    return failedSubmitForm(msg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? fetchingSecret,
+    TResult Function(String name, String emailOrUsername, String password)?
+        successFetchSecret,
+    TResult Function()? failedFetchSecret,
+    TResult Function()? submittingForm,
+    TResult Function()? successSubmitForm,
+    TResult Function(String msg)? failedSubmitForm,
+  }) {
+    return failedSubmitForm?.call(msg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? fetchingSecret,
+    TResult Function(String name, String emailOrUsername, String password)?
+        successFetchSecret,
+    TResult Function()? failedFetchSecret,
+    TResult Function()? submittingForm,
+    TResult Function()? successSubmitForm,
+    TResult Function(String msg)? failedSubmitForm,
+    required TResult orElse(),
+  }) {
+    if (failedSubmitForm != null) {
+      return failedSubmitForm(msg);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_FetchingSecret value) fetchingSecret,
+    required TResult Function(_SuccessFetchSecret value) successFetchSecret,
+    required TResult Function(_FailedFetchSecret value) failedFetchSecret,
+    required TResult Function(_SubmittingForm value) submittingForm,
+    required TResult Function(_SuccessSubmitForm value) successSubmitForm,
+    required TResult Function(_FailedSubmitForm value) failedSubmitForm,
+  }) {
+    return failedSubmitForm(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_FetchingSecret value)? fetchingSecret,
+    TResult Function(_SuccessFetchSecret value)? successFetchSecret,
+    TResult Function(_FailedFetchSecret value)? failedFetchSecret,
+    TResult Function(_SubmittingForm value)? submittingForm,
+    TResult Function(_SuccessSubmitForm value)? successSubmitForm,
+    TResult Function(_FailedSubmitForm value)? failedSubmitForm,
+  }) {
+    return failedSubmitForm?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_FetchingSecret value)? fetchingSecret,
+    TResult Function(_SuccessFetchSecret value)? successFetchSecret,
+    TResult Function(_FailedFetchSecret value)? failedFetchSecret,
+    TResult Function(_SubmittingForm value)? submittingForm,
+    TResult Function(_SuccessSubmitForm value)? successSubmitForm,
+    TResult Function(_FailedSubmitForm value)? failedSubmitForm,
+    required TResult orElse(),
+  }) {
+    if (failedSubmitForm != null) {
+      return failedSubmitForm(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FailedSubmitForm implements ViewSecretState {
+  const factory _FailedSubmitForm({required final String msg}) =
+      _$_FailedSubmitForm;
+
+  String get msg;
+  @JsonKey(ignore: true)
+  _$$_FailedSubmitFormCopyWith<_$_FailedSubmitForm> get copyWith =>
+      throw _privateConstructorUsedError;
 }

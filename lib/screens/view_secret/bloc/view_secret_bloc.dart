@@ -18,6 +18,7 @@ class ViewSecretBloc extends Bloc<ViewSecretEvent, ViewSecretState> {
     on<ViewSecretEvent>((event, emit) async {
       await event.whenOrNull(
         started: () async {
+          emit(const ViewSecretState.fetchingSecret());
           print("You've entered view secret");
 
           final appSessionBox = Hive.box<String>(HiveConstants.appsession);
@@ -84,6 +85,85 @@ class ViewSecretBloc extends Bloc<ViewSecretEvent, ViewSecretState> {
               password: decryptedPassword,
             ),
           );
+        },
+        submitForm: (name, emailOrUsername, password) async {
+          emit(const ViewSecretState.submittingForm());
+
+          final appSessionBox = Hive.box<String>(HiveConstants.appsession);
+
+          if (!appSessionBox.isOpen) {
+            return emit(
+              const ViewSecretState.failedSubmitForm(
+                msg: 'Terjadi Kesalahan',
+              ),
+            );
+          }
+
+          final secretId = appSessionBox.get(HiveConstants.secretId);
+
+          if (secretId == null) {
+            return emit(
+              const ViewSecretState.failedSubmitForm(
+                msg: 'Terjadi Kesalahan',
+              ),
+            );
+          }
+
+          final encryptionKey = appSessionBox.get(HiveConstants.encryptionKey);
+          final email = appSessionBox.get(HiveConstants.userEmail);
+
+          if (encryptionKey == null || email == null) {
+            return emit(
+              const ViewSecretState.failedSubmitForm(
+                msg: 'Terjadi Kesalahan saat mengambil data',
+              ),
+            );
+          }
+
+          final secretEmailOrUsername = await Cryptography.encryptWithAES256(
+            base64KeyString: encryptionKey,
+            salt: email,
+            plaintext: emailOrUsername,
+          );
+
+          if (secretEmailOrUsername == null) {
+            return emit(
+              const ViewSecretState.failedSubmitForm(
+                msg: 'Terjadi masalah',
+              ),
+            );
+          }
+
+          final secretPassword = await Cryptography.encryptWithAES256(
+            base64KeyString: encryptionKey,
+            salt: email,
+            plaintext: password,
+          );
+
+          if (secretPassword == null) {
+            return emit(
+              const ViewSecretState.failedSubmitForm(
+                msg: 'Terjadi masalah',
+              ),
+            );
+          }
+
+          final updatedSecretId = await _secretRepo.updateSecret(
+            secretId,
+            name: name,
+            emailOrUsername: secretEmailOrUsername,
+            password: secretPassword,
+          );
+
+          if (updatedSecretId == null) {
+            return emit(
+              const ViewSecretState.failedSubmitForm(
+                msg: 'Terjadi Kesalahan',
+              ),
+            );
+          }
+
+          return emit(const ViewSecretState.successSubmitForm());
         },
       );
     });
