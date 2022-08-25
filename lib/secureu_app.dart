@@ -46,11 +46,13 @@ class SecureUApp extends StatelessWidget {
         SecureURoutes.createSecret: (_) => BlocProvider(
               create: (_) => CreateSecretBloc(
                 secretRepo: const SecretRepository(),
-              ),
+              )..add(const CreateSecretEvent.started()),
               child: const CreateSecretScreen(),
             ),
         SecureURoutes.viewSecret: (_) => BlocProvider(
-              create: (_) => ViewSecretBloc(),
+              create: (_) => ViewSecretBloc(
+                secretRepo: const SecretRepository(),
+              )..add(const ViewSecretEvent.started()),
               child: const ViewSecretScreen(),
             ),
       },

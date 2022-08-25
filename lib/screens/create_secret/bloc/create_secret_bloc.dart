@@ -72,7 +72,7 @@ class CreateSecretBloc extends Bloc<CreateSecretEvent, CreateSecretState> {
           final secretPassword = await Cryptography.encryptWithAES256(
             base64KeyString: encryptionKey,
             salt: email,
-            plaintext: emailOrUsername,
+            plaintext: password,
           );
 
           if (secretPassword == null) {
