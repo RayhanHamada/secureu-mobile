@@ -112,11 +112,22 @@ class DashboardScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: const [
-                  Text(
-                    'Anda tidak mempunyai rahasia',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 17.0,
+                  Center(
+                    child: Text(
+                      'Anda tidak mempunyai rahasia.',
+                      style: TextStyle(
+                        color: Colors.white54,
+                        fontSize: 17.0,
+                      ),
+                    ),
+                  ),
+                  Center(
+                    child: Text(
+                      'Silahkan Buat Rahasia Baru.',
+                      style: TextStyle(
+                        color: Colors.white54,
+                        fontSize: 17.0,
+                      ),
                     ),
                   ),
                 ],
