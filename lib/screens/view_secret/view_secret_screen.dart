@@ -11,7 +11,28 @@ class ViewSecretScreen extends StatelessWidget {
     final theme = Theme.of(context);
 
     return BlocListener<ViewSecretBloc, ViewSecretState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        state.whenOrNull(
+          failedFetchSecret: () => ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Gagal mengambil rahasia'),
+              backgroundColor: Colors.red,
+            ),
+          ),
+          failedSubmitForm: (msg) => ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(msg),
+              backgroundColor: Colors.red,
+            ),
+          ),
+          successSubmitForm: () => ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Sukses memperbarui rahasia'),
+              backgroundColor: Colors.green,
+            ),
+          ),
+        );
+      },
       child: Scaffold(
         backgroundColor: theme.scaffoldBackgroundColor,
         appBar: _appbar(context),
