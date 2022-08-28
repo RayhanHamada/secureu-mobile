@@ -114,21 +114,33 @@ class Cryptography {
     required String plaintext,
   }) async {
     final aesAlgorithm = AesCbc.with256bits(macAlgorithm: MacAlgorithm.empty);
+    final hkdfAlgorithm = Hkdf(hmac: Hmac.sha256(), outputLength: 16);
 
     try {
       final keyBytes = base64.decode(base64KeyString);
       final utf8Salt = utf8.encode(salt);
+
+      final hkdfSecretKey = await hkdfAlgorithm.deriveKey(
+        secretKey: SecretKey(utf8Salt),
+        nonce: [0],
+      );
+
+      final stretchedSaltBytes = await hkdfSecretKey.extractBytes();
+
       final utf8PlainText = utf8.encode(plaintext);
 
       final secretBox = await aesAlgorithm.encrypt(
         utf8PlainText,
         secretKey: SecretKey(keyBytes),
-        nonce: [0, ...utf8Salt, 0],
+        nonce: stretchedSaltBytes,
       );
 
-      return base64.encode(secretBox.cipherText);
+      final base64Encoded = base64.encode(secretBox.cipherText);
+
+      return base64Encoded;
     } catch (e) {
       print('Gagal mengenkripsi untai');
+      print(e);
 
       return null;
     }
@@ -140,16 +152,25 @@ class Cryptography {
     required String cipherText,
   }) async {
     final aesAlgorithm = AesCbc.with256bits(macAlgorithm: MacAlgorithm.empty);
+    final hkdfAlgorithm = Hkdf(hmac: Hmac.sha256(), outputLength: 16);
 
     try {
       final keyBytes = base64.decode(base64KeyString);
       final utf8Salt = utf8.encode(salt);
+
+      final hkdfSecretKey = await hkdfAlgorithm.deriveKey(
+        secretKey: SecretKey(utf8Salt),
+        nonce: [0],
+      );
+
+      final stretchedSaltBytes = await hkdfSecretKey.extractBytes();
+
       final cipherTextBytes = base64.decode(cipherText);
 
       final secretBox = SecretBox(
         cipherTextBytes,
-        nonce: [0, ...utf8Salt, 0],
         mac: Mac.empty,
+        nonce: stretchedSaltBytes,
       );
 
       final decrypted = await aesAlgorithm.decrypt(
