@@ -58,11 +58,16 @@ class CreateSecretScreen extends StatelessWidget {
   }
 
   Widget _body(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: const [
-        CreateSecretForm(),
-      ],
+    return SingleChildScrollView(
+      padding: const EdgeInsets.only(
+        top: 20,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: const [
+          CreateSecretForm(),
+        ],
+      ),
     );
   }
 }

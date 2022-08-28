@@ -39,7 +39,6 @@ class RegisterScreen extends StatelessWidget {
       },
       child: Scaffold(
         backgroundColor: theme.scaffoldBackgroundColor,
-        extendBodyBehindAppBar: true,
         appBar: _appbar(context),
         body: _body(context),
       ),
@@ -66,38 +65,43 @@ class RegisterScreen extends StatelessWidget {
   }
 
   Widget _body(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        const Center(
-          child: Text(
-            'SecureU',
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 32,
+    return SingleChildScrollView(
+      padding: const EdgeInsets.only(
+        top: 20,
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          const Center(
+            child: Text(
+              'SecureU',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 32,
+              ),
             ),
           ),
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        const Center(
-          child: Text(
-            'Halo Pengguna Baru !',
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.normal,
-              fontSize: 16,
+          const SizedBox(
+            height: 10,
+          ),
+          const Center(
+            child: Text(
+              'Halo Pengguna Baru !',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.normal,
+                fontSize: 16,
+              ),
             ),
           ),
-        ),
-        const SizedBox(
-          height: 40,
-        ),
-        RegisterForm()
-      ],
+          const SizedBox(
+            height: 40,
+          ),
+          RegisterForm()
+        ],
+      ),
     );
   }
 }

@@ -27,56 +27,61 @@ class LoginScreen extends StatelessWidget {
       ),
       child: Scaffold(
         backgroundColor: theme.scaffoldBackgroundColor,
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            const Center(
-              child: Text(
-                'SecureU',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 32,
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            const Center(
-              child: Text(
-                'Selamat Datang Kembali !',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.normal,
-                  fontSize: 16,
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-            LoginForm(),
-            // Button Ke Register
-            SizedBox(
-              width: 250.0,
-              child: TextButton(
-                onPressed: loginBloc.state.maybeMap(
-                  orElse: () => () {
-                    Navigator.pushNamed(context, SecureURoutes.register);
-                  },
-                  submittingLogin: (_) => null,
-                ),
-                child: const Text(
-                  'Belum punya akun',
+        body: SingleChildScrollView(
+          padding: const EdgeInsets.only(
+            top: 20,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const Center(
+                child: Text(
+                  'SecureU',
                   style: TextStyle(
-                    decoration: TextDecoration.underline,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 32,
                   ),
                 ),
               ),
-            )
-          ],
+              const SizedBox(
+                height: 10,
+              ),
+              const Center(
+                child: Text(
+                  'Selamat Datang Kembali !',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.normal,
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              LoginForm(),
+              // Button Ke Register
+              SizedBox(
+                width: 250.0,
+                child: TextButton(
+                  onPressed: loginBloc.state.maybeMap(
+                    orElse: () => () {
+                      Navigator.pushNamed(context, SecureURoutes.register);
+                    },
+                    submittingLogin: (_) => null,
+                  ),
+                  child: const Text(
+                    'Belum punya akun',
+                    style: TextStyle(
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
