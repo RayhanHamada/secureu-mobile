@@ -10,7 +10,7 @@ class SecretRepository {
     final RecordModel secret;
 
     try {
-      secret = await pocketbaseClient.records.getOne(_recordName, secretId);
+      secret = await pocketbaseClient.collection(_recordName).getOne(secretId);
     } catch (e) {
       print('gagal mengambil data secret');
 
@@ -26,10 +26,9 @@ class SecretRepository {
     final List<RecordModel> recordModels;
 
     try {
-      recordModels = await pocketbaseClient.records.getFullList(
-        _recordName,
-        filter: 'account_id = "$userId"',
-      );
+      recordModels = await pocketbaseClient.collection(_recordName).getFullList(
+            filter: 'account_id = "$userId"',
+          );
     } catch (e) {
       print('gagal mengambil data secret');
 
@@ -49,16 +48,16 @@ class SecretRepository {
   }) async {
     final RecordModel? recordModel;
 
+    final body = {
+      'name': name,
+      'email_or_username': emailOrUsername,
+      'password': password,
+      'account_id': userId,
+    };
+
     try {
-      recordModel = await pocketbaseClient.records.create(
-        _recordName,
-        body: {
-          'name': name,
-          'email_or_username': emailOrUsername,
-          'password': password,
-          'account_id': userId,
-        },
-      );
+      recordModel =
+          await pocketbaseClient.collection(_recordName).create(body: body);
     } catch (e) {
       print('Gagal membuat data secret');
 
@@ -75,17 +74,16 @@ class SecretRepository {
     required String password,
   }) async {
     final RecordModel recordModel;
+    final body = {
+      'name': name,
+      'email_or_username': emailOrUsername,
+      'password': password
+    };
 
     try {
-      recordModel = await pocketbaseClient.records.update(
-        _recordName,
-        secretId,
-        body: {
-          'name': name,
-          'email_or_username': emailOrUsername,
-          'password': password
-        },
-      );
+      recordModel = await pocketbaseClient
+          .collection(_recordName)
+          .update(secretId, body: body);
     } catch (e) {
       print('gagal mengupdate secret $secretId');
 
@@ -97,10 +95,9 @@ class SecretRepository {
 
   Future<String?> deleteSecretById(String secretId) async {
     try {
-      await pocketbaseClient.records.delete(
-        _recordName,
-        secretId,
-      );
+      await pocketbaseClient.collection(_recordName).delete(
+            secretId,
+          );
     } catch (e) {
       print('gagal menghapus secret $secretId');
 

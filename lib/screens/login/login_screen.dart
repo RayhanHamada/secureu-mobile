@@ -5,7 +5,7 @@ import 'package:secureu_mobile/screens/login/login.dart';
 import 'package:secureu_mobile/screens/login/views/login_form.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

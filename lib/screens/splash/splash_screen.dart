@@ -4,7 +4,7 @@ import 'package:secureu_mobile/config/routes.dart';
 import 'package:secureu_mobile/screens/splash/splash.dart';
 
 class SplashScreen extends StatelessWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+  const SplashScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +20,10 @@ class SplashScreen extends StatelessWidget {
       },
       child: Scaffold(
         backgroundColor: theme.scaffoldBackgroundColor,
-        body: Column(
+        body: const Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: const [
+          children: [
             Center(
               child: Text(
                 'SecureU',

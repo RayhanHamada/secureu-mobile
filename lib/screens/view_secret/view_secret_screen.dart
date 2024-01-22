@@ -4,7 +4,7 @@ import 'package:secureu_mobile/screens/view_secret/bloc/view_secret_bloc.dart';
 import 'package:secureu_mobile/screens/view_secret/view/view_secret_form.dart';
 
 class ViewSecretScreen extends StatelessWidget {
-  const ViewSecretScreen({Key? key}) : super(key: key);
+  const ViewSecretScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -57,9 +57,9 @@ class ViewSecretScreen extends StatelessWidget {
   }
 
   Widget _body(BuildContext context) {
-    return Column(
+    return const Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: const [
+      children: [
         ViewSecretForm(),
       ],
     );

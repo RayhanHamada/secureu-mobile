@@ -4,7 +4,7 @@ import 'package:secureu_mobile/screens/register/bloc/register_bloc.dart';
 import 'package:secureu_mobile/extensions.dart';
 
 class RegisterForm extends StatelessWidget {
-  RegisterForm({Key? key}) : super(key: key);
+  RegisterForm({super.key});
 
   final _emailController = TextEditingController(text: '');
   final _passwordController = TextEditingController(text: '');

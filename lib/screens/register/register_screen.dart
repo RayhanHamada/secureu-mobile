@@ -5,7 +5,7 @@ import 'package:secureu_mobile/screens/register/bloc/register_bloc.dart';
 import 'package:secureu_mobile/screens/register/views/register_form.dart';
 
 class RegisterScreen extends StatelessWidget {
-  const RegisterScreen({Key? key}) : super(key: key);
+  const RegisterScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

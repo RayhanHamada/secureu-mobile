@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:secureu_mobile/screens/view_secret/bloc/view_secret_bloc.dart';
 
 class ViewSecretForm extends StatefulWidget {
-  const ViewSecretForm({Key? key}) : super(key: key);
+  const ViewSecretForm({super.key});
 
   @override
   State<ViewSecretForm> createState() => _ViewSecretFormState();

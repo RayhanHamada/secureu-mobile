@@ -4,7 +4,7 @@ import 'package:secureu_mobile/screens/login/bloc/login_bloc.dart';
 import 'package:secureu_mobile/extensions.dart';
 
 class LoginForm extends StatelessWidget {
-  LoginForm({Key? key}) : super(key: key);
+  LoginForm({super.key});
 
   final _emailController = TextEditingController(text: '');
   final _passwordController = TextEditingController(text: '');

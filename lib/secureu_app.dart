@@ -12,7 +12,7 @@ import 'package:secureu_mobile/screens/view_secret/view_secret.dart';
 import 'package:secureu_mobile/screens/create_secret/create_secret.dart';
 
 class SecureUApp extends StatelessWidget {
-  const SecureUApp({Key? key}) : super(key: key);
+  const SecureUApp({super.key});
 
   @override
   Widget build(BuildContext context) {

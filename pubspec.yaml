@@ -35,8 +35,8 @@ dependencies:
   freezed: ^2.1.0+1
   json_annotation: ^4.6.0
   json_serializable: ^6.3.1
-  pocketbase: ^0.1.1
-  http: ^0.13.5
+  pocketbase: ^0.17.1
+  http: ^1.2.0
   hive: ^2.2.3
   cryptography: ^2.0.5
   path_provider: ^2.0.11
@@ -55,7 +55,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.0
+  flutter_lints: ^3.0.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:secureu_mobile/screens/create_secret/bloc/create_secret_bloc.dart';
 
 class CreateSecretForm extends StatefulWidget {
-  const CreateSecretForm({Key? key}) : super(key: key);
+  const CreateSecretForm({super.key});
 
   @override
   State<CreateSecretForm> createState() => _CreateSecretFormState();

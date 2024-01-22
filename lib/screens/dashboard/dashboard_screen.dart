@@ -6,7 +6,7 @@ import 'package:secureu_mobile/repos/models/secret_model/secret_model.dart';
 import 'package:secureu_mobile/screens/dashboard/dashboard.dart';
 
 class DashboardScreen extends StatelessWidget {
-  const DashboardScreen({Key? key}) : super(key: key);
+  const DashboardScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -108,10 +108,10 @@ class DashboardScreen extends StatelessWidget {
           successFetchingSecrets: (value) => value.secrets,
         ),
         builder: (context, state) => state.isEmpty
-            ? Column(
+            ? const Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
+                children: [
                   Center(
                     child: Text(
                       'Anda tidak mempunyai rahasia.',

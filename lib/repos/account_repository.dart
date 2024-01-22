@@ -7,60 +7,61 @@ class AccountRepository {
   static const recordName = 'accounts';
 
   Future<Account?> getAccountByEmail(String email) async {
-    final List<RecordModel> accountRecordModels;
+    final List<RecordModel> models;
 
     try {
-      accountRecordModels = await pocketbaseClient.records
-          .getFullList(recordName, filter: 'email = "$email"');
+      models = await pocketbaseClient
+          .collection(recordName)
+          .getFullList(filter: 'email = "$email"');
     } catch (e) {
       print('gagal mengambil ');
 
       return null;
     }
 
-    if (accountRecordModels.isEmpty) {
+    if (models.isEmpty) {
       return null;
     }
 
-    final accountJson = accountRecordModels.first.toJson();
+    final accountJson = models.first.toJson();
     final account = Account.fromJson(accountJson);
 
     return account;
   }
 
   Future<bool?> isAccountExists(String email) async {
-    final List<RecordModel>? accountRecordModels;
+    final List<RecordModel>? model;
 
     try {
-      accountRecordModels = await pocketbaseClient.records.getFullList(
-        recordName,
-        filter: 'email = "$email"',
-      );
+      model = await pocketbaseClient.collection(recordName).getFullList(
+            filter: 'email = "$email"',
+          );
     } catch (e) {
       print('gagal mengambil ');
 
       return null;
     }
 
-    return accountRecordModels.isNotEmpty;
+    return model.isNotEmpty;
   }
 
   Future<String?> createAccount(String email, String hashedPassword) async {
-    final RecordModel accountRecordModel;
+    final RecordModel model;
 
     try {
-      accountRecordModel = await pocketbaseClient.records
-          .create(recordName, body: <String, dynamic>{
+      final body = {
         'email': email,
         'password': hashedPassword,
-      });
+      };
+
+      model = await pocketbaseClient.collection(recordName).create(body: body);
     } catch (e) {
       print('gagal membuat akun');
 
       return null;
     }
 
-    final id = accountRecordModel.id;
+    final id = model.id;
 
     return id;
   }
