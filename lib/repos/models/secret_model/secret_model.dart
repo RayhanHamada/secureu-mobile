@@ -11,7 +11,7 @@ class Secret with _$Secret {
     @JsonKey(name: 'email_or_username') required String emailOrUsername,
     required String password,
     @JsonKey(name: 'account_id') required String accountId,
-    @JsonKey(nullable: true) required DateTime? updated,
+    @JsonKey() required DateTime? updated,
   }) = _Secret;
 
   factory Secret.fromJson(Map<String, dynamic> json) => _$SecretFromJson(json);
